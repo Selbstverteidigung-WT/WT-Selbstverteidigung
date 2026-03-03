@@ -9,6 +9,25 @@
   <title>Selbstverteidigung München | Wing Tsung &amp; Eskrima Training</title>
   <meta name="description" content="Moderne Selbstverteidigung mit Wing Tsung und Eskrima in München Ost. Kostenloses Probetraining (30 Min.) sichern." />
   <link rel="canonical" href="https://selbstverteidigung-wt.de/" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="author" content="Selbstverteidigung-WT" />
+  <meta name="language" content="de" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="Selbstverteidigung-WT" />
+  <meta property="og:image:alt" content="Selbstverteidigung in München Ost – Wing Tsung & Eskrima" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Selbstverteidigung München Ost – Wing Tsung & Eskrima" />
+  <meta name="twitter:description" content="Moderne Selbstverteidigung in München Ost. Kostenloses Probetraining (30 Min.) sichern." />
+  <meta name="twitter:image" content="https://selbstverteidigung-wt.de/assets/cover.jpg" />
+
+  <!-- Performance hints (LCP/3rd-party) -->
+  <link rel="preload" href="assets/coveri.png" as="image" fetchpriority="high" />
+  <link rel="preload" href="assets/Logo.png" as="image" />
+  <link rel="preconnect" href="https://www.google.com" />
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://calendly.com" />
+  <link rel="preconnect" href="https://wa.me" />
+
 
   <!-- Open Graph -->
   <meta property="og:title" content="Selbstverteidigung München Ost – Wing Tsung &amp; Eskrima">
@@ -387,7 +406,6 @@
 /* First section lift (deaktiviert: fester Übergang) */
 .section.first-after-hero{margin-top:0;padding-top:var(--pad-desktop);position:relative;z-index:10;}
 @media (max-width:900px){.section.first-after-hero{margin-top:0;padding-top:var(--pad-mobile);}}
-}
 
     /* Why / features */
     .feature-title{display:flex;align-items:center;gap:10px}
@@ -894,38 +912,99 @@
       .btn, .icon-btn{transition:none}
       .ttrack{transition:none}
     }
-  </style>
+  
+  .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;}
+  .skip-link:focus{left:18px;top:18px;width:auto;height:auto;padding:12px 14px;border-radius:14px;background:#fff;border:1px solid rgba(17,18,20,0.12);z-index:9999;box-shadow:0 18px 45px rgba(17,18,20,0.12);}
 
-  <!-- LocalBusiness Schema -->
+</style>
+
+  <!-- LocalBusiness / SportsActivityLocation Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Selbstverteidigung-WT – Wing Tsung & Eskrima (Erkan Parlak)",
-    "url": "https://selbstverteidigung-wt.de/",
-    "telephone": "+491627777442",
-    "email": "info@selbstverteidigung-wt.de",
-    "image": "https://selbstverteidigung-wt.de/assets/cover.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Berg-am-Laim-Str. 47",
-      "postalCode": "81673",
-      "addressLocality": "München",
-      "addressCountry": "DE"
-    },
-    "areaServed": "München Ost"
+    "@graph": [
+      {
+        "@type": ["SportsActivityLocation", "LocalBusiness"],
+        "@id": "https://selbstverteidigung-wt.de/#business",
+        "name": "Selbstverteidigung-WT – Wing Tsung & Eskrima (Erkan Parlak)",
+        "url": "https://selbstverteidigung-wt.de/",
+        "image": "https://selbstverteidigung-wt.de/assets/cover.jpg",
+        "description": "Moderne Selbstverteidigung mit Wing Tsung und Eskrima in München Ost. Kostenloses Probetraining (30 Min.) sichern.",
+        "telephone": "+49 162 7777442",
+        "email": "info@selbstverteidigung-wt.de",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Berg-am-Laim-Str. 47",
+          "postalCode": "81673",
+          "addressLocality": "München",
+          "addressRegion": "Bayern",
+          "addressCountry": "DE"
+        },
+        "areaServed": [
+          {"@type": "City", "name": "München"},
+          {"@type": "AdministrativeArea", "name": "München Ost"}
+        ],
+        "sport": "Martial Arts",
+        "keywords": [
+          "Selbstverteidigung München Ost",
+          "Wing Tsung München",
+          "Eskrima München",
+          "Kali Arnis München",
+          "Probetraining Selbstverteidigung"
+        ],
+        "sameAs": [
+          "https://maps.app.goo.gl/phvx7oxcJ3JaSgMh6",
+          "https://wa.me/491627777442"
+        ],
+        "hasMap": "https://www.google.com/maps?q=Berg-am-Laim-Str.+47,+81673+M%C3%BCnchen",
+        "makesOffer": {
+          "@type": "OfferCatalog",
+          "name": "Training & Probetraining",
+          "itemListElement": [
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Selbstverteidigung Training"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wing Tsung Training"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Eskrima (FMA) Training"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Kostenloses Probetraining (30 Minuten)"}, "price": 0, "priceCurrency": "EUR"}
+          ]
+        },
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "target": "https://calendly.com/selbstverteidigung-wt-info/30min",
+          "name": "Probetraining buchen"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://selbstverteidigung-wt.de/#website",
+        "url": "https://selbstverteidigung-wt.de/",
+        "name": "Selbstverteidigung-WT",
+        "inLanguage": "de-DE",
+        "publisher": {"@id": "https://selbstverteidigung-wt.de/#business"}
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://selbstverteidigung-wt.de/#webpage",
+        "url": "https://selbstverteidigung-wt.de/",
+        "name": "Selbstverteidigung in München Ost – Wing Tsung & Eskrima",
+        "isPartOf": {"@id": "https://selbstverteidigung-wt.de/#website"},
+        "about": {"@id": "https://selbstverteidigung-wt.de/#business"},
+        "inLanguage": "de-DE",
+        "primaryImageOfPage": {"@type": "ImageObject", "url": "https://selbstverteidigung-wt.de/assets/cover.jpg"}
+      }
+    ]
   }
   </script>
 </head>
 
 <body id="top">
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <!-- NAV -->
   <nav class="nav" aria-label="Hauptnavigation">
     <div class="container">
       <div class="nav-inner">
         <a class="brand" href="#top" aria-label="Zur Startseite">
-          <img src="assets/Logo.png" alt="Selbstverteidigung-WT Logo">
+          <img src="assets/Logo.png" alt="Selbstverteidigung-WT Logo" width="40" height="40" loading="lazy" decoding="async">
           <span>Selbstverteidigung‑WT</span>
         </a>
 
@@ -969,7 +1048,7 @@
       <div class="panel-inner glass-strong">
         <header>
           <div class="brand">
-            <img src="assets/Logo.png" alt="Selbstverteidigung-WT Logo">
+            <img src="assets/Logo.png" alt="Selbstverteidigung-WT Logo" width="40" height="40" loading="lazy" decoding="async">
             <strong style="font-weight:800">Menü</strong>
           </div>
           <button class="close" id="closeMenu" aria-label="Menü schließen">✕</button>
@@ -989,6 +1068,7 @@
     </div>
   </div>
 
+  <main id="main">
   <!-- HERO -->
   <header class="hero" id="start">
     <div class="hero-bg" aria-hidden="true"></div>
@@ -1108,7 +1188,7 @@
         <div class="card glass-strong featured care-card care-split">
           <div class="care-layout">
             <div class="care-media" aria-label="Trainer Bild">
-              <img src="assets/erkan.png" loading="lazy" alt="Trainer Erkan Parlak – Selbstverteidigung-WT München Ost">
+              <img src="assets/erkan.png" loading="lazy" decoding="async" width="1200" height="1600" alt="Trainer Erkan Parlak – Selbstverteidigung-WT München Ost">
               <div class="media-badge glass">
                 <strong>Erkan Parlak</strong>
               </div>
@@ -1461,6 +1541,7 @@
   <!-- ✅ Goldener Abschluss-Balken (Übergang) -->
   <div class="gold-footer-bar" aria-hidden="true"></div>
 
+  </main>
   <!-- FOOTER -->
   <footer>
     <div class="container">
