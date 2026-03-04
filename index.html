@@ -324,7 +324,7 @@
   radial-gradient(1200px 720px at 50% 35%, rgba(0,0,0,0.14), rgba(0,0,0,0.70) 68%, rgba(0,0,0,0.86)),
   radial-gradient(900px 520px at 20% 50%, rgba(201,177,92,0.16), transparent 60%),
   radial-gradient(900px 520px at 80% 50%, rgba(201,177,92,0.10), transparent 62%),
-  url("assets/coveri.png") center 16%/cover no-repeat;
+  url("assets/coveri.png") center 4%/cover no-repeat;
  transform:scale(1.0);
  filter:brightness(1.05) saturate(1.02) contrast(1.04);
  opacity:1;
@@ -918,11 +918,36 @@
 
 
 /* ===== Training: Bild-Platzhalter (bis echte Bilder eingefügt werden) ===== */
+
+/* ✅ Trainingsbereiche: 2 oben nebeneinander, Eskrima unten breit */
+.areas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:stretch;margin-top:18px}
+.area-wide{grid-column:1 / -1}
+.card-media{aspect-ratio:16/9;display:block}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block}
+.area-wide .card-media{aspect-ratio:21/9}
+@media (max-width:980px){
+  .areas-grid{grid-template-columns:1fr}
+  .area-wide{grid-column:auto}
+  .area-wide .card-media{aspect-ratio:16/9}
+}
+
 .area-card{ text-align:center; }
 .area-card h3{ margin-bottom:12px; }
 .card-media{ width:100%; border-radius:18px; overflow:hidden; margin: 10px 0 12px; border:1px solid rgba(17,18,20,0.10); background: rgba(255,255,255,0.65); }
 .card-media.placeholder{ aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center; color: rgba(17,18,20,0.55); font-weight:900; letter-spacing:0.02em; }
 @media (max-width:980px){ .card-media.placeholder{ aspect-ratio: 21/9; } }
+
+
+/* ✅ NAV: Links nicht umbrechen (z.B. "Über Uns") + kompakter bei schmalen Desktops */
+.nav-links a{white-space:nowrap}
+@media (max-width:1180px){
+  .nav-links{gap:10px}
+  .nav-links a{padding:10px 8px}
+}
+@media (max-width:1060px){
+  .nav-links{gap:8px;font-size:0.95rem}
+  .nav-links a{padding:10px 6px}
+}
 
 </style>
 
@@ -1117,11 +1142,14 @@
     <h2>Unsere Trainingsbereiche</h2>
     <p class="muted">Drei klare Bereiche – sicher, strukturiert und alltagstauglich.</p>
 
-    <div class="grid-3" style="margin-top:18px">
+    <div class="areas-grid">
       <article class="card glass-strong featured area-card">
         <div class="pill">Beliebt • Einsteigerfreundlich</div>
         <h3>Selbstverteidigung</h3>
-        <div class="card-media placeholder" aria-label="Bild Platzhalter Selbstverteidigung">Bild folgt</div>
+        <div class="card-media" aria-label="Bild Selbstverteidigung">
+          <!-- TODO: Dateiname anpassen, falls dein Bild anders heißt -->
+          <img src="assets/selbstverteidigung.jpg" loading="lazy" decoding="async" alt="Selbstverteidigung Training" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';">
+        </div>
         <p class="muted">
           Praxisnahe Strategien und Techniken für reale Situationen.
           Du lernst, ruhig zu bleiben, Abstand zu managen und dich effektiv zu schützen.
@@ -1133,7 +1161,10 @@
 
       <article class="card glass area-card">
         <h3>Wing Tsung</h3>
-        <div class="card-media placeholder" aria-label="Bild Platzhalter Wing Tsung">Bild folgt</div>
+        <div class="card-media" aria-label="Bild Wing Tsung">
+          <!-- TODO: Dateiname anpassen, falls dein Bild anders heißt -->
+          <img src="assets/wing-tsung.jpg" loading="lazy" decoding="async" alt="Wing Tsung Training" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';">
+        </div>
         <p class="muted">
           Strukturiertes System mit Fokus auf Technik, Timing und Kontrolle – statt reiner Kraft.
           Ideal, um Selbstvertrauen und Handlungssicherheit aufzubauen.
@@ -1143,9 +1174,12 @@
         </div>
       </article>
 
-      <article class="card glass area-card">
+      <article class="card glass area-card area-wide">
         <h3>Eskrima (FMA)</h3>
-        <div class="card-media placeholder" aria-label="Bild Platzhalter Eskrima (FMA)">Bild folgt</div>
+        <div class="card-media" aria-label="Bild Eskrima (FMA)">
+          <!-- TODO: Dateiname anpassen, falls dein Bild anders heißt -->
+          <img src="assets/eskrima.jpg" loading="lazy" decoding="async" alt="Eskrima (FMA) Training" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';">
+        </div>
         <p class="muted">
           Eskrima ist eine philippinische Kampfkunst „Filipino Martial Arts“ mit Schwerpunkt auf dem Umgang mit Waffen.<br>
           Trainiert wird strukturiert mit Stock (Einzel- und Doppelstock), Langstock sowie Trainingsmessern und Macheten (mit sicheren Übungswaffen).<br>
@@ -1166,7 +1200,7 @@
     <h2>Warum bei uns trainieren?</h2>
     <p class="muted">Alltagstauglich, respektvoll, effektiv – für normale Menschen.</p>
 
-    <div class="grid-3" style="margin-top:18px">
+    <div class=\"grid-2\" style="margin-top:18px">
       <div class="card glass">
         <div class="feature-title">
           <span class="badge">✓</span><h3 style="margin:0">Selbstbewusst im Alltag</h3>
@@ -1335,9 +1369,8 @@
                 </p>
               </div>
               <div class="chips" style="justify-content:flex-start;margin-top:8px">
-<span class="chip">✔ Kostenlos</span>
-                <span class="chip">✔ Unverbindlich</span>
-              </div>
+<span class=\"chip\">✔ Bis zu 3x freies Probetraining</span>
+</div>
             </div>
           </div>
         </div>
@@ -1351,31 +1384,34 @@
     <h2>Mitgliedschaft</h2>
     <p class="muted">Transparente Beiträge – fair und klar. Bei Fragen melde dich gerne.</p>
 
-    <div class="grid-2" style="margin-top:18px">
-      <div class="card glass">
-        <h3>Monatliche Beiträge</h3>
-        <ul class="muted" style="margin:10px 0 0; padding-left:18px">
-          <li><strong>Erwachsene</strong> – monatliche Zahlung: 59€</li>
-          <li><strong>Senioren</strong> – monatliche Zahlung: 49€</li>
-          <li><strong>Studenten</strong> – monatliche Zahlung: 49€</li>
-        </ul>
-      </div>
+    <!-- ✅ Ein großes Kästchen – alles mittig -->
+    <div class="card glass-strong featured" style="margin-top:18px; text-align:center;">
+      <p style="margin:0 0 10px"><strong>Monatliche Beiträge</strong></p>
+      <p class="muted" style="margin:0">Erwachsene – monatliche Zahlung: <strong>59€</strong></p>
+      <p class="muted" style="margin:6px 0 0">Senioren – monatliche Zahlung: <strong>49€</strong></p>
+      <p class="muted" style="margin:6px 0 0">Studenten – monatliche Zahlung: <strong>49€</strong></p>
 
-      <div class="card glass">
-        <h3>Weitere Gebühren</h3>
-        <ul class="muted" style="margin:10px 0 0; padding-left:18px">
-          <li><strong>Jahresbeitrag WMAA Dachverband</strong> – Erwachsene &amp; Senioren: 69€</li>
-          <li><strong>Einmalige Aufnahmegebühr</strong> – Erwachsene &amp; Senioren: 39€</li>
-        </ul>
-      </div>
+      <div class="divider-line"></div>
+
+      <p style="margin:0 0 10px"><strong>Jahresbeitrag WMAA Dachverband</strong></p>
+      <p class="muted" style="margin:0">Erwachsene &amp; Senioren: <strong>69€</strong></p>
+
+      <div class="divider-line" style="margin:18px auto"></div>
+
+      <p style="margin:0 0 10px"><strong>Einmalige Aufnahmegebühr</strong></p>
+      <p class="muted" style="margin:0">Erwachsene &amp; Senioren: <strong>39€</strong></p>
     </div>
 
-    <div class="card glass-strong featured" style="margin-top:18px">
+    <!-- ✅ Wellhub + Social Links (mittig, eigener Kasten) -->
+    <div class="card glass-strong featured" style="margin-top:18px; text-align:center;">
       <div class="pill">Wellhub</div>
-      <h3>Als Wellhub-Mitglied kannst du bei uns kostenfrei trainieren.</h3>
+      <h3 style="margin-bottom:8px">Als Wellhub-Mitglied kannst du bei uns kostenfrei trainieren.</h3>
       <p class="muted">Hier findest du uns direkt bei Wellhub:</p>
-      <div style="margin-top:14px">
-        <a class="btn btn-primary" href="https://wellhub.com/de-de/search/partners/wt-selbstverteidigung-ruckgebaude/" target="_blank" rel="noopener">Wellhub öffnen</a>
+
+      <div style="margin-top:14px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap">
+        <a class="btn btn-primary" href="https://wellhub.com/de-de/search/partners/wt-selbstverteidigung-ruckgebaude/" target="_blank" rel="noopener">🏋️ Wellhub öffnen</a>
+        <a class="btn btn-secondary" href="https://www.instagram.com/selfdefense_wt_?igsh=NGcwczlqNmx0MGZk" target="_blank" rel="noopener">📸 Instagram</a>
+        <a class="btn btn-secondary" href="https://www.youtube.com/@WingTsungTV" target="_blank" rel="noopener">▶️ YouTube</a>
       </div>
     </div>
   </div>
