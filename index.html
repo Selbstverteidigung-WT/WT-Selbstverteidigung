@@ -219,10 +219,10 @@
     .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
     @media (max-width:980px){
- .grid-3{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:1fr}
 }
 @media (max-width:760px){
- .grid-2{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
 }
 
     /* NAV */
@@ -326,7 +326,7 @@
   radial-gradient(1200px 720px at 50% 35%, rgba(0,0,0,0.14), rgba(0,0,0,0.70) 68%, rgba(0,0,0,0.86)),
   radial-gradient(900px 520px at 20% 50%, rgba(201,177,92,0.16), transparent 60%),
   radial-gradient(900px 520px at 80% 50%, rgba(201,177,92,0.10), transparent 62%),
-  url("assets/coveri.png") center 92%/cover no-repeat;
+  url("assets/coveri.png") center 50%/cover no-repeat;
  transform:scale(1.0);
  filter:brightness(1.05) saturate(1.02) contrast(1.04);
  opacity:1;
@@ -579,7 +579,17 @@
       text-align:left;
     }
 
-    /* Contact */
+    
+/* ✅ Kontakt: Social-Media als breites Kästchen mit 2 Spalten */
+.social-wide{margin-top:18px;text-align:center}
+.social-wide .social-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch;margin-top:12px}
+.social-wide a{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 16px;border-radius:18px;
+  border:1px solid rgba(17,18,20,0.10);background:rgba(255,255,255,0.70);
+  backdrop-filter: blur(14px);-webkit-backdrop-filter: blur(14px);
+  font-weight:900;color:rgba(17,18,20,0.82);box-shadow:0 12px 26px rgba(17,18,20,0.06)}
+@media (max-width:760px){.social-wide .social-grid{grid-template-columns:1fr}}
+
+/* Contact */
     .contact-list{display:grid;gap:10px;margin-top:10px}
     .contact-item{
       display:flex;align-items:flex-start;gap:12px;
@@ -861,7 +871,7 @@
     }
 
     @media (max-width: 640px){
-  .hero-bg{background-position: center 86% !important;}
+  .hero-bg{background-position: center 50% !important;}
  blockquote.about-quote{white-space:normal;}
 
       .tslider{ height: 430px; }
@@ -1164,7 +1174,6 @@
         <div class="pill">Beliebt • Einsteigerfreundlich</div>
         <h3>Selbstverteidigung</h3>
         <div class="card-media" aria-label="Bild Selbstverteidigung">
-          <!-- TODO: Dateiname anpassen, falls dein Bild anders heißt -->
           <img src="assets/selbstverteidigung.jpg" loading="lazy" decoding="async" alt="Selbstverteidigung Training" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';">
         </div>
         <p class="muted">
@@ -1179,7 +1188,6 @@
       <article class="card glass area-card">
         <h3>Wing Tsung</h3>
         <div class="card-media" aria-label="Bild Wing Tsung">
-          <!-- TODO: Dateiname anpassen, falls dein Bild anders heißt -->
           <img src="assets/wing-tsung.jpg" loading="lazy" decoding="async" alt="Wing Tsung Training" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';">
         </div>
         <p class="muted">
@@ -1194,7 +1202,6 @@
       <article class="card glass area-card area-wide">
         <h3>Eskrima (FMA)</h3>
         <div class="card-media" aria-label="Bild Eskrima (FMA)">
-          <!-- TODO: Dateiname anpassen, falls dein Bild anders heißt -->
           <img src="assets/eskrima.jpg" loading="lazy" decoding="async" alt="Eskrima (FMA) Training" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';">
         </div>
         <p class="muted">
@@ -1283,8 +1290,8 @@
               </p>
               <p class="care-text" style="margin-top:10px">
 Egal ob du komplett neu bist oder wieder einsteigen möchtest:<br>
-*Wir bauen dich auf, damit du dich sicher und selbstbewusst fühlst.<br>
-*Durch die langjährige Ausbildung bei Großmeister Dai-Sifu Reimers konnte ich umfassende praktische und didaktische Erfahrung sammeln.<br>
+Wir bauen dich auf, damit du dich sicher und selbstbewusst fühlst.<br>
+Durch die langjährige Ausbildung bei Großmeister Dai-Sifu Reimers konnte ich umfassende praktische und didaktische Erfahrung sammeln.<br>
 Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
 </p>
               <div class="divider-line"></div>
@@ -1402,7 +1409,6 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
     <h2>Mitgliedschaft</h2>
     <p class="muted">Transparente Beiträge – fair und klar. Bei Fragen melde dich gerne.</p>
 
-    <!-- ✅ Ein großes Kästchen – alles mittig -->
     <div class="card glass-strong featured" style="margin-top:18px; text-align:center;">
       <p style="margin:0 0 10px"><strong>Monatliche Beiträge</strong></p>
       <p class="muted" style="margin:0">Erwachsene – monatliche Zahlung: <strong>59€</strong></p>
@@ -1420,13 +1426,11 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
       <p class="muted" style="margin:0">Erwachsene &amp; Senioren: <strong>39€</strong></p>
     </div>
 
-    <!-- ✅ Wellhub (mittig, eigener Kasten) -->
     <div class="card glass-strong featured" style="margin-top:18px; text-align:center;">
       <div class="pill">Wellhub</div>
       <h3 style="margin-bottom:8px">Als Wellhub-Mitglied kannst du bei uns kostenfrei trainieren.</h3>
       <p class="muted">Hier findest du uns direkt bei Wellhub:</p>
-
-      <div style="margin-top:14px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap">
+      <div style="margin-top:14px">
         <a class="btn btn-primary" href="https://wellhub.com/de-de/search/partners/wt-selbstverteidigung-ruckgebaude/" target="_blank" rel="noopener">Wellhub öffnen</a>
       </div>
     </div>
@@ -1638,44 +1642,44 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
   <strong>Anfahrt</strong>
   <div class="muted" style="margin-top:10px;display:grid;gap:8px">
         <div>🚆 S‑Bahn Leuchtenbergring – ca. 7 Minuten zu Fuß</div>
-    
-          <div class="small-card" style="margin-top:12px">
-            <strong>Social‑Media</strong>
-            <div class="muted" style="margin-top:10px;display:grid;gap:10px">
-              <a href="https://www.instagram.com/selfdefense_wt_?igsh=NGcwczlqNmx0MGZk" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-weight:800;color:rgba(17,18,20,0.78)" aria-label="Instagram öffnen">
-                <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <defs>
-                    <linearGradient id="ig" x1="0" y1="24" x2="24" y2="0">
-                      <stop offset="0" stop-color="#FEDA75"/>
-                      <stop offset="0.35" stop-color="#FA7E1E"/>
-                      <stop offset="0.6" stop-color="#D62976"/>
-                      <stop offset="0.8" stop-color="#962FBF"/>
-                      <stop offset="1" stop-color="#4F5BD5"/>
-                    </linearGradient>
-                  </defs>
-                  <rect x="3" y="3" width="18" height="18" rx="5" fill="url(#ig)"/>
-                  <circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" stroke-width="1.8"/>
-                  <circle cx="17.2" cy="6.8" r="1.1" fill="#fff"/>
-                </svg>
-                Instagram
-              </a>
-
-              <a href="https://www.youtube.com/@WingTsungTV" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;font-weight:800;color:rgba(17,18,20,0.78)" aria-label="YouTube öffnen">
-                <svg width="22" height="16" viewBox="0 0 28 20" aria-hidden="true" focusable="false">
-                  <path fill="#FF0000" d="M27.4 3.1c-.3-1.1-1.2-2-2.3-2.3C23 .2 14 .2 14 .2S5 .2 2.9.8C1.8 1.1.9 2 .6 3.1 0 5.2 0 10 0 10s0 4.8.6 6.9c.3 1.1 1.2 2 2.3 2.3C5 19.8 14 19.8 14 19.8s9 0 11.1-.6c1.1-.3 2-1.2 2.3-2.3.6-2.1.6-6.9.6-6.9s0-4.8-.6-6.9z"/>
-                  <path fill="#fff" d="M11.2 14.3V5.7l7.6 4.3-7.6 4.3z"/>
-                </svg>
-                YouTube
-              </a>
-            </div>
-          </div>
-<div>🚉 Ostbahnhof – ca. 13 Minuten zu Fuß</div>
+    <div>🚉 Ostbahnhof – ca. 13 Minuten zu Fuß</div>
     <div>🚊 Tram 21, Haltestelle Ampfingstraße</div>
   </div>
 </div>
         </div>
       </div>
-    </div>
+    
+      <div class="card glass social-wide">
+        <h3 style="margin:0">Social‑Media</h3>
+        <div class="social-grid">
+          <a href="https://www.youtube.com/@WingTsungTV" target="_blank" rel="noopener" aria-label="YouTube öffnen">
+            <svg width="26" height="18" viewBox="0 0 28 20" aria-hidden="true" focusable="false">
+              <path fill="#FF0000" d="M27.4 3.1c-.3-1.1-1.2-2-2.3-2.3C23 .2 14 .2 14 .2S5 .2 2.9.8C1.8 1.1.9 2 .6 3.1 0 5.2 0 10 0 10s0 4.8.6 6.9c.3 1.1 1.2 2 2.3 2.3C5 19.8 14 19.8 14 19.8s9 0 11.1-.6c1.1-.3 2-1.2 2.3-2.3.6-2.1.6-6.9.6-6.9s0-4.8-.6-6.9z"/>
+              <path fill="#fff" d="M11.2 14.3V5.7l7.6 4.3-7.6 4.3z"/>
+            </svg>
+            YouTube
+          </a>
+
+          <a href="https://www.instagram.com/selfdefense_wt_?igsh=NGcwczlqNmx0MGZk" target="_blank" rel="noopener" aria-label="Instagram öffnen">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="igwide" x1="0" y1="24" x2="24" y2="0">
+                  <stop offset="0" stop-color="#FEDA75"/>
+                  <stop offset="0.35" stop-color="#FA7E1E"/>
+                  <stop offset="0.6" stop-color="#D62976"/>
+                  <stop offset="0.8" stop-color="#962FBF"/>
+                  <stop offset="1" stop-color="#4F5BD5"/>
+                </linearGradient>
+              </defs>
+              <rect x="3" y="3" width="18" height="18" rx="5" fill="url(#igwide)"/>
+              <circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" stroke-width="1.8"/>
+              <circle cx="17.2" cy="6.8" r="1.1" fill="#fff"/>
+            </svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+</div>
   </section>
 
   <!-- GOOGLE MAPS – FULL WIDTH -->
