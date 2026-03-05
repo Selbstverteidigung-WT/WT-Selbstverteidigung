@@ -6,9 +6,12 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#C9B15C" name="theme-color"/>
 <!-- SEO -->
-<title>Professionelle Selbstverteidigung | Wing Tsun, Boxen &amp; Eskrima</title>
+<title>Selbstverteidigung München | Wing Tsung, Eskrima & Filipino Martial Arts</title>
 <meta content="High-Level Selbstschutz: Wing Tsun, Wing Chun &amp; Boxen. Effektive Filipino Martial Arts (Eskrima) mit Waffen. Training auf höchstem Niveau." name="description"/><meta content="Wing Tsun, Wing Chun, Wing Tsung, Eskrima, Filipino Martial Arts, FMA, Boxen, Selbstverteidigung, Waffenkampf, Messerabwehr, Selbstschutz, Stockkampf" name="keywords"/>
-<link href="https://selbstverteidigung-wt.de/" rel="canonical"/>
+<link href="https://selbstverteidigung-wt.de/de/" rel="canonical"/>
+<link rel="alternate" hreflang="de" href="https://selbstverteidigung-wt.de/de/"/>
+<link rel="alternate" hreflang="en" href="https://selbstverteidigung-wt.de/en/"/>
+<link rel="alternate" hreflang="x-default" href="https://selbstverteidigung-wt.de/"/>
 <meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/>
 <meta content="Selbstverteidigung-WT" name="author"/>
 <meta content="de" name="language"/>
@@ -20,8 +23,8 @@
 <meta content="High-Level Selbstschutz: Wing Tsun, Wing Chun &amp; Boxen. Effektive Filipino Martial Arts (Eskrima) mit Waffen. Training auf höchstem Niveau." name="twitter:description"/>
 <meta content="https://selbstverteidigung-wt.de/assets/cover.jpg" name="twitter:image"/>
 <!-- Performance hints (LCP/3rd-party) -->
-<link as="image" fetchpriority="high" href="assets/coveri.png" rel="preload"/>
-<link as="image" href="assets/Logo.png" rel="preload"/>
+<link as="image" fetchpriority="high" href="/assets/coveri.png" rel="preload"/>
+<link as="image" href="/assets/Logo.png" rel="preload"/>
 <link href="https://www.google.com" rel="preconnect"/>
 <link crossorigin="" href="https://www.gstatic.com" rel="preconnect"/>
 <link href="https://calendly.com" rel="preconnect"/>
@@ -70,6 +73,8 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
+ overflow-x:hidden;
+
       margin:0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color:var(--text);
@@ -274,6 +279,7 @@
     .hamburger span::before{top:-6px}
     .hamburger span::after{top:6px}
     @media (max-width:980px){.nav-links{display:none}.hamburger{display:flex}}
+@media (max-width:980px){.nav-cta .btn.btn-primary{display:none}}
 
     /* Mobile menu */
     .mobile-menu{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:80;display:none}
@@ -324,7 +330,7 @@
   radial-gradient(1200px 720px at 50% 35%, rgba(0,0,0,0.14), rgba(0,0,0,0.70) 68%, rgba(0,0,0,0.86)),
   radial-gradient(900px 520px at 20% 50%, rgba(201,177,92,0.16), transparent 60%),
   radial-gradient(900px 520px at 80% 50%, rgba(201,177,92,0.10), transparent 62%),
-  url("assets/coveri.png") center 50%/cover no-repeat;
+  url("/assets/coveri.png") center 50%/cover no-repeat;
  transform:scale(1.0);
  filter:brightness(1.05) saturate(1.02) contrast(1.04);
  opacity:1;
@@ -334,6 +340,21 @@
 .hero::after{display:none}
 
 .hero-content{position:relative;text-align:center;z-index:3;max-width:980px;margin:0 auto;padding:0 14px}
+/* ✅ Lesbarkeit im Hero: leichter schwarzer Hintergrund hinter dem Text */
+.hero-panel{
+  display:inline-block;
+  padding: 22px 22px;
+  border-radius: 18px;
+  background: rgba(0,0,0,0.52);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.38);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+@media (max-width:640px){
+  .hero-panel{padding: 18px 14px; border-radius: 16px;}
+}
+
 .hero h1{color:rgba(255,255,255,0.96);text-shadow: 0 18px 55px rgba(0,0,0,0.62);margin-bottom:10px}
 .hero .kicker{color:rgba(255,255,255,0.72);font-weight:700}
 .hero .subline{font-size:1.12rem;color:rgba(255,255,255,0.82);margin-bottom:10px;font-weight:600}
@@ -493,7 +514,7 @@
 .care-body{padding:42px;display:flex;flex-direction:column;justify-content:center}
 /* ✅ About (Über Uns) – gewünschtes Layout */
 .care-body .pill{align-self:center}
-.about-quote{padding:14px 18px;max-width:920px;margin:12px auto 12px;text-align:left;white-space:nowrap;font-size:clamp(0.95rem,1.15vw,1.05rem);line-height:1.35}
+.about-quote{padding:14px 18px;max-width:920px;margin:12px auto 12px;text-align:left;white-space:normal; overflow-wrap:anywhere;font-size:clamp(0.95rem,1.15vw,1.05rem);line-height:1.35}
 .about-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
 .media-badge{position:absolute;top:18px;left:18px;padding:10px 12px;border-radius:16px;background:rgba(255,255,255,0.72);border:1px solid rgba(17,18,20,0.10);box-shadow:0 12px 26px rgba(17,18,20,0.08)}
 .media-badge strong{font-weight:800;letter-spacing:-0.01em}
@@ -602,24 +623,25 @@
 
     /* Full-width map */
     .map-full{
-      width:100vw;
-      margin-left:calc(50% - 50vw);
-      height:460px;
-      border-top:1px solid rgba(17,18,20,0.08);
-      border-bottom:1px solid rgba(17,18,20,0.08);
-      background:#fff;
-    }
+ width:100%;
+ margin:0;
+ height:460px;
+ border-top:1px solid rgba(17,18,20,0.08);
+ border-bottom:1px solid rgba(17,18,20,0.08);
+ background:#fff;
+}
+.map-full iframe{width:100%;height:100%;border:0}
     .map-full iframe{width:100%;height:100%;border:0}
 
     
 /* ✅ Goldener Balken vor dem Footer */
 .gold-footer-bar{
-  width:100vw;
-  margin-left:calc(50% - 50vw);
-  height:12px;
-  background: linear-gradient(90deg, rgba(201,177,92,0.92), rgba(226,198,107,1), rgba(201,177,92,0.92));
-  box-shadow: 0 -10px 26px rgba(201,177,92,0.16);
-  border-top:1px solid rgba(17,18,20,0.06);
+ width:100%;
+ margin:0;
+ height:12px;
+ background: linear-gradient(90deg, rgba(201,177,92,0.92), rgba(226,198,107,1), rgba(201,177,92,0.92));
+ box-shadow: 0 -10px 26px rgba(201,177,92,0.16);
+ border-top:1px solid rgba(17,18,20,0.06);
 }
 
 /* Footer */
@@ -977,7 +999,8 @@
 
 /* ✅ Performance: Below-the-fold Rendering */
 .section{content-visibility:auto;contain-intrinsic-size: 900px;}
-</style>
+@media (max-width:640px){body{overflow-x:hidden}*{max-width:100%}}
+
 <!-- LocalBusiness / SportsActivityLocation Schema -->
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -1120,7 +1143,7 @@
 <div class="container">
 <div class="nav-inner">
 <a aria-label="Zur Startseite" class="brand" href="#top">
-<img alt="Selbstverteidigung-WT Logo" decoding="async" height="40" loading="eager" src="assets/Logo.png" width="40"/>
+<img alt="Selbstverteidigung-WT Logo" decoding="async" height="40" loading="eager" src="/assets/Logo.png" width="40"/>
 <span>Selbstverteidigung‑WT</span>
 </a>
 <div aria-label="Sektionen" class="nav-links" role="navigation">
@@ -1132,6 +1155,8 @@
 <a href="#kontakt">Kontakt</a>
 </div>
 <div class="nav-cta">
+
+<a class="btn btn-secondary" href="/en/" aria-label="Switch language to English" style="min-height:44px;padding:12px 14px;">EN</a>
 <a class="btn btn-primary" href="#probetraining">Probetraining vereinbaren</a>
 <a aria-label="Telefon anrufen" class="icon-btn" href="tel:+491627777442">
 <svg aria-hidden="true" fill="none" height="20" viewbox="0 0 24 24" width="20">
@@ -1158,12 +1183,14 @@
 <div class="panel-inner glass-strong">
 <header>
 <div class="brand">
-<img alt="Selbstverteidigung-WT Logo" decoding="async" height="40" loading="eager" src="assets/Logo.png" width="40"/>
+<img alt="Selbstverteidigung-WT Logo" decoding="async" height="40" loading="eager" src="/assets/Logo.png" width="40"/>
 <strong style="font-weight:800">Menü</strong>
 </div>
 <button aria-label="Menü schließen" class="close" id="closeMenu">✕</button>
 </header>
 <nav class="mobile-links">
+
+<a class="btn btn-secondary" data-close="" href="/en/" style="justify-content:center;">English</a>
 <a data-close="" href="#start">Start</a>
 <a data-close="" href="#selbstverteidigung">Training</a>
 <a data-close="" href="#ueber">Über Uns</a>
@@ -1181,6 +1208,7 @@
 <div aria-hidden="true" class="hero-bg"></div>
 <div class="container">
 <div class="hero-content">
+      <div class="hero-panel">
 <p class="kicker">Selbstverteidigung | Wing Tsung | Eskrima • München Ost • Berg‑am‑Laim</p>
 <h1>Selbstverteidigung in München Ost</h1>
 <p class="subline">Mehr Sicherheit. Mehr Selbstvertrauen. Mehr mentale Stärke.</p>
@@ -1211,7 +1239,7 @@
 <div class="pill">Beliebt • Einsteigerfreundlich</div>
 <h3>Selbstverteidigung</h3>
 <div aria-label="Bild Selbstverteidigung" class="card-media">
-<img alt="Selbstverteidigung München Ost – Boxen Selbstverteidigung &amp; Wing Tsun Grundlagen" decoding="async" height="675" loading="lazy" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';" src="assets/Selbstverteidigung.png" width="1200"/>
+<img alt="Selbstverteidigung München Ost – Boxen Selbstverteidigung &amp; Wing Tsun Grundlagen" decoding="async" height="675" loading="lazy" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';" src="/assets/Selbstverteidigung.png" width="1200"/>
 </div>
 <p class="muted">
           Praxisnahe Strategien und Techniken für reale Situationen.
@@ -1224,7 +1252,7 @@
 <article class="card glass area-card">
 <h3>Wing Tsung</h3>
 <div aria-label="Bild Wing Tsung" class="card-media">
-<img alt="Wing Tsun München – Wing Chun / Wing Tsung Techniktraining für Selbstschutz" decoding="async" height="675" loading="lazy" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';" src="assets/WTB.png" width="1200"/>
+<img alt="Wing Tsun München – Wing Chun / Wing Tsung Techniktraining für Selbstschutz" decoding="async" height="675" loading="lazy" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';" src="/assets/WTB.png" width="1200"/>
 </div>
 <p class="muted">Strukturiertes System mit Fokus auf Technik, Timing und Kontrolle – statt reiner Kraft. Ergänzt durch präzise Boxen‑Grundlagen (Deckung, Distanz, Schlagmechanik) für realistische Selbstverteidigung.</p>
 <div style="margin-top:14px">
@@ -1234,7 +1262,7 @@
 <article class="card glass area-card area-wide">
 <h3>Eskrima - Filipino Martial Arts</h3>
 <div aria-label="Bild Eskrima - Filipino Martial Arts" class="card-media">
-<img alt="Eskrima München – Wing Tsun Waffenkampf, Stockkampf &amp; Messerabwehr (Filipino Martial Arts)" decoding="async" height="600" loading="lazy" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';" src="assets/Eskrima.png" width="1400"/>
+<img alt="Eskrima München – Wing Tsun Waffenkampf, Stockkampf &amp; Messerabwehr (Filipino Martial Arts)" decoding="async" height="600" loading="lazy" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';" src="/assets/Eskrima.png" width="1400"/>
 </div>
 <p class="muted">
           Eskrima ist eine philippinische Kampfkunst „Filipino Martial Arts“ mit Schwerpunkt auf dem Umgang mit Waffen.<br/>
@@ -1301,7 +1329,7 @@
 <div class="card glass-strong featured care-card care-split">
 <div class="care-layout">
 <div aria-label="Trainer Bild" class="care-media">
-<img alt="Trainer Erkan Parlak – Selbstverteidigung-WT München Ost" decoding="async" height="1600" loading="lazy" src="assets/erkan.jpeg" width="1200"/>
+<img alt="Trainer Erkan Parlak – Selbstverteidigung-WT München Ost" decoding="async" height="1600" loading="lazy" src="/assets/erkan.jpeg" width="1200"/>
 <div class="media-badge glass">
 <strong>Erkan Parlak</strong>
 </div>
@@ -1383,7 +1411,7 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
 <a class="btn btn-primary" href="https://calendly.com/selbstverteidigung-wt-info/30min?month=2026-03" rel="noopener" style="width:100%;" target="_blank">Probetraining vereinbaren</a>
 <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
 <div class="small-card" style="display:flex;align-items:center;gap:12px;flex:1;min-width:240px">
-<img alt="QR-Code zur Terminbuchung Probetraining" height="92" loading="lazy" src="assets/qr-calendly.png" width="92"/>
+<img alt="QR-Code zur Terminbuchung Probetraining" height="92" loading="lazy" src="/assets/qr-calendly.png" width="92"/>
 <div>
 <strong>QR‑Code</strong><br/>
 <span class="muted2">Scannen &amp; direkt buchen</span>
@@ -1668,7 +1696,20 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
 </svg>
 
             Instagram
-          </a>
+ </a>
+<a aria-label="TikTok öffnen" href="https://www.tiktok.com/@selfdefense_wt" rel="noopener" target="_blank">
+  <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24">
+    <path fill="#111214" d="M16.5 3c.7 2.7 2.5 4.6 5 5v3.1c-1.9 0-3.6-.6-5-1.6v6.8c0 4.1-3.2 7.4-7.3 7.4S2 20.4 2 16.3c0-4 3.2-7.3 7.2-7.3.5 0 1 .1 1.5.2v3.5c-.5-.2-1-.3-1.5-.3-2.1 0-3.7 1.7-3.7 3.9s1.6 3.9 3.7 3.9c2.2 0 3.8-1.8 3.8-4.1V3h3.8z"/>
+  </svg>
+  TikTok
+</a>
+<a aria-label="GitHub öffnen" href="https://github.com/" rel="noopener" target="_blank">
+  <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24">
+    <path fill="#111214" d="M12 .5C5.7.5.7 5.6.7 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.6.8 2 .8.1-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.7.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.4 6 .4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.3 5.6 18.3.5 12 .5z"/>
+  </svg>
+  GitHub
+</a>
+
 </div>
 </div>
 </div>
@@ -1689,9 +1730,114 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
 </article>
 </div>
 </div>
-</section><section aria-label="Google Maps Karte" class="map-full">
-<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Berg-am-Laim-Str.+47,+81673+M%C3%BCnchen&amp;output=embed" title="Google Maps – Berg-am-Laim-Str. 47, 81673 München"></iframe>
 </section>
+<section aria-label="Google Maps Karte" class="map-full" id="karte">
+  <div class="map-placeholder">
+    <div class="map-box glass">
+      <h3>Google Maps Karte</h3>
+      <p class="muted" style="margin:0">
+        Aus Datenschutzgründen wird die Karte erst nach aktivem Klick geladen. Dabei können personenbezogene Daten (z. B. IP-Adresse) an Google übermittelt werden.
+      </p>
+      <div class="map-actions">
+        <button class="btn btn-primary" type="button" id="loadMapBtn">Karte laden</button>
+        <button class="btn btn-secondary" type="button" onclick="window.__openConsent && window.__openConsent();">Cookie-Einstellungen</button>
+      </div>
+      <p class="legal-note" style="margin-top:10px">Tipp: Wenn du in den Einstellungen „Externe Inhalte“ erlaubst, wird die Karte beim nächsten Klick sofort geladen.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="recht">
+  <div class="container">
+    <h2>Impressum &amp; Datenschutz</h2>
+    <p class="muted">Kurz, transparent und rechtssicher. Die englische Übersetzung findest du direkt darunter.</p>
+
+    <div class="grid-2 legal-wrap">
+      <article class="card glass legal-card" id="impressum">
+        <h3>Impressum</h3>
+        <p class="muted" style="margin-bottom:10px"><strong>Angaben gemäß § 5 TMG</strong></p>
+        <p class="muted">
+          <strong>Erkan Parlak</strong><br>
+          Kampfkunstschule Selbstverteidigung Wing Tsung München<br>
+          Berg-am-Laim-Straße 47<br>
+          81673 München<br>
+          Deutschland
+        </p>
+        <p class="muted">
+          <strong>Kontakt:</strong><br>
+          Telefon: <a href="tel:+491627777442">+49 162 7777442</a><br>
+          E-Mail: <a href="mailto:info@selbstverteidigung-wt.de">info@selbstverteidigung-wt.de</a><br>
+          WhatsApp: Kontaktaufnahme möglich (Link auf der Website; Datenübertragung erst nach Klick)
+        </p>
+        <p class="muted">
+          <strong>Tätigkeit:</strong> Freiberufliche Tätigkeit (Kampfkunstunterricht/Selbstverteidigung). Diese Website dient der Information; Verträge werden über die Website nicht geschlossen.
+        </p>
+        <p class="muted">
+          <strong>Umsatzsteuer:</strong> <span class="muted2">[USt-IdNr. eintragen, falls vorhanden – sonst diesen Satz anpassen/entfernen]</span><br>
+          <span class="muted2">[Optional: Kleinunternehmer nach § 19 UStG – falls zutreffend eintragen]</span>
+        </p>
+        <p class="muted">
+          <strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong><br>
+          Erkan Parlak, Berg-am-Laim-Straße 47, 81673 München
+        </p>
+        <p class="muted">
+          <strong>Berufsbezeichnung:</strong> Wing Tsung Lehrer (nicht reglementierter Beruf), verliehen in Deutschland.
+        </p>
+        <p class="muted">
+          <strong>Berufshaftpflichtversicherung:</strong><br>
+          R+V Versicherung AG, Raiffeisenplatz 1, 65189 Wiesbaden<br>
+          Geltungsraum: Deutschland
+        </p>
+        <p class="muted">
+          <strong>Streitbeilegung:</strong> Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+      </article>
+
+      <article class="card glass legal-card" id="datenschutz">
+        <h3>Datenschutzerklärung (Kurzfassung)</h3>
+        <p class="muted"><strong>Verantwortlicher:</strong> Erkan Parlak, <a href="mailto:info@selbstverteidigung-wt.de">info@selbstverteidigung-wt.de</a></p>
+
+        <p class="muted"><strong>Hosting/Sicherheit (Cloudflare):</strong> Diese Website nutzt Cloudflare (CDN/DNS/Sicherheitsfunktionen). Dabei werden technisch erforderliche Daten (z. B. IP-Adresse, Zeitstempel, Requests) verarbeitet. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+        <p class="muted"><strong>Server-Logfiles:</strong> Beim Besuch werden Zugriffsdaten in Logfiles verarbeitet (z. B. IP-Adresse, User-Agent, Referrer). Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+        <p class="muted"><strong>Kontakt (E-Mail/Telefon/WhatsApp):</strong> Bei Kontaktaufnahme verarbeiten wir die übermittelten Daten zur Bearbeitung der Anfrage. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO und/oder Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+        <p class="muted"><strong>Terminbuchung (Calendly):</strong> Für Terminvereinbarungen nutzen wir Calendly (Calendly LLC). Verarbeitet werden Name, E-Mail und Termindaten. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
+
+        <p class="muted"><strong>Analyse/Tag-Management (Google Tag Manager/Google Analytics):</strong> Diese Dienste werden nur nach Einwilligung (Cookie-Banner) aktiviert. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 TTDSG. Ein Widerruf ist jederzeit über „Cookie-Einstellungen“ möglich.</p>
+
+        <p class="muted"><strong>Externe Inhalte &amp; Social Media:</strong> Links/Einbindungen zu YouTube, Instagram, TikTok und GitHub können Daten an die jeweiligen Anbieter übertragen. Inhalte werden – soweit umgesetzt – erst nach aktivem Klick geladen (2‑Klick‑Lösung).</p>
+
+        <p class="muted"><strong>Ihre Rechte:</strong> Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit sowie Widerruf erteilter Einwilligungen. Außerdem Beschwerderecht bei der zuständigen Aufsichtsbehörde.</p>
+
+        <div class="legal-meta">
+          <span class="chip">✔ DSGVO</span>
+          <span class="chip">✔ TTDSG</span>
+          <span class="chip">✔ Einwilligung für Tracking</span>
+        </div>
+
+        <details style="margin-top:14px" class="small-card">
+          <summary style="cursor:pointer;font-weight:900">English version (translation)</summary>
+          <div style="margin-top:12px">
+            <p class="muted"><strong>Legal Notice &amp; Privacy (summary)</strong></p>
+            <p class="muted"><strong>Controller:</strong> Erkan Parlak, <a href="mailto:info@selbstverteidigung-wt.de">info@selbstverteidigung-wt.de</a></p>
+            <p class="muted"><strong>CDN/Security (Cloudflare):</strong> We use Cloudflare to deliver and protect this website. Technical data (e.g., IP address, timestamps, requests) may be processed. Legal basis: Art. 6(1)(f) GDPR.</p>
+            <p class="muted"><strong>Contact:</strong> If you contact us (email/phone/WhatsApp), we process the data you provide to handle your request. Legal basis: Art. 6(1)(b) and/or Art. 6(1)(f) GDPR.</p>
+            <p class="muted"><strong>Appointments (Calendly):</strong> We use Calendly for scheduling. Name, email and appointment details are processed. Legal basis: Art. 6(1)(b) GDPR.</p>
+            <p class="muted"><strong>Analytics (GTM/GA):</strong> Activated only with consent via cookie settings. You can withdraw consent at any time.</p>
+            <p class="muted"><strong>External content:</strong> Links/embeds from YouTube, Instagram, TikTok and GitHub may transmit data to providers. Where possible, content is loaded only after an active click.</p>
+            <p class="legal-note">German version is legally binding. Last updated: 05.03.2026</p>
+          </div>
+        </details>
+      </article>
+    </div>
+
+    <p class="legal-note" style="margin-top:14px">Stand: 05.03.2026</p>
+  </div>
+</section>
+
 <!-- ✅ Goldener Abschluss-Balken (Übergang) -->
 <div aria-hidden="true" class="gold-footer-bar"></div>
 </main>
@@ -1710,8 +1856,9 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
 <div class="footer-links">
 <a href="#top">Nach oben</a>
 <a href="#kontakt">Kontakt</a>
-<a href="#" onclick="alert('Impressum/Datenschutz: Wenn du willst, erstelle ich dir diese Seiten direkt als HTML.');return false;">Impressum</a>
-<a href="#" onclick="alert('Datenschutz: Wenn du willst, erstelle ich dir eine DSGVO-Seite als HTML.');return false;">Datenschutz</a>
+<a href="#impressum">Impressum</a>
+<a href="#datenschutz">Datenschutz</a>
+  <a href="#" id="cookieSettings" class="cookieSettingsLink" onclick="window.__openConsent && window.__openConsent(); return false;">Cookie-Einstellungen</a>
 </div>
 </div>
 <p class="muted2" style="margin-top:16px;font-size:.95rem">
@@ -1719,12 +1866,225 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
       </p>
 </div>
 </footer>
+
+<!-- ===== Cookie-/Consent-Banner (minimal, ohne externe Abhängigkeiten) ===== -->
+<div class="consent" id="consentBanner" aria-live="polite" aria-label="Cookie Hinweis">
+  <div class="panel glass-strong">
+    <div class="row">
+      <div class="text">
+        <strong style="font-weight:900">Cookies & Datenschutz</strong>
+        <p class="muted" style="margin:8px 0 0">
+          Wir verwenden notwendige Cookies für den Betrieb der Website. Statistik (Google Analytics) und externe Inhalte (z. B. Google Maps) aktivieren wir nur mit Ihrer Einwilligung.
+          <a href="#datenschutz" style="text-decoration:underline">Mehr erfahren</a>
+        </p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" type="button" id="consentAcceptAll">Alle akzeptieren</button>
+        <button class="btn btn-secondary" type="button" id="consentReject">Nur notwendige</button>
+        <button class="linkbtn" type="button" id="consentOpenSettings">Einstellungen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="consent-modal" id="consentModal" role="dialog" aria-modal="true" aria-label="Cookie Einstellungen">
+  <div class="modal">
+    <div class="inner glass-strong">
+      <header style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <div>
+          <strong style="font-weight:900">Cookie-Einstellungen</strong>
+          <div class="legal-note">Du kannst deine Auswahl jederzeit ändern.</div>
+        </div>
+        <button class="close" type="button" id="consentClose">✕</button>
+      </header>
+
+      <div class="grid">
+        <div class="opt">
+          <div>
+            <div class="label">Notwendig</div>
+            <div class="desc">Erforderlich für Sicherheit, Navigation und Grundeinstellungen.</div>
+          </div>
+          <div class="tog">
+            <span class="legal-note">Immer aktiv</span>
+          </div>
+        </div>
+
+        <div class="opt">
+          <div>
+            <div class="label">Statistik</div>
+            <div class="desc">Hilft uns zu verstehen, wie Besucher die Website nutzen (Google Analytics).</div>
+          </div>
+          <div class="tog">
+            <input type="checkbox" id="consentStats" />
+          </div>
+        </div>
+
+        <div class="opt">
+          <div>
+            <div class="label">Externe Inhalte</div>
+            <div class="desc">Lädt externe Inhalte wie Google Maps (kann Daten an Drittanbieter übertragen).</div>
+          </div>
+          <div class="tog">
+            <input type="checkbox" id="consentExternal" />
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:14px">
+        <button class="btn btn-secondary" type="button" id="consentSave">Speichern</button>
+        <button class="btn btn-primary" type="button" id="consentAcceptAll2">Alle akzeptieren</button>
+      </div>
+
+      <p class="legal-note" style="margin-top:10px">Hinweis: Google Analytics/Tag Manager werden erst geladen, wenn du „Statistik“ erlaubst und die IDs hinterlegt sind.</p>
+    </div>
+  </div>
+</div>
+
 <!-- Sticky Bottom CTA (Mobile) -->
 <div aria-label="Schnellbuchung" class="sticky-bottom">
-<a href="https://calendly.com/selbstverteidigung-wt-info/30min?month=2026-03" rel="noopener" target="_blank">📅 Probetraining vereinbaren</a>
+<a href="https://calendly.com/selbstverteidigung-wt-info/30min?month=2026-03" rel="noopener" target="_blank">🗓️ Probetraining vereinbaren</a>
 </div>
 <script>
-    // Footer year
+    
+
+/* ===== Consent Manager (localStorage) ===== */
+(function(){
+  const KEY = 'consent_v1';
+  const banner = document.getElementById('consentBanner');
+  const modal = document.getElementById('consentModal');
+  const statsCb = document.getElementById('consentStats');
+  const extCb = document.getElementById('consentExternal');
+
+  function getConsent(){
+    try{ return JSON.parse(localStorage.getItem(KEY) || 'null'); }catch(e){ return null; }
+  }
+  function setConsent(c){
+    localStorage.setItem(KEY, JSON.stringify({
+      necessary: true,
+      stats: !!c.stats,
+      external: !!c.external,
+      ts: Date.now()
+    }));
+  }
+  function openBanner(){ banner && banner.classList.add('open'); }
+  function closeBanner(){ banner && banner.classList.remove('open'); }
+  function openModal(){ modal && modal.classList.add('open'); }
+  function closeModal(){ modal && modal.classList.remove('open'); }
+
+  // expose for footer link
+  window.__openConsent = function(){
+    const c = getConsent() || {stats:false, external:false};
+    if(statsCb) statsCb.checked = !!c.stats;
+    if(extCb) extCb.checked = !!c.external;
+    closeBanner();
+    openModal();
+  };
+
+  // init
+  const current = getConsent();
+  if(!current){
+    openBanner();
+  }
+
+  // banner buttons
+  document.getElementById('consentAcceptAll')?.addEventListener('click', ()=>{
+    setConsent({stats:true, external:true});
+    closeBanner();
+    applyConsent();
+  });
+  document.getElementById('consentReject')?.addEventListener('click', ()=>{
+    setConsent({stats:false, external:false});
+    closeBanner();
+    applyConsent();
+  });
+  document.getElementById('consentOpenSettings')?.addEventListener('click', ()=> window.__openConsent());
+
+  // modal buttons
+  document.getElementById('consentClose')?.addEventListener('click', closeModal);
+  document.getElementById('consentSave')?.addEventListener('click', ()=>{
+    setConsent({stats: !!statsCb?.checked, external: !!extCb?.checked});
+    closeModal();
+    applyConsent();
+  });
+  document.getElementById('consentAcceptAll2')?.addEventListener('click', ()=>{
+    setConsent({stats:true, external:true});
+    closeModal();
+    applyConsent();
+  });
+
+  // close modal on backdrop click
+  modal?.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+
+  // Apply consent: load analytics tools only if consented and IDs provided
+  function loadScript(src, attrs={}){
+    const s = document.createElement('script');
+    s.src = src;
+    s.async = true;
+    Object.entries(attrs).forEach(([k,v])=> s.setAttribute(k, v));
+    document.head.appendChild(s);
+  }
+
+  function applyConsent(){
+    const c = getConsent();
+    if(!c) return;
+
+    // Google Tag Manager (optional) - set your container id here
+    const GTM_ID = window.__GTM_ID || 'GTM-XXXXXXX';
+    const GA_ID  = window.__GA_ID  || 'G-XXXXXXXXXX';
+
+    if(c.stats){
+      // Load GTM if real ID
+      if(/^GTM-[A-Z0-9]+$/i.test(GTM_ID) && GTM_ID !== 'GTM-XXXXXXX' && !document.getElementById('gtmScript')){
+        const s = document.createElement('script');
+        s.id = 'gtmScript';
+        s.text = "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','"+GTM_ID+"');";
+        document.head.appendChild(s);
+      }
+
+      // Load Google Analytics (gtag) if real ID
+      if(/^G-[A-Z0-9]+$/i.test(GA_ID) && GA_ID !== 'G-XXXXXXXXXX' && !document.getElementById('gaScript')){
+        loadScript('https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID), {id:'gaScript'});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date());
+        gtag('config', GA_ID, { 'anonymize_ip': true });
+      }
+    }
+  }
+
+  // Map 2-click loader
+  const loadMapBtn = document.getElementById('loadMapBtn');
+  loadMapBtn?.addEventListener('click', ()=>{
+    const c = getConsent();
+    if(!c){
+      // No decision yet
+      window.__openConsent();
+      return;
+    }
+    if(!c.external){
+      window.__openConsent();
+      return;
+    }
+    // inject iframe only once
+    const mapSection = document.querySelector('.map-full#karte');
+    if(mapSection && !mapSection.querySelector('iframe')){
+      const iframe = document.createElement('iframe');
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.src = 'https://www.google.com/maps?q=Berg-am-Laim-Str.+47,+81673+M%C3%BCnchen&output=embed';
+      iframe.title = 'Google Maps – Berg-am-Laim-Str. 47, 81673 München';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.border = '0';
+      mapSection.innerHTML = '';
+      mapSection.appendChild(iframe);
+    }
+  });
+
+  // Apply consent on load (if previously saved)
+  if(current){ applyConsent(); }
+})();
+// Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // Mobile menu
