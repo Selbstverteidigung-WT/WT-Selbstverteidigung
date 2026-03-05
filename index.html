@@ -9,7 +9,7 @@
 <title>Selbstverteidigung München | Wing Tsung, Eskrima & Filipino Martial Arts</title>
 <meta content="High-Level Selbstschutz: Wing Tsun, Wing Chun &amp; Boxen. Effektive Filipino Martial Arts (Eskrima) mit Waffen. Training auf höchstem Niveau." name="description"/><meta content="Wing Tsun, Wing Chun, Wing Tsung, Eskrima, Filipino Martial Arts, FMA, Boxen, Selbstverteidigung, Waffenkampf, Messerabwehr, Selbstschutz, Stockkampf" name="keywords"/>
 <link href="https://selbstverteidigung-wt.de/" rel="canonical"/>
-<link rel="alternate" hreflang="de" href="https://selbstverteidigung-wt.de/de/"/>
+<link rel="alternate" hreflang="de" href="https://selbstverteidigung-wt.de/"/>
 <link rel="alternate" hreflang="en" href="https://selbstverteidigung-wt.de/en/"/>
 <link rel="alternate" hreflang="x-default" href="https://selbstverteidigung-wt.de/"/>
 <meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/>
@@ -1000,7 +1000,9 @@
 /* ✅ Performance: Below-the-fold Rendering */
 .section{content-visibility:auto;contain-intrinsic-size: 900px;}
 @media (max-width:640px){body{overflow-x:hidden}*{max-width:100%}}
-
+
+
+</style>
 <!-- LocalBusiness / SportsActivityLocation Schema -->
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -1955,7 +1957,7 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
   const statsCb = document.getElementById('consentStats');
   const extCb = document.getElementById('consentExternal');
 
-  function getConsent(){
+  function getConsent() || {
     try{ return JSON.parse(localStorage.getItem(KEY) || 'null'); }catch(e){ return null; }
   }
   function setConsent(c){
