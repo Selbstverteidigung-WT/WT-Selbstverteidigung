@@ -1158,6 +1158,44 @@
 .expect-box{display:flex;flex-direction:column;gap:10px;}
 .expect-box .chipbox{align-self:flex-start;}
 
+
+
+/* ===== PATCH v2 (06.03.2026) ===== */
+/* Buttons secondary: leicht goldig statt weiß */
+.btn-secondary{background: rgba(201,177,92,0.18) !important; border-color: rgba(201,177,92,0.32) !important;}
+.btn-secondary:hover{background: rgba(201,177,92,0.24) !important; border-color: rgba(201,177,92,0.42) !important;}
+
+/* Gelbe breite CTA dünner */
+.cta-wide{padding:14px 18px !important; font-size:1.0rem !important;}
+
+/* NAV FIX: Menü nicht zu weit rechts, gesamte Leiste wirkt mittig */
+@media (min-width:981px){
+  .nav-inner{display:flex !important; align-items:center; justify-content:space-between; gap:18px;}
+  .brand{flex:0 0 auto;}
+  .nav-links{flex:1 1 auto !important; justify-content:center !important; margin-left:0 !important;}
+  .nav-cta{flex:0 0 auto;}
+}
+
+/* Über Uns: rechte Spalte breiter */
+.care-layout{grid-template-columns:1fr 1.25fr !important;}
+
+/* Was dich erwartet: Chip weiter nach unten */
+.expect-box .chipbox{margin-top:12px !important;}
+
+/* Kontaktformular: Consent links, Senden rechts unten */
+.form-bottom{display:grid; grid-template-columns:1fr auto; gap:12px; align-items:end; margin-top:14px;}
+.consent-box{padding:12px 14px; border-radius:16px; background:rgba(201,177,92,0.14); border:1px solid rgba(201,177,92,0.30); display:flex; align-items:flex-start; gap:10px;}
+.consent-box input{margin:2px 0 0 0; flex:0 0 auto;}
+@media (max-width:760px){.form-bottom{grid-template-columns:1fr;} .form-bottom .btn{width:100%;}}
+
+/* Zitat: Desktop in einer Zeile, Mobile darf umbrechen */
+@media (min-width:641px){blockquote.about-quote{white-space:nowrap;}}
+@media (max-width:640px){blockquote.about-quote{white-space:normal;}}
+
+/* Warum: Lauftext ohne große Abstände + gleiche Box-Höhen */
+#warum .why-card{display:flex; flex-direction:column; height:100%;}
+#warum .why-text{margin:0; font-weight:400; line-height:1.65; display:block !important;}
+#warum .feature-title{margin-bottom:10px;}
 </style>
 <!-- LocalBusiness / SportsActivityLocation Schema -->
 <script type="application/ld+json">{
@@ -1306,13 +1344,13 @@
 </a>
 <div aria-label="Sektionen" class="nav-links" role="navigation">
 <a href="#start">Start</a>
-<div class="nav-dd" aria-label="Training Menü">
-  <a class="nav-dd-trigger" href="#selbstverteidigung" aria-haspopup="true" aria-expanded="false">Training</a>
-  <div class="nav-dd-menu" role="menu" aria-label="Trainingsbereiche">
-    <a role="menuitem" href="selbstverteidigung.html">Selbstverteidigung</a>
-    <a role="menuitem" href="wing-tsung.html">Wing Tsung</a>
-    <a role="menuitem" href="eskrima.html">Eskrima</a>
-  </div>
+<div aria-label="Training Menü" class="nav-dd">
+<a aria-expanded="false" aria-haspopup="true" class="nav-dd-trigger" href="#selbstverteidigung">Training</a>
+<div aria-label="Trainingsbereiche" class="nav-dd-menu" role="menu">
+<a href="selbstverteidigung.html" role="menuitem">Selbstverteidigung</a>
+<a href="wing-tsung.html" role="menuitem">Wing Tsung</a>
+<a href="eskrima.html" role="menuitem">Eskrima</a>
+</div>
 </div>
 <a href="#ueber">Über Uns</a>
 <a href="#probetraining">Probetraining</a>
@@ -1322,7 +1360,7 @@
 </div>
 <div class="nav-cta">
 <a aria-label="Switch language to English" class="btn btn-secondary" href="/en/" style="min-height:44px;padding:12px 14px;">EN</a>
-<a class="btn btn-secondary" href="#probetraining">Probetraining vereinbaren</a>
+<a class="btn btn-primary" href="#probetraining">Probetraining vereinbaren</a>
 <a aria-label="Telefon anrufen" class="icon-btn" href="tel:+491627777442">
 <svg aria-hidden="true" fill="none" height="20" viewbox="0 0 24 24" width="20">
 <path d="M6.6 10.8c1.6 3.1 3.5 5 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.5 2.6.8 4.1.8.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.1 22 2 13.9 2 3c0-.6.4-1 1-1h3.2c.6 0 1 .4 1 1 0 1.5.3 2.9.8 4.1.1.4.1.8-.2 1.1L6.6 10.8z" stroke="#111214" stroke-linejoin="round" stroke-width="1.8"></path>
@@ -1410,7 +1448,7 @@
 </div>
 <p class="muted">Praxisnahe Strategien und Techniken für reale Situationen. Du lernst, ruhig zu bleiben, Distanz zu kontrollieren, Konflikte früh zu erkennen und dich effektiv zu schützen.</p>
 <div class="area-actions">
-<a class="btn btn-secondary" href="#probetraining">Probetraining vereinbaren</a>
+<a class="btn btn-secondary" href="selbstverteidigung.html">Mehr über Selbstverteidigung</a>
 </div>
 </article>
 <article class="card glass area-card">
@@ -1434,11 +1472,9 @@
 </div>
 </article>
 </div>
-
 <div class="cta-wide-wrap">
-  <a class="cta-wide" href="#probetraining">Hier Probetraining vereinbaren</a>
+<a class="cta-wide" href="#probetraining">Hier Probetraining vereinbaren</a>
 </div>
-
 </div>
 </section>
 <!-- WARUM -->
@@ -1446,34 +1482,34 @@
 <div class="container">
 <h2>Warum bei uns trainieren?</h2>
 <p class="muted">Alltagstauglich, respektvoll, effektiv – für normale Menschen.</p>
-<div class="grid-2" style="margin-top:18px">  <div class="card glass why-card">
-    <div class="feature-title">
-      <span class="badge">✓</span><h3 style="margin:0">Mehr Selbstbewusstsein im Alltag</h3>
-    </div>
-    <p class="why-sub">Klar auftreten. Grenzen setzen. Präsenz zeigen.</p>
-    <p class="muted why-text">Du entwickelst mehr Selbstvertrauen und fühlst dich im Alltag sicherer – beruflich, privat und in unerwarteten Situationen.</p>
-  </div>
-  <div class="card glass why-card">
-    <div class="feature-title">
-      <span class="badge">⚡</span><h3 style="margin:0">Mehr körperliche Stärke &amp; Kontrolle</h3>
-    </div>
-    <p class="why-sub">Mehr Stabilität, bessere Reaktion und saubere Bewegungsabläufe.</p>
-    <p class="muted why-text">Du entwickelst Kontrolle über deinen Körper – strukturiert und ohne Überforderung.</p>
-  </div>
-  <div class="card glass why-card">
-    <div class="feature-title">
-      <span class="badge">🧠</span><h3 style="margin:0">Mehr mentale Stärke</h3>
-    </div>
-    <p class="why-sub">Ruhe bewahren unter Druck. Klare Entscheidungen treffen.</p>
-    <p class="muted why-text">Du stärkst Fokus, Selbstvertrauen und mentale Widerstandskraft.</p>
-  </div>
-  <div class="card glass why-card">
-    <div class="feature-title">
-      <span class="badge">🛡</span><h3 style="margin:0">Mehr Sicherheit in realen Situationen</h3>
-    </div>
-    <p class="why-sub">Alltagssituationen verständlich trainiert: Distanz, Nahbereich und Kontrolle.</p>
-    <p class="muted why-text">Praxisnah aufgebaut, damit du dich sicherer fühlst und klar handeln kannst.</p>
-  </div>
+<div class="grid-2" style="margin-top:18px"> <div class="card glass why-card">
+<div class="feature-title">
+<span class="badge">✓</span><h3 style="margin:0">Mehr Selbstbewusstsein im Alltag</h3>
+</div>
+
+<p class="muted why-text">Klar auftreten. Grenzen setzen. Präsenz zeigen. Du entwickelst mehr Selbstvertrauen und fühlst dich im Alltag sicherer – beruflich, privat und in unerwarteten Situationen.</p>
+</div>
+<div class="card glass why-card">
+<div class="feature-title">
+<span class="badge">⚡</span><h3 style="margin:0">Mehr körperliche Stärke &amp; Kontrolle</h3>
+</div>
+
+<p class="muted why-text">Mehr Stabilität, bessere Reaktion und saubere Bewegungsabläufe. Du entwickelst Kontrolle über deinen Körper – strukturiert und ohne Überforderung.</p>
+</div>
+<div class="card glass why-card">
+<div class="feature-title">
+<span class="badge">🧠</span><h3 style="margin:0">Mehr mentale Stärke</h3>
+</div>
+
+<p class="muted why-text">Ruhe bewahren unter Druck. Klare Entscheidungen treffen. Du stärkst Fokus, Selbstvertrauen und mentale Widerstandskraft.</p>
+</div>
+<div class="card glass why-card">
+<div class="feature-title">
+<span class="badge">🛡</span><h3 style="margin:0">Mehr Sicherheit in realen Situationen</h3>
+</div>
+
+<p class="muted why-text">Alltagssituationen verständlich trainiert: Distanz, Nahbereich und Kontrolle. Praxisnah aufgebaut, damit du dich sicherer fühlst und klar handeln kannst.</p>
+</div>
 </div>
 </div>
 </section>
@@ -1508,7 +1544,7 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
               </blockquote>
 <div class="about-cta">
 <a class="btn btn-secondary" href="#kontakt">Kontakt aufnehmen</a>
-<a class="btn btn-secondary" href="#probetraining">Probetraining vereinbaren</a>
+<a class="btn btn-primary" href="#probetraining">Probetraining vereinbaren</a>
 </div>
 </div>
 </div>
@@ -1564,7 +1600,7 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 <div class="book-row" style="margin-top:14px">
 <div>
 <a class="btn btn-primary" href="https://calendly.com/selbstverteidigung-wt-info/30min?month=2026-03" rel="noopener" style="width:100%;" target="_blank">Probetraining</a>
-      <a class="btn btn-secondary" href="#kontaktformular" style="width:100%;margin-top:12px">Zum Kontaktformular</a>
+<a class="btn btn-secondary" href="#kontaktformular" style="width:100%;margin-top:12px">Zum Kontaktformular</a>
 <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
 <div class="small-card" style="display:flex;align-items:center;gap:12px;flex:1;min-width:240px">
 <img alt="QR-Code zur Terminbuchung Probetraining" height="92" loading="lazy" src="/assets/qr-calendly.png" width="92"/>
@@ -1583,9 +1619,9 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 </div>
 </div>
 <div class="small-card expect-box">
-  <strong>Was dich erwartet</strong>
-  <p class="muted" style="margin-top:0">Ruhiger Einstieg, klare Basics, sichere Übungen. Du gehst mit einem guten Gefühl und selbstbewusst raus.</p>
-  <div class="chipbox">✔ Bis zu 3x freies Probetraining</div>
+<strong>Was dich erwartet</strong>
+<p class="muted" style="margin-top:0">Ruhiger Einstieg, klare Basics, sichere Übungen. Du gehst mit einem guten Gefühl und selbstbewusst raus.</p>
+<div class="chipbox">✔ Bis zu 3x freies Probetraining</div>
 </div>
 </div>
 </div>
@@ -1852,76 +1888,64 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 </svg>
   TikTok
 </a>
-
 </div>
 </div>
 </div>
 </section>
 <!-- KONTAKTFORMULAR -->
 <section class="section alt" id="kontaktformular">
-  <div class="container">
-    <h2>Kontaktformular</h2>
-    <p class="muted">Schick uns deine Nachricht – wir melden uns schnellstmöglich zurück.</p>
+<div class="container">
+<h2>Kontaktformular</h2>
+<p class="muted">Schick uns deine Nachricht – wir melden uns schnellstmöglich zurück.</p>
+<div class="contactform-grid">
+<div class="card glass-strong featured">
+<div class="pill">Schnell &amp; unkompliziert</div>
+<h3>Nachricht senden</h3>
+<form class="contact-form" id="contactForm" novalidate="">
+<div class="form-grid">
+<div class="field">
+<label for="cfName">Name</label>
+<input autocomplete="name" id="cfName" name="name" placeholder="Dein Name" required="" type="text"/>
+</div>
+<div class="field">
+<label for="cfEmail">E‑Mail</label>
+<input autocomplete="email" id="cfEmail" name="email" placeholder="dein.name@mail.de" required="" type="email"/>
+</div>
+<div class="field">
+<label for="cfPhone">Telefon (optional)</label>
+<input autocomplete="tel" id="cfPhone" name="phone" placeholder="+49 …" type="tel"/>
+</div>
+<div class="field field-wide">
+<label for="cfMsg">Nachricht</label>
+<textarea id="cfMsg" name="message" placeholder="Worum geht’s? (z. B. Probetraining, Fragen, Zeiten…)" required="" rows="6"></textarea>
+</div>
 
-    <div class="contactform-grid">
-      <div class="card glass-strong featured">
-        <div class="pill">Schnell &amp; unkompliziert</div>
-        <h3>Nachricht senden</h3>
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-grid">
-            <div class="field">
-              <label for="cfName">Name</label>
-              <input id="cfName" name="name" type="text" autocomplete="name" placeholder="Dein Name" required>
-            </div>
-            <div class="field">
-              <label for="cfEmail">E‑Mail</label>
-              <input id="cfEmail" name="email" type="email" autocomplete="email" placeholder="dein.name@mail.de" required>
-            </div>
-            <div class="field">
-              <label for="cfPhone">Telefon (optional)</label>
-              <input id="cfPhone" name="phone" type="tel" autocomplete="tel" placeholder="+49 …">
-            </div>
-            <div class="field field-wide">
-              <label for="cfMsg">Nachricht</label>
-              <textarea id="cfMsg" name="message" rows="6" placeholder="Worum geht’s? (z. B. Probetraining, Fragen, Zeiten…)" required></textarea>
-            </div>
-            <div class="field field-wide" style="margin-top:-4px">
-              <label class="check">
-                <input id="cfConsent" type="checkbox" required>
-                <span>Ich stimme zu, dass meine Angaben zur Kontaktaufnahme verarbeitet werden. (siehe <a href="datenschutz.html" style="text-decoration:underline">Datenschutz</a>)</span>
-              </label>
-            </div>
-          </div>
-          <div class="form-actions">
-            <button class="btn btn-primary" type="submit">✉️ Nachricht an info@selbstverteidigung-wt.de senden</button>
-            <a class="btn btn-secondary" href="#kontakt">Zurück zu Kontakt</a>
-          </div>
-          <p class="legal-note" id="formNote" style="margin-top:12px">Hinweis: Beim Absenden öffnet sich dein E‑Mail‑Programm mit der vorbereiteten Nachricht.</p>
-        </form>
-      </div>
+</div>
 
-      <div class="card glass">
-        <h3>Alternativ</h3>
-        <p class="muted">Du erreichst uns auch direkt über Telefon, WhatsApp oder E‑Mail.</p>
-        <div class="contact-list" style="margin-top:12px">
-          <div class="contact-item">
-            <div aria-hidden="true">📞</div>
-            <div><strong>Telefon</strong><p class="muted"><a href="tel:+491627777442">+49 162 7777442</a></p></div>
-          </div>
-          <div class="contact-item">
-            <div aria-hidden="true">💬</div>
-            <div><strong>WhatsApp</strong><p class="muted"><a href="https://wa.me/491627777442" rel="noopener" target="_blank">Chat starten</a></p></div>
-          </div>
-          <div class="contact-item">
-            <div aria-hidden="true">✉️</div>
-            <div><strong>E‑Mail</strong><p class="muted"><a href="mailto:info@selbstverteidigung-wt.de">info@selbstverteidigung-wt.de</a></p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="form-bottom"><label class="check consent-box"><input id="cfConsent" required="" type="checkbox"/><span>Ich stimme zu, dass meine Angaben zur Kontaktaufnahme verarbeitet werden. (siehe <a href="datenschutz.html" style="text-decoration:underline">Datenschutz</a>)</span></label><button class="btn btn-primary" type="submit">Senden</button></div><p class="legal-note" id="formNote" style="margin-top:12px">Hinweis: Beim Absenden öffnet sich dein E‑Mail‑Programm mit der vorbereiteten Nachricht.</p>
+</form>
+</div>
+<div class="card glass">
+<h3>Alternativ</h3>
+<p class="muted">Du erreichst uns auch direkt über Telefon, WhatsApp oder E‑Mail.</p>
+<div class="contact-list" style="margin-top:12px">
+<div class="contact-item">
+<div aria-hidden="true">📞</div>
+<div><strong>Telefon</strong><p class="muted"><a href="tel:+491627777442">+49 162 7777442</a></p></div>
+</div>
+<div class="contact-item">
+<div aria-hidden="true">💬</div>
+<div><strong>WhatsApp</strong><p class="muted"><a href="https://wa.me/491627777442" rel="noopener" target="_blank">Chat starten</a></p></div>
+</div>
+<div class="contact-item">
+<div aria-hidden="true">✉️</div>
+<div><strong>E‑Mail</strong><p class="muted"><a href="mailto:info@selbstverteidigung-wt.de">info@selbstverteidigung-wt.de</a></p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- GOOGLE MAPS – FULL WIDTH -->
 <section class="section alt" id="faq">
 <div class="container">
@@ -1940,9 +1964,8 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 </div>
 </section>
 <section aria-label="Google Maps Karte" class="map-full" id="karte">
-  <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Berg-am-Laim-Str.+47,+81673+M%C3%BCnchen&output=embed" title="Google Maps – Berg-am-Laim-Str. 47, 81673 München"></iframe>
+<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Berg-am-Laim-Str.+47,+81673+M%C3%BCnchen&amp;output=embed" title="Google Maps – Berg-am-Laim-Str. 47, 81673 München"></iframe>
 </section>
-
 <!-- ✅ Goldener Abschluss-Balken (Übergang) -->
 <div aria-hidden="true" class="gold-footer-bar"></div>
 </main>
@@ -1951,13 +1974,13 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 <div class="container">
 <div class="footer-grid">
 <div>
-<strong style="font-weight:900;color:rgba(17,18,20,0.92)">Selbstverteidigung‑WT</strong><br>
-<span class="muted">Erkan Parlak • Berg‑am‑Laim‑Str. 47 • 81673 München</span><br>
+<strong style="font-weight:900;color:rgba(17,18,20,0.92)">Selbstverteidigung‑WT</strong><br/>
+<span class="muted">Erkan Parlak • Berg‑am‑Laim‑Str. 47 • 81673 München</span><br/>
 <span class="muted">
 <a href="mailto:info@selbstverteidigung-wt.de">info@selbstverteidigung-wt.de</a> •
             <a href="tel:+491627777442">+49 162 7777442</a>
 </span>
-</br></br></div>
+</div>
 <div class="footer-links">
 <a href="#top">Nach oben</a>
 <a href="#kontakt">Kontakt</a>
