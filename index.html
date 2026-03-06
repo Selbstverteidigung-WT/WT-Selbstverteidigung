@@ -1043,6 +1043,54 @@
   .consent .actions .btn{width:100%}
   .consent-modal .inner{padding:16px}
 }
+
+
+/* ===== NAV Dropdown (Training) ===== */
+.nav-dd{position:relative;display:inline-flex;align-items:center}
+.nav-dd-trigger{padding:10px 10px;border-radius:12px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.nav-dd-trigger::after{content:"▾";font-size:0.85em;opacity:.75}
+.nav-dd-menu{position:absolute;top:calc(100% + 10px);left:0;min-width:240px;padding:10px;border-radius:18px;background: rgba(255,255,255,0.86);border:1px solid rgba(17,18,20,0.10);box-shadow: 0 18px 50px rgba(17,18,20,0.14);backdrop-filter: blur(16px) saturate(1.2);-webkit-backdrop-filter: blur(16px) saturate(1.2);display:none;}
+.nav-dd-menu a{display:block;padding:12px 12px;border-radius:14px;font-weight:800;color:rgba(17,18,20,0.82)}
+.nav-dd-menu a:hover{background:rgba(201,177,92,0.14);color:rgba(17,18,20,0.92)}
+.nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu{display:block;animation:ddIn .16s ease}
+@keyframes ddIn{from{transform:translateY(-4px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+/* Mobile menu subhead */
+.mobile-subhead{margin-top:6px;padding:10px 10px;font-weight:900;color:rgba(17,18,20,0.65);letter-spacing:0.02em}
+
+/* ===== Trainingsbereiche: 3 nebeneinander + gleiche Bildhöhe ===== */
+.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;margin-top:18px}
+@media (max-width:980px){.areas-grid{grid-template-columns:1fr}}
+.area-card{display:flex;flex-direction:column;text-align:center}
+.area-card .card-media{aspect-ratio:16/9;width:100%}
+.area-card p{margin-bottom:0}
+.area-actions{margin-top:auto;padding-top:14px}
+
+/* ===== Warum: gleiche Höhe ===== */
+.why-card{height:100%}
+
+/* ===== Über/Training Detail Layout: breiter auf Desktop ===== */
+@media (min-width:980px){
+  .care-layout{grid-template-columns:1fr 1.18fr}
+  .care-body h2{white-space:nowrap}
+  blockquote.about-quote{white-space:nowrap}
+}
+
+/* ===== Social Media: TikTok volle Breite unter YT/IG ===== */
+.social-wide .social-grid{grid-template-columns:1fr 1fr}
+.social-wide .social-grid a:nth-child(3){grid-column:1 / -1}
+
+/* ===== Kontaktformular Styles ===== */
+.contact-form label{display:block;font-weight:900;color:rgba(17,18,20,0.82);margin:0 0 8px}
+.contact-form input,.contact-form textarea{width:100%;padding:14px 14px;border-radius:16px;border:1px solid rgba(17,18,20,0.12);background: rgba(255,255,255,0.72);backdrop-filter: blur(14px);-webkit-backdrop-filter: blur(14px);font: inherit;color: rgba(17,18,20,0.92);outline:none;}
+.contact-form input:focus,.contact-form textarea:focus{border-color: rgba(201,177,92,0.55); box-shadow: 0 0 0 4px rgba(201,177,92,0.14)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+.field-wide{grid-column:1 / -1}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:700;color:rgba(17,18,20,0.76)}
+.check input{margin-top:3px;accent-color: var(--gold)}
+.form-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+@media (max-width:760px){.form-grid{grid-template-columns:1fr}.form-actions .btn{width:100%}}
+
 </style>
 <!-- LocalBusiness / SportsActivityLocation Schema -->
 <script type="application/ld+json">{
@@ -1191,15 +1239,23 @@
 </a>
 <div aria-label="Sektionen" class="nav-links" role="navigation">
 <a href="#start">Start</a>
-<a href="#selbstverteidigung">Training</a>
+<div class="nav-dd" aria-label="Training Menü">
+  <a class="nav-dd-trigger" href="#selbstverteidigung" aria-haspopup="true" aria-expanded="false">Training</a>
+  <div class="nav-dd-menu" role="menu" aria-label="Trainingsbereiche">
+    <a role="menuitem" href="#training-selbstverteidigung">Selbstverteidigung</a>
+    <a role="menuitem" href="#training-wing-tsung">Wing Tsung</a>
+    <a role="menuitem" href="#training-eskrima">Eskrima</a>
+  </div>
+</div>
 <a href="#ueber">Über Uns</a>
 <a href="#probetraining">Probetraining</a>
 <a href="#mitgliedschaft">Mitgliedschaft</a>
 <a href="#kontakt">Kontakt</a>
+<a href="#kontaktformular">Kontaktformular</a>
 </div>
 <div class="nav-cta">
 <a aria-label="Switch language to English" class="btn btn-secondary" href="/en/" style="min-height:44px;padding:12px 14px;">EN</a>
-<a class="btn btn-primary" href="#probetraining">Probetraining vereinbaren</a>
+<a class="btn btn-primary" href="#probetraining">Probetraining</a>
 <a aria-label="Telefon anrufen" class="icon-btn" href="tel:+491627777442">
 <svg aria-hidden="true" fill="none" height="20" viewbox="0 0 24 24" width="20">
 <path d="M6.6 10.8c1.6 3.1 3.5 5 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.5 2.6.8 4.1.8.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.1 22 2 13.9 2 3c0-.6.4-1 1-1h3.2c.6 0 1 .4 1 1 0 1.5.3 2.9.8 4.1.1.4.1.8-.2 1.1L6.6 10.8z" stroke="#111214" stroke-linejoin="round" stroke-width="1.8"></path>
@@ -1233,12 +1289,16 @@
 <nav class="mobile-links">
 <a class="btn btn-secondary" data-close="" href="/en/" style="justify-content:center;">English</a>
 <a data-close="" href="#start">Start</a>
-<a data-close="" href="#selbstverteidigung">Training</a>
+<div class="mobile-subhead">Training</div>
+<a data-close="" href="#training-selbstverteidigung">Selbstverteidigung</a>
+<a data-close="" href="#training-wing-tsung">Wing Tsung</a>
+<a data-close="" href="#training-eskrima">Eskrima</a>
 <a data-close="" href="#ueber">Über Uns</a>
 <a data-close="" href="#probetraining">Probetraining</a>
 <a data-close="" href="#mitgliedschaft">Mitgliedschaft</a>
 <a data-close="" href="#kontakt">Kontakt</a>
-<a class="btn btn-primary" data-close="" href="https://calendly.com/selbstverteidigung-wt-info/30min?month=2026-03" rel="noopener" style="justify-content:center;margin-top:6px;" target="_blank">Probetraining vereinbaren</a>
+<a data-close="" href="#kontaktformular">Kontaktformular</a>
+<a class="btn btn-primary" data-close="" href="https://calendly.com/selbstverteidigung-wt-info/30min?month=2026-03" rel="noopener" style="justify-content:center;margin-top:6px;" target="_blank">Probetraining</a>
 </nav>
 </div>
 </div>
@@ -1286,8 +1346,8 @@
           Praxisnahe Strategien und Techniken für reale Situationen.
           Du lernst, ruhig zu bleiben, Abstand zu managen und dich effektiv zu schützen.
         </p>
-<div style="margin-top:14px">
-<a class="btn btn-primary" href="#probetraining">Probetraining vereinbaren</a>
+<div class="area-actions">
+<a class="btn btn-secondary" href="#training-selbstverteidigung">Mehr über Selbstverteidigung</a>
 </div>
 </article>
 <article class="card glass area-card">
@@ -1296,11 +1356,11 @@
 <img alt="Wing Tsun München – Wing Chun / Wing Tsung Techniktraining für Selbstschutz" decoding="async" height="675" loading="lazy" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';" src="/assets/WTB.png" width="1200"/>
 </div>
 <p class="muted">Strukturiertes System mit Fokus auf Technik, Timing und Kontrolle – statt reiner Kraft. Ergänzt durch präzise Boxen‑Grundlagen (Deckung, Distanz, Schlagmechanik) für realistische Selbstverteidigung.</p>
-<div style="margin-top:14px">
-<a class="btn btn-secondary" href="https://www.wing-tsung.com/wing-tsung/" rel="noopener" target="_blank">Mehr über Wing Tsung</a>
+<div class="area-actions">
+<a class="btn btn-secondary" href="#training-wing-tsung">Mehr über Wing Tsung</a>
 </div>
 </article>
-<article class="card glass area-card area-wide">
+<article class="card glass area-card">
 <h3>Eskrima - Filipino Martial Arts</h3>
 <div aria-label="Bild Eskrima - Filipino Martial Arts" class="card-media">
 <img alt="Eskrima München – Wing Tsun Waffenkampf, Stockkampf &amp; Messerabwehr (Filipino Martial Arts)" decoding="async" height="600" loading="lazy" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';" src="/assets/Eskrima.png" width="1400"/>
@@ -1311,8 +1371,8 @@
           Im Fokus stehen Koordination, Reaktionsfähigkeit, Timing und Präzision.<br/>
           Alle Inhalte werden systematisch aufgebaut und modern sowie sicher vermittelt.
         </p>
-<div style="margin-top:14px">
-<a class="btn btn-secondary" href="#probetraining">Mehr erfahren</a>
+<div class="area-actions">
+<a class="btn btn-secondary" href="#training-eskrima">Mehr über Eskrima</a>
 </div>
 </article>
 </div>
@@ -1323,43 +1383,30 @@
 <div class="container">
 <h2>Warum bei uns trainieren?</h2>
 <p class="muted">Alltagstauglich, respektvoll, effektiv – für normale Menschen.</p>
-<div class="grid-2" style="margin-top:18px">
-<div class="card glass">
-<div class="feature-title">
-<span class="badge">✓</span><h3 style="margin:0">Selbstbewusst im Alltag</h3>
-</div>
-<p class="muted" style="margin-top:10px">
-          Klar auftreten. Grenzen setzen. Präsenz zeigen.<br/>
-          Du lernst, dich sicher zu fühlen – beruflich, privat und in unerwarteten Situationen.
-        </p>
-</div>
-<div class="card glass">
-<div class="feature-title">
-<span class="badge">⚡</span><h3 style="margin:0">Körperliche Stärke &amp; Kontrolle</h3>
-</div>
-<p class="muted" style="margin-top:10px">
-          Mehr Stabilität, bessere Reaktion und saubere Bewegungsabläufe.<br/>
-          Du entwickelst Kontrolle über deinen Körper – ohne Überforderung.
-        </p>
-</div>
-<div class="card glass">
-<div class="feature-title">
-<span class="badge">🧠</span><h3 style="margin:0">Mentale Widerstandskraft</h3>
-</div>
-<p class="muted" style="margin-top:10px">
-          Ruhe bewahren unter Druck. Klare Entscheidungen treffen.<br/>
-          Mehr Fokus, mehr Selbstvertrauen, weniger Unsicherheit.
-        </p>
-</div>
-<div class="card glass">
-<div class="feature-title">
-<span class="badge">🛡</span><h3 style="margin:0">Realistische Anwendung</h3>
-</div>
-<p class="muted" style="margin-top:10px">
-          Alltagssituationen verständlich trainiert: Distanz, Nahbereich, Kontrolle.<br/>
-          Praxisnah, strukturiert und sicher aufgebaut.
-        </p>
-</div>
+<div class="grid-2" style="margin-top:18px">      <div class="card glass why-card">
+        <div class="feature-title">
+          <span class="badge">✓</span><h3 style="margin:0">Mehr Selbstbewusstsein im Alltag</h3>
+        </div>
+        <p class="muted" style="margin-top:10px">Klar auftreten. Grenzen setzen. Präsenz zeigen.<br/>Du entwickelst mehr Selbstvertrauen und fühlst dich im Alltag sicherer – beruflich, privat und in unerwarteten Situationen.</p>
+      </div>
+      <div class="card glass why-card">
+        <div class="feature-title">
+          <span class="badge">⚡</span><h3 style="margin:0">Mehr körperliche Stärke &amp; Kontrolle</h3>
+        </div>
+        <p class="muted" style="margin-top:10px">Mehr Stabilität, bessere Reaktion und saubere Bewegungsabläufe.<br/>Du entwickelst Kontrolle über deinen Körper – strukturiert und ohne Überforderung.</p>
+      </div>
+      <div class="card glass why-card">
+        <div class="feature-title">
+          <span class="badge">🧠</span><h3 style="margin:0">Mehr mentale Stärke</h3>
+        </div>
+        <p class="muted" style="margin-top:10px">Ruhe bewahren unter Druck. Klare Entscheidungen treffen.<br/>Du stärkst Fokus, Selbstvertrauen und mentale Widerstandskraft.</p>
+      </div>
+      <div class="card glass why-card">
+        <div class="feature-title">
+          <span class="badge">🛡</span><h3 style="margin:0">Mehr Sicherheit in realen Situationen</h3>
+        </div>
+        <p class="muted" style="margin-top:10px">Alltagssituationen verständlich trainiert: Distanz, Nahbereich und Kontrolle.<br/>Praxisnah aufgebaut, damit du dich sicherer fühlst und klar handeln kannst.</p>
+      </div>
 </div>
 </div>
 </section>
@@ -1372,7 +1419,7 @@
 <div aria-label="Trainer Bild" class="care-media">
 <img alt="Trainer Erkan Parlak – Selbstverteidigung-WT München Ost" decoding="async" height="1600" loading="lazy" src="/assets/erkan.jpeg" width="1200"/>
 <div class="media-badge glass">
-<strong>Erkan Parlak</strong>
+<strong>Si-Hing Erkan Parlak</strong>
 </div>
 </div>
 <div class="care-body">
@@ -1385,8 +1432,8 @@
 <p class="care-text" style="margin-top:10px">
 Egal ob du komplett neu bist oder wieder einsteigen möchtest:<br/>
 Wir bauen dich auf, damit du dich sicher und selbstbewusst fühlst.<br/>
-Durch die langjährige Ausbildung bei Großmeister Dai-Sifu Reimers konnte ich umfassende praktische und didaktische Erfahrung sammeln.<br/>
-Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
+Durch meine langjährige Ausbildung bei Großmeister Dai-Sifu Reimers verfüge ich über umfassende praktische Erfahrung und tiefgehendes Fachwissen<br/>
+Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun
 </p>
 <div class="divider-line"></div>
 <blockquote class="about-quote">
@@ -1487,17 +1534,16 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
 <div class="container">
 <h2>Mitgliedschaft</h2>
 <p class="muted">Transparente Beiträge – fair und klar. Bei Fragen melde dich gerne.</p>
-<div class="card glass-strong featured" style="margin-top:18px; text-align:center;">
-<p style="margin:0 0 10px"><strong>Monatliche Beiträge</strong></p>
-<p class="muted" style="margin:0">Erwachsene – monatliche Zahlung: <strong>59€</strong></p>
-<p class="muted" style="margin:6px 0 0">Senioren – monatliche Zahlung: <strong>49€</strong></p>
-<p class="muted" style="margin:6px 0 0">Studenten – monatliche Zahlung: <strong>49€</strong></p>
-<div class="divider-line"></div>
-<p style="margin:0 0 10px"><strong>Jahresbeitrag WMAA Dachverband</strong></p>
-<p class="muted" style="margin:0">Erwachsene &amp; Senioren: <strong>69€</strong></p>
-<div class="divider-line" style="margin:18px auto"></div>
-<p style="margin:0 0 10px"><strong>Einmalige Aufnahmegebühr</strong></p>
-<p class="muted" style="margin:0">Erwachsene &amp; Senioren: <strong>39€</strong></p>
+<div class="card glass-strong featured" style="margin-top:18px; text-align:center;">      <p style="margin:0 0 10px"><strong>Monatliche Beiträge</strong></p>
+      <p class="muted" style="margin:0">Erwachsene – monatliche Zahlung: <strong>69€</strong></p>
+      <p class="muted" style="margin:6px 0 0">Studenten &amp; Senioren – monatliche Zahlung: <strong>59€</strong></p>
+
+      <div class="divider-line"></div>
+      <p style="margin:0 0 10px"><strong>Jahresbeitrag WMAA Dachverband</strong></p>
+      <p class="muted" style="margin:0">Alle Mitglieder: <strong>69€</strong></p>
+      <div class="divider-line" style="margin:18px auto"></div>
+      <p style="margin:0 0 10px"><strong>Einmalige Aufnahmegebühr</strong></p>
+      <p class="muted" style="margin:0">Einmalige Pauschale: <strong>49€</strong></p>
 </div>
 <div class="card glass-strong featured" style="margin-top:18px; text-align:center;">
 <div class="pill">Wellhub</div>
@@ -1703,8 +1749,8 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
 <div class="small-card" style="margin-top:12px">
 <strong>Anfahrt</strong>
 <div class="muted" style="margin-top:10px;display:grid;gap:8px">
-<div>🚆 S‑Bahn Leuchtenbergring – ca. 7 Minuten zu Fuß</div>
-<div>🚉 Ostbahnhof – ca. 13 Minuten zu Fuß</div>
+<div>🚆 S‑Bahn Leuchtenbergring – ca. 5 Minuten zu Fuß</div>
+<div>🚉 Ostbahnhof – in der Nähe</div>
 <div>🚊 Tram 21, Haltestelle Ampfingstraße</div>
 </div>
 </div>
@@ -1767,19 +1813,7 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
 </div>
 </section>
 <section aria-label="Google Maps Karte" class="map-full" id="karte">
-<div class="map-placeholder">
-<div class="map-box glass">
-<h3>Google Maps Karte</h3>
-<p class="muted" style="margin:0">
-        Aus Datenschutzgründen wird die Karte erst nach aktivem Klick geladen. Dabei können personenbezogene Daten (z. B. IP-Adresse) an Google übermittelt werden.
-      </p>
-<div class="map-actions">
-<button class="btn btn-primary" id="loadMapBtn" type="button">Karte laden</button>
-<button class="btn btn-secondary" onclick="window.__openConsent &amp;&amp; window.__openConsent();" type="button">Cookie-Einstellungen</button>
-</div>
-<p class="legal-note" style="margin-top:10px">Tipp: Wenn du in den Einstellungen „Externe Inhalte“ erlaubst, wird die Karte beim nächsten Klick sofort geladen.</p>
-</div>
-</div>
+  <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Berg-am-Laim-Str.+47,+81673+M%C3%BCnchen&output=embed" title="Google Maps – Berg-am-Laim-Str. 47, 81673 München"></iframe>
 </section>
 
 <!-- ✅ Goldener Abschluss-Balken (Übergang) -->
@@ -1802,7 +1836,6 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
 <a href="#kontakt">Kontakt</a>
 <a href="impressum.html">Impressum</a>
 <a href="datenschutz.html">Datenschutz</a>
-<a class="cookieSettingsLink" href="#" id="cookieSettings" onclick="window.__openConsent &amp;&amp; window.__openConsent(); return false;">Cookie-Einstellungen</a>
 </div>
 </div>
 <p class="muted2" style="margin-top:16px;font-size:.95rem">
@@ -1810,216 +1843,11 @@ Heute unterrichte ich als Si-Hing Erkan im 3. Lehrergrad.
       </p>
 </div>
 </footer>
-<!-- ===== Cookie-/Consent-Banner (minimal, ohne externe Abhängigkeiten) ===== -->
-<div aria-label="Cookie Hinweis" aria-live="polite" class="consent" id="consentBanner">
-<div class="panel glass-strong">
-<div class="row">
-<div class="text">
-<strong style="font-weight:900">Cookies &amp; Datenschutz</strong>
-<p class="muted" style="margin:8px 0 0">
-          Wir verwenden notwendige Cookies für den Betrieb der Website. Statistik (Google Analytics) und externe Inhalte (z. B. Google Maps) aktivieren wir nur mit Ihrer Einwilligung.
-          <a href="datenschutz.html" style="text-decoration:underline">Mehr erfahren</a>
-</p>
-</div>
-<div class="actions">
-<button class="btn btn-primary" id="consentAcceptAll" type="button">Alle akzeptieren</button>
-<button class="btn btn-secondary" id="consentReject" type="button">Nur notwendige</button>
-<button class="linkbtn" id="consentOpenSettings" type="button">Einstellungen</button>
-</div>
-</div>
-</div>
-</div>
-<div aria-label="Cookie Einstellungen" aria-modal="true" class="consent-modal" id="consentModal" role="dialog">
-<div class="modal">
-<div class="inner glass-strong">
-<header style="display:flex;align-items:center;justify-content:space-between;gap:12px">
-<div>
-<strong style="font-weight:900">Cookie-Einstellungen</strong>
-<div class="legal-note">Du kannst deine Auswahl jederzeit ändern.</div>
-</div>
-<button class="close" id="consentClose" type="button">✕</button>
-</header>
-<div class="grid">
-<div class="opt">
-<div>
-<div class="label">Notwendig</div>
-<div class="desc">Erforderlich für Sicherheit, Navigation und Grundeinstellungen.</div>
-</div>
-<div class="tog">
-<span class="legal-note">Immer aktiv</span>
-</div>
-</div>
-<div class="opt">
-<div>
-<div class="label">Statistik</div>
-<div class="desc">Hilft uns zu verstehen, wie Besucher die Website nutzen (Google Analytics).</div>
-</div>
-<div class="tog">
-<input id="consentStats" type="checkbox"/>
-</div>
-</div>
-<div class="opt">
-<div>
-<div class="label">Externe Inhalte</div>
-<div class="desc">Lädt externe Inhalte wie Google Maps (kann Daten an Drittanbieter übertragen).</div>
-</div>
-<div class="tog">
-<input id="consentExternal" type="checkbox"/>
-</div>
-</div>
-</div>
-<div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:14px">
-<button class="btn btn-secondary" id="consentSave" type="button">Speichern</button>
-<button class="btn btn-primary" id="consentAcceptAll2" type="button">Alle akzeptieren</button>
-</div>
-<p class="legal-note" style="margin-top:10px">Hinweis: Google Analytics/Tag Manager werden erst geladen, wenn du „Statistik“ erlaubst und die IDs hinterlegt sind.</p>
-</div>
-</div>
-</div>
 <!-- Sticky Bottom CTA (Mobile) -->
 <div aria-label="Schnellbuchung" class="sticky-bottom">
-<a href="https://calendly.com/selbstverteidigung-wt-info/30min?month=2026-03" rel="noopener" target="_blank">🗓️ Probetraining vereinbaren</a>
+<a href="https://calendly.com/selbstverteidigung-wt-info/30min?month=2026-03" rel="noopener" target="_blank">🗓️ Probetraining</a>
 </div>
 <script>
-
-/* ===== Consent Manager (localStorage) ===== */
-(function(){
-  const KEY = 'consent_v1';
-  const banner = document.getElementById('consentBanner');
-  const modal  = document.getElementById('consentModal');
-  const statsCb = document.getElementById('consentStats');
-  const extCb   = document.getElementById('consentExternal');
-
-  function getConsent(){
-    try { return JSON.parse(localStorage.getItem(KEY) || 'null'); }
-    catch(e){ return null; }
-  }
-  function setConsent(c){
-    localStorage.setItem(KEY, JSON.stringify({
-      necessary: true,
-      stats: !!c.stats,
-      external: !!c.external,
-      ts: Date.now()
-    }));
-  }
-
-  function openBanner(){ banner && banner.classList.add('open'); }
-  function closeBanner(){ banner && banner.classList.remove('open'); }
-  function openModal(){
-    if(!modal) return;
-    modal.classList.add('open');
-    // basic focus
-    const focusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-    focusable && focusable.focus();
-  }
-  function closeModal(){ modal && modal.classList.remove('open'); }
-
-  // expose for footer link / map button
-  window.__openConsent = function(){
-    const c = getConsent() || {stats:false, external:false};
-    if(statsCb) statsCb.checked = !!c.stats;
-    if(extCb)   extCb.checked   = !!c.external;
-    closeBanner();
-    openModal();
-  };
-
-  // init
-  const current = getConsent();
-  if(!current) openBanner();
-  else applyConsent();
-
-  // banner buttons
-  document.getElementById('consentAcceptAll')?.addEventListener('click', ()=>{
-    setConsent({stats:true, external:true});
-    closeBanner();
-    applyConsent();
-  });
-  document.getElementById('consentReject')?.addEventListener('click', ()=>{
-    setConsent({stats:false, external:false});
-    closeBanner();
-    applyConsent();
-  });
-  document.getElementById('consentOpenSettings')?.addEventListener('click', ()=> window.__openConsent());
-
-  // modal buttons
-  document.getElementById('consentClose')?.addEventListener('click', closeModal);
-  document.getElementById('consentSave')?.addEventListener('click', ()=>{
-    setConsent({stats: !!statsCb?.checked, external: !!extCb?.checked});
-    closeModal();
-    applyConsent();
-  });
-  document.getElementById('consentAcceptAll2')?.addEventListener('click', ()=>{
-    setConsent({stats:true, external:true});
-    closeModal();
-    applyConsent();
-  });
-
-  // Close modal on backdrop click / ESC
-  modal?.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal?.classList.contains('open')) closeModal(); });
-
-  function loadScript(src, id){
-    if(id && document.getElementById(id)) return;
-    const s = document.createElement('script');
-    if(id) s.id = id;
-    s.src = src;
-    s.async = true;
-    document.head.appendChild(s);
-  }
-
-  // Apply consent: load analytics tools only if consented and IDs provided
-  function applyConsent(){
-    const c = getConsent();
-    if(!c) return;
-
-    // Optional: define these IDs globally before this script runs.
-    // window.__GTM_ID = 'GTM-XXXXXXX'
-    // window.__GA_ID  = 'G-XXXXXXXXXX'
-    const GTM_ID = window.__GTM_ID || 'GTM-XXXXXXX';
-    const GA_ID  = window.__GA_ID  || 'G-XXXXXXXXXX';
-
-    if(c.stats){
-      // GTM
-      if(/^GTM-[A-Z0-9]+$/i.test(GTM_ID) && GTM_ID !== 'GTM-XXXXXXX' && !document.getElementById('gtmScript')){
-        const s = document.createElement('script');
-        s.id = 'gtmScript';
-        s.text = "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','"+GTM_ID+"');";
-        document.head.appendChild(s);
-      }
-      // GA4 gtag
-      if(/^G-[A-Z0-9]+$/i.test(GA_ID) && GA_ID !== 'G-XXXXXXXXXX' && !document.getElementById('gaScript')){
-        loadScript('https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID), 'gaScript');
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ window.dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', GA_ID, { anonymize_ip: true });
-      }
-    }
-  }
-
-  // Map 2-click loader
-  const loadMapBtn = document.getElementById('loadMapBtn');
-  loadMapBtn?.addEventListener('click', ()=>{
-    const c = getConsent();
-    if(!c || !c.external){
-      window.__openConsent();
-      return;
-    }
-    const mapSection = document.querySelector('.map-full#karte');
-    if(mapSection && !mapSection.querySelector('iframe')){
-      const iframe = document.createElement('iframe');
-      iframe.loading = 'lazy';
-      iframe.referrerPolicy = 'no-referrer-when-downgrade';
-      iframe.src = 'https://www.google.com/maps?q=Berg-am-Laim-Str.+47,+81673+M%C3%BCnchen&output=embed';
-      iframe.title = 'Google Maps – Berg-am-Laim-Str. 47, 81673 München';
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      iframe.style.border = '0';
-      mapSection.innerHTML = '';
-      mapSection.appendChild(iframe);
-    }
-  });
-})();
 
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
