@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#C9B15C" />
+  <title>Datenschutzerklärung – Selbstverteidigung‑WT</title>
+  <meta name="robots" content="noindex,follow" />
+  <style>
+
+    :root{
+      /* Light Apple-ish */
+      --bg:#ffffff;
+      --alt:#FAF6E8;
+      --text:#111214;
+      --muted:#5B6068;
+      --muted2:#7A808A;
+
+      /* Gold */
+      --gold:#C9B15C;
+      --gold2:#E2C66B;
+      --gold-hover:#BFA24B;
+
+      /* Glass */
+      --glass: rgba(255,255,255,0.72);
+      --glass2: rgba(255,255,255,0.82);
+      --border: rgba(17,18,20,0.08);
+      --border2: rgba(17,18,20,0.10);
+      --shadow: 0 18px 50px rgba(17,18,20,0.10);
+      --shadow-soft: 0 12px 30px rgba(17,18,20,0.08);
+
+      --radius: 22px;
+      --radius2: 18px;
+      --btn-radius: 14px;
+
+      --max: 1180px;
+      --pad-desktop: 100px;
+      --pad-mobile: 64px;
+      --nav-h: 78px;
+
+      --blur: 14px;
+      --hairline: 1px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+ overflow-x:hidden;
+
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 18% -10%, rgba(201,177,92,0.14), transparent 60%),
+        radial-gradient(800px 520px at 90% 0%, rgba(90,140,255,0.08), transparent 62%),
+        var(--bg);
+      line-height:1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: auto; /* ✅ weniger "verschmiert" als optimizeLegibility */
+    }
+
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 22px}
+    .section{padding:var(--pad-desktop) 0}
+    .section.alt{background:linear-gradient(180deg, rgba(250,246,232,0.55), rgba(250,246,232,1))}
+    @media (max-width:900px){.section{padding:var(--pad-mobile) 0}}
+
+    /* ✅ Strong/B Fix: klarer, weniger "blur" */
+    strong, b{
+      font-weight:700;            /* statt 800 -> weniger Faux-Bold Artefakte */
+      color: rgba(17,18,20,0.95);
+      text-shadow:none !important;
+      filter:none !important;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Typography */
+    h1,h2,h3{
+      margin:0 0 14px;
+      line-height:1.15;
+      letter-spacing:-0.02em;
+      font-weight:500;
+    }
+    h1{font-size:clamp(2.2rem,4.2vw,3.35rem)}
+    h2{font-size:clamp(1.6rem,2.9vw,2.25rem)}
+    h3{font-size:1.15rem;letter-spacing:-0.01em}
+    p{margin:0 0 14px;font-weight:400}
+    .muted{color:var(--muted)}
+    .muted2{color:var(--muted2)}
+    .kicker{
+      color:var(--muted);
+      font-weight:600;
+      letter-spacing:0.02em;
+      margin-bottom:12px;
+      font-size:0.95rem;
+    }
+    .sr-only{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+
+    /* Glass cards */
+    .glass{
+      background: linear-gradient(180deg, var(--glass2), var(--glass));
+      border: var(--hairline) solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(var(--blur)) saturate(1.15);
+      -webkit-backdrop-filter: blur(var(--blur)) saturate(1.15);
+    }
+    .glass-strong{
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.74));
+      border: var(--hairline) solid var(--border2);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(calc(var(--blur) + 6px)) saturate(1.2);
+      -webkit-backdrop-filter: blur(calc(var(--blur) + 6px)) saturate(1.2);
+    }
+
+    .card{padding:26px;border-radius:var(--radius)}
+    .card.featured{
+      position:relative;
+      overflow:hidden;
+      transform: translateY(-1px);
+    }
+    .card.featured::before{
+      content:"";
+      position:absolute;inset:-2px;
+      background:
+        radial-gradient(650px 220px at 18% 0%, rgba(201,177,92,0.18), transparent 60%),
+        radial-gradient(520px 260px at 95% 10%, rgba(90,140,255,0.10), transparent 62%);
+      pointer-events:none;
+      opacity:.95;
+    }
+    .card.featured > *{position:relative;z-index:1}
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-weight:700;
+      font-size:.8rem;
+      letter-spacing:0.02em;
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(201,177,92,0.16);
+      border:1px solid rgba(201,177,92,0.35);
+      color:rgba(17,18,20,0.82);
+      margin-bottom:12px;
+    }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height:48px;padding:14px 18px;border-radius:var(--btn-radius);
+      border:1px solid transparent;
+      font-weight:700;
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, filter .18s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{transform:translateY(0px) scale(0.99)}
+    .btn-primary{
+      background: linear-gradient(180deg, var(--gold2), var(--gold));
+      color:#111214;
+      box-shadow: 0 18px 45px rgba(201,177,92,0.25);
+    }
+    .btn-primary:hover{
+      filter:saturate(1.05);
+      transform:translateY(-1px);
+      background: linear-gradient(180deg, #EAD57E, var(--gold-hover));
+      box-shadow: 0 22px 55px rgba(201,177,92,0.28);
+    }
+    .btn-secondary{
+      background: rgba(255,255,255,0.65);
+      border-color: rgba(17,18,20,0.12);
+      color: var(--text);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: 0 10px 26px rgba(17,18,20,0.06);
+    }
+    .btn-secondary:hover{
+      transform:translateY(-1px);
+      border-color: rgba(17,18,20,0.16);
+      box-shadow: 0 16px 40px rgba(17,18,20,0.10);
+    }
+
+    /* Layout grids */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+    @media (max-width:980px){
+  .grid-3{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .grid-2{grid-template-columns:1fr}
+}
+
+    /* NAV */
+    .nav{
+      position:sticky;top:0;z-index:60;
+      background: rgba(255,255,255,0.75);
+      border-bottom:1px solid rgba(17,18,20,0.08);
+      backdrop-filter: blur(16px) saturate(1.2);
+      -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    }
+    .nav-inner{
+      height:var(--nav-h);
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-0.01em}
+    .brand img{width:40px;height:40px;object-fit:contain;border-radius:12px}
+    .nav-links{display:flex;align-items:center;gap:14px;font-weight:700;color:rgba(17,18,20,0.72)}
+ .nav-links{margin-left:24px;flex:1 1 auto;}
+ .brand{flex:0 0 auto;}
+    .nav-links a{padding:10px 10px;border-radius:12px}
+    .nav-links a:hover{background:rgba(201,177,92,0.12);color:rgba(17,18,20,0.92)}
+    .nav-cta{display:flex;align-items:center;gap:10px}
+
+    .icon-btn{
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid rgba(17,18,20,0.10);
+      background: rgba(255,255,255,0.72);
+      display:grid;place-items:center;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+      box-shadow: 0 10px 22px rgba(17,18,20,0.06);
+    }
+    .icon-btn:hover{
+      transform:translateY(-1px);
+      border-color: rgba(201,177,92,0.35);
+      box-shadow: 0 16px 34px rgba(17,18,20,0.10);
+    }
+
+    .hamburger{
+      display:none;width:46px;height:46px;border-radius:14px;
+      border:1px solid rgba(17,18,20,0.10);
+      background: rgba(255,255,255,0.72);
+      align-items:center;justify-content:center;cursor:pointer;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 10px 22px rgba(17,18,20,0.06);
+    }
+    .hamburger span{display:block;width:20px;height:2px;background:rgba(17,18,20,0.92);position:relative}
+    .hamburger span::before,.hamburger span::after{
+      content:"";position:absolute;left:0;width:20px;height:2px;background:rgba(17,18,20,0.92)
+    }
+    .hamburger span::before{top:-6px}
+    .hamburger span::after{top:6px}
+    @media (max-width:980px){.nav-links{display:none}.hamburger{display:flex}}
+@media (max-width:980px){.nav-cta .btn.btn-primary{display:none}}
+
+    /* Mobile menu */
+    .mobile-menu{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:80;display:none}
+    .mobile-menu.open{display:block}
+    .mobile-panel{position:absolute;top:12px;right:12px;left:12px;padding:16px}
+    .mobile-panel .panel-inner{padding:16px;border-radius:26px}
+    .mobile-panel header{display:flex;align-items:center;justify-content:space-between;padding:8px 6px 12px}
+    .close{
+      width:46px;height:46px;border-radius:14px;
+      border:1px solid rgba(17,18,20,0.10);
+      background: rgba(255,255,255,0.75);
+      cursor:pointer;display:grid;place-items:center;
+      color:rgba(17,18,20,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .mobile-links{display:flex;flex-direction:column;gap:10px;padding:6px}
+    .mobile-links a{
+      padding:14px 14px;border-radius:16px;
+      background:rgba(255,255,255,0.72);
+      border:1px solid rgba(17,18,20,0.10);
+      font-weight:800;
+      color:rgba(17,18,20,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* HERO (wie Referenz: clean, dunkel, Bild perfekt) */
+.hero{
+  position:relative;
+  min-height:82vh;
+  display:grid;
+  place-items:center;
+  padding: calc(var(--nav-h) + 44px) 0 120px;
+  overflow:hidden;
+  background:#0b0b0d;
+  border-bottom:none;
+}
+@media (max-width:900px){
+  .hero{min-height:72vh;padding: calc(var(--nav-h) + 32px) 0 110px}
+}
+
+/* Background: coveri.png + dezente Overlays (ohne weißen Fade) */
+
+.hero-bg{
+ position:absolute;inset:0;
+ background:
+  radial-gradient(1200px 720px at 50% 35%, rgba(0,0,0,0.14), rgba(0,0,0,0.70) 68%, rgba(0,0,0,0.86)),
+  radial-gradient(900px 520px at 20% 50%, rgba(201,177,92,0.16), transparent 60%),
+  radial-gradient(900px 520px at 80% 50%, rgba(201,177,92,0.10), transparent 62%),
+  url("/assets/coveri.png") center 50%/cover no-repeat;
+ transform:scale(1.0);
+ filter:brightness(1.05) saturate(1.02) contrast(1.04);
+ opacity:1;
+}
+
+/* Kein weißer Fade am Ende */
+.hero::after{display:none}
+
+.hero-content{position:relative;text-align:center;z-index:3;max-width:980px;margin:0 auto;padding:0 14px}
+/* ✅ Lesbarkeit im Hero: leichter schwarzer Hintergrund hinter dem Text */
+.hero-panel{
+  display:inline-block;
+  padding: 22px 22px;
+  border-radius: 18px;
+  background: rgba(0,0,0,0.52);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.38);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+@media (max-width:640px){
+  .hero-panel{padding: 18px 14px; border-radius: 16px;}
+}
+
+.hero h1{color:rgba(255,255,255,0.96);text-shadow: 0 18px 55px rgba(0,0,0,0.62);margin-bottom:10px}
+.hero .kicker{color:rgba(255,255,255,0.72);font-weight:700}
+.hero .subline{font-size:1.12rem;color:rgba(255,255,255,0.82);margin-bottom:10px;font-weight:600}
+.hero .muted{color:rgba(255,255,255,0.72)}
+.hero p{max-width:920px;margin:0 auto 16px}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+
+/* Buttons: nur im Hero */
+.hero .btn-primary{
+  background: linear-gradient(180deg, #EAD57E, #C9B15C);
+  color:#111214;
+  box-shadow: 0 18px 45px rgba(201,177,92,0.22);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.hero .btn-primary:hover{
+  filter:saturate(1.06);
+  transform:translateY(-1px);
+  background: linear-gradient(180deg, #F1DF8E, #BFA24B);
+  box-shadow: 0 22px 55px rgba(201,177,92,0.26);
+}
+.hero .btn-secondary{
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.92);
+  box-shadow: 0 14px 38px rgba(0,0,0,0.26);
+}
+.hero .btn-secondary:hover{
+  transform:translateY(-1px);
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.26);
+}
+
+
+/* ✅ Probetraining: Hinweis als abgerundetes Kästchen (ohne große Lücke) */
+.chipbox{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:10px 14px;border-radius:999px;
+  background: rgba(255,255,255,0.70);
+  border:1px solid rgba(17,18,20,0.10);
+  color: rgba(17,18,20,0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-weight:800;
+  font-size:0.95rem;
+  box-shadow: 0 12px 24px rgba(17,18,20,0.06);
+}
+
+/* Chips (Standard – für restliche Seite) */
+.chips{
+  margin-top:18px;
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.chip{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.70);
+  border:1px solid rgba(17,18,20,0.10);
+  color: rgba(17,18,20,0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-weight:800;
+  font-size:0.95rem;
+  box-shadow: 0 12px 24px rgba(17,18,20,0.06);
+}
+
+/* Chips im Hero: dunkel, clean und mittig */
+.hero .chips{
+  margin-top:20px;
+  max-width:880px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.hero .chip{
+  background: rgba(255,255,255,0.10);
+  border:1px solid rgba(255,255,255,0.16);
+  color: rgba(255,255,255,0.92);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+}
+
+/* Divider unten entfernt: fester Übergang ohne Kurve */
+/* First section lift (deaktiviert: fester Übergang) */
+.section.first-after-hero{margin-top:0;padding-top:var(--pad-desktop);position:relative;z-index:10;}
+@media (max-width:900px){.section.first-after-hero{margin-top:0;padding-top:var(--pad-mobile);}}
+
+    /* Why / features */
+    .feature-title{display:flex;align-items:center;gap:10px}
+    .badge{
+      width:30px;height:30px;border-radius:10px;
+      display:grid;place-items:center;
+      background:rgba(201,177,92,0.16);
+      border:1px solid rgba(201,177,92,0.30);
+      color:rgba(17,18,20,0.85);
+      flex:0 0 auto;
+      font-weight:900;
+    }
+
+    /* Probetraining layout */
+    .trial-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
+    .trial-top{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media (max-width:980px){.trial-top{grid-template-columns:1fr}}
+
+    .times{display:grid;gap:12px;margin-top:10px}
+    .time-row{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:12px 14px;border-radius:16px;
+      background:rgba(255,255,255,0.68);
+      border:1px solid rgba(17,18,20,0.10);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .time-row strong{font-weight:700;color:rgba(17,18,20,0.95)}
+    .time-row span{color:rgba(17,18,20,0.70);font-weight:600}
+
+    .book-row{display:grid;grid-template-columns:1.2fr 0.8fr;gap:18px;align-items:stretch}
+    @media (max-width:980px){.book-row{grid-template-columns:1fr}}
+
+    .small-card{
+      padding:18px;border-radius:18px;
+      border:1px solid rgba(17,18,20,0.10);
+      background:rgba(255,255,255,0.70);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 12px 26px rgba(17,18,20,0.06);
+    }
+
+    /* ✅ BIG "Persönliche Betreuung" Box */
+    .care-wrap{margin-top:18px}
+    .care-card{
+      padding: 40px;
+      text-align:center; /* ✅ alles mittig */
+    }
+    @media (max-width:900px){ .care-card{padding:26px} }
+
+    .care-text{
+      max-width: 860px;
+      margin: 0 auto;
+      font-size: 1.03rem;
+      color: rgba(17,18,20,0.72);
+    }
+
+    .divider-line{
+      height:1px;
+      background: rgba(17,18,20,0.08);
+      margin: 22px auto;
+      max-width: 920px;
+    }
+
+
+/* ===== Über: Bild links groß, Inhalt rechts (wie Referenz) ===== */
+.care-card.care-split{padding:0;overflow:hidden}
+.care-layout{display:grid;grid-template-columns:1.05fr 1fr;align-items:stretch;min-height:520px}
+.care-media{position:relative;background:#111214}
+.care-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.care-body{padding:42px;display:flex;flex-direction:column;justify-content:center}
+/* ✅ About (Über Uns) – gewünschtes Layout */
+.care-body .pill{align-self:center}
+.about-quote{padding:14px 18px;max-width:920px;margin:12px auto 12px;text-align:left;white-space:normal; overflow-wrap:anywhere;font-size:clamp(0.95rem,1.15vw,1.05rem);line-height:1.35}
+.about-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.media-badge{position:absolute;top:18px;left:18px;padding:10px 12px;border-radius:16px;background:rgba(255,255,255,0.72);border:1px solid rgba(17,18,20,0.10);box-shadow:0 12px 26px rgba(17,18,20,0.08)}
+.media-badge strong{font-weight:800;letter-spacing:-0.01em}
+@media (max-width:980px){.media-badge{top:12px;left:12px}}
+
+@media (max-width:980px){
+  .care-layout{grid-template-columns:1fr;min-height:auto}
+  .care-media{height:280px}
+  .care-body{padding:26px}
+}
+
+    /* ✅ Trainer Row (Bild links, Name rechts, Kontakt rechts) */
+    .trainer-row{
+      margin-top: 6px;
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items:center;
+      max-width: 920px;
+      margin-left:auto;
+      margin-right:auto;
+      text-align:left;
+    }
+    @media (max-width:900px){
+      .trainer-row{grid-template-columns:1fr}
+    }
+
+    .trainer-left{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      min-width: 0;
+    }
+
+    .avatar{
+      width:92px;height:92px;border-radius:22px;
+      border:1px solid rgba(17,18,20,0.10);
+      background:rgba(255,255,255,0.75);
+      overflow:hidden;
+      flex:0 0 auto;
+      box-shadow: 0 18px 40px rgba(17,18,20,0.12);
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover}
+
+    .trainer-name{
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin:0;
+      line-height:1.1;
+      letter-spacing:-0.02em;
+    }
+    .trainer-meta{
+      margin: 6px 0 0;
+      color: rgba(17,18,20,0.65);
+      font-weight: 600;
+    }
+
+    .trainer-cta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+    }
+    @media (max-width:900px){
+      .trainer-cta{justify-content:flex-start}
+    }
+
+    blockquote{
+      margin:16px auto 0;
+      padding:16px 18px;
+      border-left:3px solid rgba(201,177,92,0.95);
+      background:rgba(255,255,255,0.70);
+      border:1px solid rgba(17,18,20,0.10);
+      border-radius:18px;
+      color:rgba(17,18,20,0.86);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 12px 28px rgba(17,18,20,0.06);
+      max-width: 920px;
+      text-align:left;
+    }
+
+    
+/* ✅ Kontakt: Social-Media als breites Kästchen mit 2 Spalten */
+.social-wide{margin-top:18px;text-align:center}
+.social-wide .social-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch;margin-top:12px}
+.social-wide a{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 16px;border-radius:18px;
+  border:1px solid rgba(17,18,20,0.10);background:rgba(255,255,255,0.70);
+  backdrop-filter: blur(14px);-webkit-backdrop-filter: blur(14px);
+  font-weight:900;color:rgba(17,18,20,0.82);box-shadow:0 12px 26px rgba(17,18,20,0.06)}
+@media (max-width:760px){.social-wide .social-grid{grid-template-columns:1fr}}
+
+/* Contact */
+    .contact-list{display:grid;gap:10px;margin-top:10px}
+    .contact-item{
+      display:flex;align-items:flex-start;gap:12px;
+      padding:14px;border-radius:18px;
+      border:1px solid rgba(17,18,20,0.10);
+      background:rgba(255,255,255,0.70);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .contact-item strong{display:block;font-weight:800}
+    .contact-item .muted{margin:0}
+
+    /* Full-width map */
+    .map-full{
+ width:100%;
+ margin:0;
+ height:460px;
+ border-top:1px solid rgba(17,18,20,0.08);
+ border-bottom:1px solid rgba(17,18,20,0.08);
+ background:#fff;
+}
+.map-full iframe{width:100%;height:100%;border:0}
+    .map-full iframe{width:100%;height:100%;border:0}
+
+    
+/* ✅ Goldener Balken vor dem Footer */
+.gold-footer-bar{
+ width:100%;
+ margin:0;
+ height:12px;
+ background: linear-gradient(90deg, rgba(201,177,92,0.92), rgba(226,198,107,1), rgba(201,177,92,0.92));
+ box-shadow: 0 -10px 26px rgba(201,177,92,0.16);
+ border-top:1px solid rgba(17,18,20,0.06);
+}
+
+/* Footer */
+    footer{
+      border-top:1px solid rgba(17,18,20,0.08);
+      padding:34px 0 40px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(250,246,232,0.55));
+    }
+    .footer-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:18px;align-items:start}
+    .footer-links{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end;color:rgba(17,18,20,0.62);font-weight:800}
+    .footer-links a:hover{color:rgba(17,18,20,0.92)}
+    @media (max-width:900px){
+      .footer-grid{grid-template-columns:1fr}
+      .footer-links{justify-content:flex-start}
+    }
+
+    /* Sticky bottom CTA (Mobile) */
+    .sticky-bottom{
+      position:fixed;left:12px;right:12px;bottom:12px;z-index:70;display:none;
+      border-radius:18px;overflow:hidden;
+      box-shadow: 0 22px 55px rgba(17,18,20,0.18);
+      border:1px solid rgba(17,18,20,0.10);
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .sticky-bottom a{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      padding:16px 18px;
+      background: linear-gradient(180deg, var(--gold2), var(--gold));
+      color:#111214;font-weight:900;min-height:54px;
+    }
+    .sticky-bottom a:hover{background: linear-gradient(180deg, #EAD57E, var(--gold-hover));}
+    @media (max-width:980px){.sticky-bottom{display:block} body{padding-bottom:92px}}
+
+    /* ===== ✅ Bewertungen Slider (Light Theme, kein Schwarz) ===== */
+    .twrap{
+      --radius:18px;
+      --maxw:1100px;
+      --height:460px;
+      width:100%;
+      display:flex;
+      justify-content:center;
+    }
+
+    .tslider{
+      width:100%;
+      max-width: var(--maxw);
+      height: var(--height);
+      position:relative;
+      border-radius: calc(var(--radius) + 6px);
+      overflow:hidden;
+
+      background:
+        radial-gradient(900px 260px at 18% 0%, rgba(201,177,92,.18), transparent 60%),
+        radial-gradient(900px 320px at 85% 20%, rgba(90,140,255,.10), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,.92), rgba(250,246,232,.60));
+
+      border: 1px solid rgba(17,18,20,.10);
+      box-shadow: 0 18px 45px rgba(17,18,20,.12);
+    }
+
+    .tslider::after{ display:none; } /* ✅ schwarzes Overlay weg */
+
+    .tviewport{
+      position:absolute; inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 24px;
+      z-index:1;
+    }
+
+    .ttrack{
+      display:flex;
+      width:100%;
+      height:100%;
+      transition: transform .55s ease;
+      will-change: transform;
+      touch-action: pan-y;
+    }
+
+    .tslide{
+      min-width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      box-sizing:border-box;
+    }
+
+    .tcard{
+      width: min(900px, 94%);
+      background:
+        radial-gradient(900px 240px at 12% 0%, rgba(201,177,92,.10), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.88));
+      border: 1px solid rgba(17,18,20,.10);
+      border-radius: var(--radius);
+      padding: 26px 26px 22px;
+      box-shadow: 0 14px 35px rgba(17,18,20,.10);
+      position:relative;
+    }
+
+    .thead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:10px;
+    }
+
+    .tleftHead{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 0;
+    }
+
+    .tgoogle{
+      width:22px;
+      height:22px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      flex: 0 0 auto;
+    }
+
+    .ttitle{
+      font-size:16px;
+      font-weight:900;
+      letter-spacing:-0.01em;
+      color:#111;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .tstars{
+      display:flex;
+      gap:4px;
+      align-items:center;
+      color: var(--gold);
+      font-size:16px;
+      line-height:1;
+      white-space:nowrap;
+      filter: drop-shadow(0 2px 6px rgba(201,177,92,.20));
+      font-weight:900;
+      letter-spacing:2px;
+    }
+
+    .ttext{
+      color:#111;
+      font-size:15px;
+      line-height:1.55;
+      margin: 10px 0 14px;
+    }
+
+    .tmeta{
+      color: rgba(17,17,17,.70);
+      font-size:13px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .tbadge{
+      font-size:12px;
+      padding: 4px 10px;
+      border-radius:999px;
+      border: 1px solid rgba(201,177,92,.55);
+      background: rgba(201,177,92,.16);
+      color: rgba(17,17,17,.75);
+      font-weight:900;
+    }
+
+    .tbtn{
+      position:absolute;
+      top:50%;
+      transform: translateY(-50%);
+      z-index:2;
+      width:44px;
+      height:44px;
+      border-radius:999px;
+
+      border: 1px solid rgba(17,18,20,.12);
+      background: rgba(255,255,255,.82);
+      color: rgba(17,18,20,.92);
+
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+      box-shadow: 0 10px 25px rgba(17,18,20,.10);
+      font-size:22px;
+      line-height:1;
+    }
+    .tbtn:hover{
+      background: rgba(255,255,255,.95);
+      border-color: rgba(201,177,92,.35);
+    }
+    .tbtn:active{ transform: translateY(-50%) scale(.96); }
+    .tbtn.left{ left:14px; }
+    .tbtn.right{ right:14px; }
+
+    .tdots{
+      position:absolute;
+      bottom:14px;
+      left:50%;
+      transform: translateX(-50%);
+      z-index:2;
+
+      display:flex;
+      gap:8px;
+      align-items:center;
+
+      padding: 8px 10px;
+      border-radius:999px;
+
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(17,18,20,.10);
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 10px 25px rgba(17,18,20,.10);
+    }
+
+    .tdot{
+      width:9px; height:9px;
+      border-radius:50%;
+      background: rgba(17,18,20,.28);
+      cursor:pointer;
+      border:none;
+      padding:0;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .tdot.active{
+      background: var(--gold);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 640px){
+  .hero-bg{background-position: center 50% !important;}
+ blockquote.about-quote{padding:14px 18px;line-height:1.35;white-space:normal;}
+
+      .tslider{ height: 430px; }
+      .tcard{ width: 96%; padding: 18px; }
+      .tbtn{ width:40px; height:40px; }
+      .ttitle{ font-size:15px; }
+    }
+
+    
+/* =============================
+   ✅ Mobile polish (Handy-Optimierung)
+   Ziel: Desktop unverändert – Mobile sauber, ohne Overflow
+   ============================= */
+@media (max-width: 640px){
+ blockquote.about-quote{padding:14px 18px;line-height:1.35;white-space:normal;}
+
+  .container{padding:0 16px}
+  .section{padding:72px 0}
+  .hero{padding: calc(var(--nav-h) + 26px) 0 96px; min-height: 70vh;}
+  .hero-content{padding:0 10px}
+
+  /* CTAs im Hero: auf Handy angenehmer */
+  .hero-actions{gap:10px}
+  .hero-actions .btn{width: min(520px, 100%);}
+
+  /* Chips: etwas kompakter */
+  .chip{padding:9px 12px; font-size:0.92rem}
+
+  /* Über Uns: Spacing + Badge */
+  .care-body{padding:22px}
+  .care-media{height:320px}
+  .media-badge{padding:9px 11px; border-radius:14px}
+
+  /* CTA unter Zitat (Über) */
+  .about-cta .btn{width: min(520px, 100%);}
+
+  /* Kontakt: Buttons volle Breite */
+  #kontakt .btn{width:100%}
+
+  /* Map etwas niedriger */
+  .map-full{height:360px}
+}
+
+@media (max-width: 420px){
+  /* sehr kleine Screens: noch kompakter */
+  .nav-inner{gap:12px}
+  .brand span{display:none}
+  .hero .subline{font-size:1.02rem}
+  .hero .kicker{font-size:0.9rem}
+  .chip{font-size:0.88rem}
+  .tviewport{padding:16px}
+}
+
+/* Prevent horizontal overflow (besonders durch inline min-widths in Cards) */
+@media (max-width: 520px){
+  .book-row .small-card{min-width:0 !important;}
+  .book-row > div{min-width:0}
+  .time-row{flex-wrap:wrap}
+  .footer-links{gap:12px}
+}
+
+/* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .btn, .icon-btn{transition:none}
+      .ttrack{transition:none}
+    }
+  
+  .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;}
+  .skip-link:focus{left:18px;top:18px;width:auto;height:auto;padding:12px 14px;border-radius:14px;background:#fff;border:1px solid rgba(17,18,20,0.12);z-index:9999;box-shadow:0 18px 45px rgba(17,18,20,0.12);}
+
+
+/* ===== Training: Bild-Platzhalter (bis echte Bilder eingefügt werden) ===== */
+
+/* ✅ Trainingsbereiche: 2 oben nebeneinander, Eskrima unten breit */
+.areas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:stretch;margin-top:18px}
+.area-wide{grid-column:1 / -1}
+.card-media{aspect-ratio:16/9;display:block}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block}
+.area-wide .card-media{aspect-ratio:21/9}
+@media (max-width:980px){
+  .areas-grid{grid-template-columns:1fr}
+  .area-wide{grid-column:auto}
+  .area-wide .card-media{aspect-ratio:16/9}
+}
+
+.area-card{ text-align:center; }
+.area-card h3{ margin-bottom:12px; }
+.card-media{ width:100%; border-radius:18px; overflow:hidden; margin: 10px 0 12px; border:1px solid rgba(17,18,20,0.10); background: rgba(255,255,255,0.65); }
+.card-media.placeholder{ aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center; color: rgba(17,18,20,0.55); font-weight:900; letter-spacing:0.02em; }
+@media (max-width:980px){ .card-media.placeholder{ aspect-ratio: 21/9; } }
+
+
+/* ✅ NAV: Links nicht umbrechen (z.B. "Über Uns") + kompakter bei schmalen Desktops */
+.nav-links a{white-space:nowrap}
+@media (max-width:1180px){
+  .nav-links{gap:10px}
+  .nav-links a{padding:10px 8px}
+}
+@media (max-width:1060px){
+  .nav-links{gap:8px;font-size:0.95rem}
+  .nav-links a{padding:10px 6px}
+}
+
+
+/* ✅ Performance: Below-the-fold Rendering */
+.section{content-visibility:auto;contain-intrinsic-size: 900px;}
+@media (max-width:640px){body{overflow-x:hidden}*{max-width:100%}}
+
+
+
+
+/* ===== Rechtliches / Cookie Banner – Professional UI ===== */
+.legal-note{color:var(--muted2);font-size:.92rem;line-height:1.5}
+
+/* Map placeholder (2-click) */
+.map-placeholder{height:100%;display:grid;place-items:center;padding:24px}
+.map-box{max-width:980px;width:100%;padding:22px;border-radius:22px}
+.map-actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-start}
+
+/* Consent banner */
+.consent{position:fixed;left:0;right:0;bottom:0;z-index:999;display:none;justify-content:center;padding:14px 14px 18px}
+.consent.open{display:flex}
+.consent .panel{max-width:1180px;width:100%;padding:16px 18px;border-radius:22px}
+.consent .row{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.consent .text{flex:1 1 420px;min-width:260px}
+.consent .actions{display:flex;gap:10px;flex:0 0 auto;align-items:center;flex-wrap:wrap}
+.linkbtn{background:transparent;border:none;padding:10px 10px;font-weight:900;color:rgba(17,18,20,0.78);cursor:pointer;border-radius:12px}
+.linkbtn:hover{background:rgba(201,177,92,0.14);color:rgba(17,18,20,0.92)}
+
+/* Consent modal */
+.consent-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,0.45)}
+.consent-modal.open{display:flex}
+.consent-modal .modal{max-width:760px;width:100%}
+.consent-modal .inner{padding:18px;border-radius:26px}
+.consent-modal .grid{display:grid;gap:12px;margin-top:14px}
+.consent-modal .opt{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 14px;border-radius:18px;border:1px solid rgba(17,18,20,0.10);background:rgba(255,255,255,0.72)}
+.consent-modal .label{font-weight:900}
+.consent-modal .desc{color:var(--muted);font-weight:600;margin-top:4px;max-width:520px}
+
+/* Switch-style checkboxes */
+.consent-modal input[type="checkbox"]{appearance:none;width:46px;height:28px;border-radius:999px;position:relative;outline:none;cursor:pointer;background:rgba(17,18,20,0.14);border:1px solid rgba(17,18,20,0.18);transition:background .2s ease,border-color .2s ease}
+.consent-modal input[type="checkbox"]::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:white;box-shadow:0 8px 18px rgba(17,18,20,0.18);transition:transform .2s ease}
+.consent-modal input[type="checkbox"]:checked{background:rgba(201,177,92,0.75);border-color:rgba(201,177,92,0.55)}
+.consent-modal input[type="checkbox"]:checked::after{transform:translateX(18px)}
+
+@media (max-width:640px){
+  .consent .panel{padding:14px 14px;border-radius:20px}
+  .consent .actions .btn{width:100%}
+  .consent-modal .inner{padding:16px}
+}
+
+  /* Legal pages layout */
+  body{background: radial-gradient(900px 500px at 18% -10%, rgba(201,177,92,0.10), transparent 60%), var(--bg);}
+  .legal-shell{padding: calc(var(--nav-h) + 44px) 0 80px;}
+  .legal-header{margin-bottom:18px}
+  .legal-header h1{font-size: clamp(2rem, 3vw, 2.6rem);}
+  .legal-card{padding:24px;border-radius:var(--radius);}
+  .legal-card h2{margin-top:0}
+  .legal-card h3{margin-top:18px}
+  .legal-list{display:grid;gap:10px;margin-top:12px}
+  .legal-item{padding:14px;border-radius:18px;border:1px solid rgba(17,18,20,0.10);background:rgba(255,255,255,0.70)}
+  .legal-item strong{display:block;margin-bottom:4px}
+  .topbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.78);backdrop-filter: blur(16px) saturate(1.2);border-bottom:1px solid rgba(17,18,20,0.08)}
+  .topbar .inner{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .topbar a{font-weight:900}
+  .topbar .links{display:flex;gap:12px;flex-wrap:wrap;color:rgba(17,18,20,0.70)}
+  .topbar .links a{padding:10px 10px;border-radius:12px}
+  .topbar .links a:hover{background:rgba(201,177,92,0.12);color:rgba(17,18,20,0.92)}
+  footer{margin-top:0}
+  </style>
+</head>
+<body>
+  <div class="topbar" role="banner">
+    <div class="container">
+      <div class="inner">
+        <a href="index.html" aria-label="Zur Startseite" class="brand" style="gap:10px;">
+          <img src="/assets/Logo.png" width="40" height="40" alt="Selbstverteidigung-WT Logo" loading="eager" decoding="async" style="border-radius:12px;" />
+          <span>Selbstverteidigung‑WT</span>
+        </a>
+        <nav class="links" aria-label="Rechtliches Navigation">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="index.html#kontakt">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <main class="legal-shell">
+    <div class="container">
+      
+<div class="legal-header">
+  <p class="kicker">Datenschutz</p>
+  <h1>Datenschutzerklärung</h1>
+  <p class="muted">Diese Datenschutzerklärung informiert über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten auf dieser Website.</p>
+</div>
+
+<section class="card glass-strong featured legal-card">
+  <h2>1. Verantwortlicher</h2>
+  <p class="muted"><strong>Erkan Parlak</strong><br/>
+  Berg-am-Laim-Straße 47, 81673 München<br/>
+  E‑Mail: <a href="mailto:info@selbstverteidigung-wt.de">info@selbstverteidigung-wt.de</a></p>
+
+  <h2>2. Hosting, Auslieferung & Sicherheit</h2>
+  <p class="muted">Zur Auslieferung und Absicherung der Website können Dienste wie CDN/DNS/Sicherheitsfunktionen eingesetzt werden (z. B. Cloudflare). Dabei werden technisch notwendige Daten (z. B. IP‑Adresse, Zeitstempel, angeforderte Ressourcen, Browserdaten) verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse: sichere und effiziente Bereitstellung der Website).</p>
+
+  <h2>3. Server‑Logfiles</h2>
+  <p class="muted">Beim Aufruf der Website können automatisch Informationen in sogenannten Server‑Logfiles gespeichert werden (z. B. IP‑Adresse, Datum/Uhrzeit, Referrer‑URL, User‑Agent). Die Verarbeitung erfolgt zur Sicherstellung des Betriebs und zur Missbrauchs-/Fehleranalyse. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+  <h2>4. Kontaktaufnahme (E‑Mail / Telefon / WhatsApp)</h2>
+  <p class="muted">Wenn du uns kontaktierst, verarbeiten wir die von dir übermittelten Daten (z. B. Name, Kontaktdaten, Nachricht), um deine Anfrage zu bearbeiten. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche/vertragliche Kommunikation) und/oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effizienter Kommunikation).</p>
+
+  <h2>5. Terminbuchung (Calendly)</h2>
+  <p class="muted">Für Terminvereinbarungen nutzen wir Calendly (Calendly LLC). Dabei werden insbesondere Name, E‑Mail‑Adresse und Termindaten verarbeitet. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Weitere Informationen findest du in den Datenschutzhinweisen des Anbieters.</p>
+
+  <h2>6. Cookies & Einwilligungsverwaltung</h2>
+  <p class="muted">Wir verwenden notwendige Cookies/Local‑Storage‑Einträge, um grundlegende Funktionen bereitzustellen (z. B. Speicherung deiner Cookie‑Auswahl). Statistik‑Cookies (z. B. Google Analytics) und externe Inhalte (z. B. Google Maps) werden erst nach deiner Einwilligung geladen. Rechtsgrundlage für das Setzen nicht notwendiger Cookies: Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 TTDSG.</p>
+  <div class="small-card" style="margin-top:12px">
+    <strong>So änderst du deine Auswahl</strong>
+    <p class="muted" style="margin-top:8px">Du kannst deine Auswahl jederzeit über den Link „Cookie‑Einstellungen“ im Footer der Startseite ändern.</p>
+  </div>
+
+  <h2>7. Statistik (Google Analytics) / Tag‑Management</h2>
+  <p class="muted">Falls Google Analytics bzw. Google Tag Manager eingesetzt wird, erfolgt die Aktivierung ausschließlich nach Einwilligung im Cookie‑Banner. Ohne Einwilligung wird kein Tracking geladen. Bei Aktivierung können Daten in Drittländer (z. B. USA) übermittelt werden. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 TTDSG.</p>
+
+  <h2>8. Externe Inhalte (z. B. Google Maps)</h2>
+  <p class="muted">Externe Inhalte (insb. Google Maps) werden auf der Startseite erst nach aktivem Klick und nur bei Einwilligung in „Externe Inhalte“ geladen (2‑Klick‑Lösung). Beim Laden können personenbezogene Daten (z. B. IP‑Adresse) an den Drittanbieter übertragen werden.</p>
+
+  <h2>9. Social‑Media‑Links</h2>
+  <p class="muted">Die Website verlinkt auf externe Profile (z. B. YouTube, Instagram, TikTok). Beim Anklicken gelten die Datenschutzbestimmungen der jeweiligen Anbieter.</p>
+
+  <h2>10. Deine Rechte</h2>
+  <p class="muted">Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch. Erteilte Einwilligungen kannst du jederzeit mit Wirkung für die Zukunft widerrufen.</p>
+
+  <h2>11. Beschwerderecht</h2>
+  <p class="muted">Du hast das Recht, dich bei einer Datenschutz‑Aufsichtsbehörde zu beschweren, wenn du der Ansicht bist, dass die Verarbeitung deiner personenbezogenen Daten gegen die DSGVO verstößt.</p>
+
+  <p class="legal-note" style="margin-top:14px">Stand: 06.03.2026</p>
+</section>
+
+    </div>
+  </main>
+  <div aria-hidden="true" class="gold-footer-bar"></div>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong style="font-weight:900;color:rgba(17,18,20,0.92)">Selbstverteidigung‑WT</strong><br/>
+          <span class="muted">Erkan Parlak • Berg‑am‑Laim‑Str. 47 • 81673 München</span><br/>
+          <span class="muted"><a href="mailto:info@selbstverteidigung-wt.de">info@selbstverteidigung-wt.de</a> • <a href="tel:+491627777442">+49 162 7777442</a></span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Startseite</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+      <p class="muted2" style="margin-top:16px;font-size:.95rem">© <span id="year"></span> Selbstverteidigung‑WT. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
