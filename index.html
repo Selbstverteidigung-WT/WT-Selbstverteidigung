@@ -1196,6 +1196,119 @@
 #warum .why-card{display:flex; flex-direction:column; height:100%;}
 #warum .why-text{margin:0; font-weight:400; line-height:1.65; display:block !important;}
 #warum .feature-title{margin-bottom:10px;}
+
+
+
+
+/* =============================
+   ✅ PATCH (07.03.2026) – FIX v3 (Nav always readable + Checkbox line-break)
+   - Desktop NAV: 2-row layout so every point is visible (no overlap)
+   - Links row centered
+   - Brand/CTA row spaced equally
+   ============================= */
+
+@media (min-width: 981px){
+  /* NAV container becomes 2 rows */
+  .nav-inner{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand cta"
+      "links links";
+    align-items: center;
+    row-gap: 10px;
+    column-gap: 18px;
+    height: auto;             /* allow second row */
+    padding: 10px 0;
+  }
+
+  .nav-inner .brand{
+    grid-area: brand;
+    justify-self: start;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .nav-inner .nav-cta{
+    grid-area: cta;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  /* Links are on their own row and centered */
+  .nav-inner .nav-links{
+    grid-area: links;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;          /* if still tight, wrap nicely (NOT overlap) */
+    margin-left: 0 !important;
+    padding: 2px 0;
+  }
+
+  .nav-links a{ white-space: nowrap; }
+}
+
+/* Slightly tighter spacing on smaller desktops so wrapping looks clean */
+@media (min-width: 981px) and (max-width: 1160px){
+  .nav-inner .nav-links{ gap: 10px; }
+  .nav-links a{ padding: 9px 8px; font-size: 0.96rem; }
+}
+
+/* ✅ EN button stays white */
+.nav-cta .lang-switch{
+  background: rgba(255,255,255,0.90) !important;
+  border-color: rgba(17,18,20,0.14) !important;
+  color: rgba(17,18,20,0.86) !important;
+}
+.nav-cta .lang-switch:hover{
+  background: rgba(255,255,255,0.98) !important;
+  border-color: rgba(17,18,20,0.18) !important;
+}
+
+/* ✅ Consent box: as small as possible + checkbox hard-left */
+.form-bottom{
+  grid-template-columns: auto auto !important;
+  justify-content: space-between;
+  align-items: end;
+}
+.consent-box{
+  width: fit-content;
+  max-width: none;
+  display: inline-flex;
+  justify-self: start;
+  padding: 10px 12px;
+}
+.consent-box input[type="checkbox"]{
+  margin-left: 0;
+}
+/* Make the second line (siehe Datenschutz) slightly smaller and lighter */
+.consent-box span br + *{ font-weight: 700; opacity: 0.9; }
+
+
+/* ✅ FIX (07.03.2026) – Consent box position like your red mark */
+#kontaktformular .form-bottom{
+  width: 100%;
+  grid-template-columns: 1fr auto !important;   /* left: consent, right: button */
+  justify-content: stretch !important;
+}
+#kontaktformular .consent-box{
+  justify-self: start !important;              /* hard-left in the form */
+  align-self: start !important;
+  width: fit-content !important;               /* as small as possible */
+  margin: 0 !important;
+  justify-content: flex-start !important;      /* content starts left */
+  text-align: left !important;
+}
+#kontaktformular .consent-box input[type="checkbox"]{
+  margin: 2px 0 0 0 !important;                /* top-left */
+}
+
 </style>
 <!-- LocalBusiness / SportsActivityLocation Schema -->
 <script type="application/ld+json">{
@@ -1359,7 +1472,7 @@
 <a href="#kontaktformular">Kontaktformular</a>
 </div>
 <div class="nav-cta">
-<a aria-label="Switch language to English" class="btn btn-secondary" href="/en/" style="min-height:44px;padding:12px 14px;">EN</a>
+<a aria-label="Switch language to English" class="btn btn-secondary lang-switch" href="/en/" style="min-height:44px;padding:12px 14px;">EN</a>
 <a class="btn btn-primary" href="#probetraining">Probetraining vereinbaren</a>
 <a aria-label="Telefon anrufen" class="icon-btn" href="tel:+491627777442">
 <svg aria-hidden="true" fill="none" height="20" viewbox="0 0 24 24" width="20">
@@ -1392,7 +1505,7 @@
 <button aria-label="Menü schließen" class="close" id="closeMenu">✕</button>
 </header>
 <nav class="mobile-links">
-<a class="btn btn-secondary" data-close="" href="/en/" style="justify-content:center;">English</a>
+<a class="btn btn-secondary lang-switch" data-close="" href="/en/" style="justify-content:center;">English</a>
 <a data-close="" href="#start">Start</a>
 <div class="mobile-subhead">Training</div>
 <a data-close="" href="selbstverteidigung.html">Selbstverteidigung</a>
@@ -1486,28 +1599,24 @@
 <div class="feature-title">
 <span class="badge">✓</span><h3 style="margin:0">Mehr Selbstbewusstsein im Alltag</h3>
 </div>
-
 <p class="muted why-text">Klar auftreten. Grenzen setzen. Präsenz zeigen. Du entwickelst mehr Selbstvertrauen und fühlst dich im Alltag sicherer – beruflich, privat und in unerwarteten Situationen.</p>
 </div>
 <div class="card glass why-card">
 <div class="feature-title">
 <span class="badge">⚡</span><h3 style="margin:0">Mehr körperliche Stärke &amp; Kontrolle</h3>
 </div>
-
 <p class="muted why-text">Mehr Stabilität, bessere Reaktion und saubere Bewegungsabläufe. Du entwickelst Kontrolle über deinen Körper – strukturiert und ohne Überforderung.</p>
 </div>
 <div class="card glass why-card">
 <div class="feature-title">
 <span class="badge">🧠</span><h3 style="margin:0">Mehr mentale Stärke</h3>
 </div>
-
 <p class="muted why-text">Ruhe bewahren unter Druck. Klare Entscheidungen treffen. Du stärkst Fokus, Selbstvertrauen und mentale Widerstandskraft.</p>
 </div>
 <div class="card glass why-card">
 <div class="feature-title">
 <span class="badge">🛡</span><h3 style="margin:0">Mehr Sicherheit in realen Situationen</h3>
 </div>
-
 <p class="muted why-text">Alltagssituationen verständlich trainiert: Distanz, Nahbereich und Kontrolle. Praxisnah aufgebaut, damit du dich sicherer fühlst und klar handeln kannst.</p>
 </div>
 </div>
@@ -1535,7 +1644,7 @@
 <p class="care-text" style="margin-top:10px">
 Egal ob du komplett neu bist oder wieder einsteigen möchtest:<br/>
 Wir bauen dich auf, damit du dich sicher und selbstbewusst fühlst.<br/>
-Durch meine langjährige Ausbildung bei Großmeister Dai-Sifu Reimers verfüge ich über umfassende praktische Erfahrung und tiefgehendes Fachwissen.<br/>
+Durch meine langjährige Ausbildung bei Großmeister Dai-Sifu Reimers verfüge ich über praktische Erfahrung und tiefgehendes Fachwissen.<br/>
 Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 </p>
 <div class="divider-line"></div>
@@ -1905,24 +2014,22 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 <div class="form-grid">
 <div class="field">
 <label for="cfName">Name</label>
-<input autocomplete="name" id="cfName" name="name" placeholder="Dein Name" required="" type="text"/>
+<input autocomplete="name" id="cfName" name="name" required="" type="text"/>
 </div>
 <div class="field">
 <label for="cfEmail">E‑Mail</label>
-<input autocomplete="email" id="cfEmail" name="email" placeholder="dein.name@mail.de" required="" type="email"/>
+<input autocomplete="email" id="cfEmail" name="email" required="" type="email"/>
 </div>
 <div class="field">
 <label for="cfPhone">Telefon (optional)</label>
-<input autocomplete="tel" id="cfPhone" name="phone" placeholder="+49 …" type="tel"/>
+<input autocomplete="tel" id="cfPhone" name="phone" type="tel"/>
 </div>
 <div class="field field-wide">
 <label for="cfMsg">Nachricht</label>
-<textarea id="cfMsg" name="message" placeholder="Worum geht’s? (z. B. Probetraining, Fragen, Zeiten…)" required="" rows="6"></textarea>
+<textarea id="cfMsg" name="message" required="" rows="6"></textarea>
 </div>
-
 </div>
-
-<div class="form-bottom"><label class="check consent-box"><input id="cfConsent" required="" type="checkbox"/><span>Ich stimme zu, dass meine Angaben zur Kontaktaufnahme verarbeitet werden. (siehe <a href="datenschutz.html" style="text-decoration:underline">Datenschutz</a>)</span></label><button class="btn btn-primary" type="submit">Senden</button></div><p class="legal-note" id="formNote" style="margin-top:12px">Hinweis: Beim Absenden öffnet sich dein E‑Mail‑Programm mit der vorbereiteten Nachricht.</p>
+<div class="form-bottom"><label class="check consent-box"><input id="cfConsent" required="" type="checkbox"/><span>Ich stimme zu, dass meine Angaben zur Kontaktaufnahme verarbeitet werden.<br/> (siehe <a href="datenschutz.html" style="text-decoration:underline">Datenschutz</a>)</span></label><button class="btn btn-primary send-btn" type="submit">Senden</button></div><p class="legal-note" id="formNote" style="margin-top:12px">Hinweis: Beim Absenden öffnet sich dein E‑Mail‑Programm mit der vorbereiteten Nachricht.</p>
 </form>
 </div>
 <div class="card glass">
