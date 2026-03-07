@@ -1111,6 +1111,102 @@
   border-color: rgba(201,177,92,0.55);
 }
 
+
+/* ✅ Badge auf Trainings-Bild (oben links) */
+.name-badge{
+  position:absolute;
+  top:18px;
+  left:18px;
+  padding:10px 12px;
+  border-radius:16px;
+  background: rgba(255,255,255,0.78);
+  border:1px solid rgba(17,18,20,0.10);
+  box-shadow:0 12px 26px rgba(17,18,20,0.10);
+  backdrop-filter: blur(14px) saturate(1.15);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  text-align:left;
+  line-height:1.1;
+}
+.name-badge-title{
+  font-weight:900;
+  color: rgba(17,18,20,0.92);
+  letter-spacing:-0.01em;
+  font-size:0.95rem;
+}
+.name-badge-sub{
+  margin-top:6px;
+  font-weight:800;
+  color: rgba(17,18,20,0.68);
+  font-size:0.82rem;
+}
+@media (max-width:980px){
+  .name-badge{top:12px;left:12px;border-radius:14px;}
+}
+
+
+/* ✅ Gelber Foto-Background wie Referenz (Trainings-Seite) */
+.yellow-media{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:34px;
+  background:
+    radial-gradient(900px 520px at 20% 20%, rgba(255,255,255,0.35), transparent 60%),
+    radial-gradient(700px 420px at 80% 10%, rgba(255,255,255,0.22), transparent 62%),
+    linear-gradient(135deg, rgba(226,198,107,0.90), rgba(201,177,92,0.92));
+}
+.yellow-media::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.10) 0px, rgba(255,255,255,0.10) 14px, rgba(255,255,255,0.00) 14px, rgba(255,255,255,0.00) 34px);
+  opacity:0.35;
+  pointer-events:none;
+}
+.yellow-media img{
+  position:relative;
+  z-index:1;
+  width:min(520px, 100%);
+  height:auto;
+  border-radius:26px;
+  box-shadow: 0 26px 70px rgba(17,18,20,0.28);
+}
+
+/* ✅ Badge (oben links) – pill/glas, wie im Screenshot */
+.name-badge{
+  position:absolute;
+  top:18px;
+  left:18px;
+  z-index:2;
+  padding:10px 14px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.78);
+  border:1px solid rgba(17,18,20,0.10);
+  box-shadow: 0 12px 26px rgba(17,18,20,0.14);
+  backdrop-filter: blur(14px) saturate(1.15);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+}
+.name-badge-title{
+  font-weight:900;
+  color: rgba(17,18,20,0.92);
+  letter-spacing:-0.01em;
+  font-size:0.95rem;
+  line-height:1.05;
+}
+.name-badge-sub{
+  margin-top:4px;
+  font-weight:900;
+  color: rgba(17,18,20,0.62);
+  font-size:0.80rem;
+  line-height:1.05;
+}
+@media (max-width:980px){
+  .yellow-media{padding:22px;}
+  .name-badge{top:12px;left:12px; padding:9px 12px;}
+  .yellow-media img{border-radius:22px;}
+}
+
 </style>
 </head>
 <body id="top">
@@ -1193,12 +1289,20 @@
     <div class="container">
       <div class="card glass-strong featured care-card care-split">
         <div class="care-layout training-layout">
-          <div class="care-media" aria-label="Bild Wing Tsung">
-            <img src="/assets/WTB.png" alt="Wing Tsung München – Trainingsbereich" loading="lazy" decoding="async" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';"/>
+          <div class="care-media yellow-media" aria-label="Bild Wing Tsung">
+            
+ <div class="name-badge" aria-label="Dai-Sifu Reimers Großmeister"><div class="name-badge-title">Dai-Sifu<br>Reimers</div><div class="name-badge-sub">Großmeister</div></div>
+<img src="/assets/Dai_Sifu.jpg" alt="Wing Tsung München – Trainingsbereich" loading="lazy" decoding="async" onerror="this.remove();this.parentElement.classList.add('placeholder');this.parentElement.textContent='Bild folgt';"/>
           </div>
           <div class="care-body">
             <h1>Wing Tsung</h1>
-            <p class="care-text">Hier kannst du später deinen Text einfügen und jederzeit ändern.</p>
+            <p class="care-text">Wing Tsung ist die von Großmeister Dai-Sifu Reimers weiterentwickelte Form des vor ca. 300 Jahren in China entstandenen Wing Chun Kung Fu. Es ist auf maximal effektive Selbstverteidigung ausgelegt.</p>
+
+<p class="care-text">Unter strenger Wahrung der traditionellen Formen, Mottos und Prinzipien dieser faszinierenden Kampfkunst ist Wing Tsung darauf ausgerichtet, sich gegen jede Form von Angriffen im Alltag zu verteidigen: Distanzkampf, Nahkampf, Bodenkampf, bewaffnete Gegner, unbewaffnete Gegner, „Straßenschläger“ oder Kampfsportler (Judo, Jiu-Jitsu, Muay Thay, Boxing, Karate, etc.).</p>
+
+<p class="care-text">Aufgrund seiner gnadenlosen Effektivität wird Wing Tsung auch bei Spezialeinheiten wie dem FBI, KSK oder Spetsnaz trainiert. Daher bildet es auch die Grundlage für faszinierende Kampfszenen in Hollywood-Produktionen wie Taken, Bourne Identity oder Ip Man.</p>
+
+<p class="care-text">Doch Wing Tsung ist mehr als nur Selbstverteidigung. Wing Tsung ist das Verinnerlichen der wichtigsten Lehren dreier jahrtausendealter Philosophien (Konfuzianismus, Buddhismus, Taoismus). Daher vermittelt es v.a. auch innere Stärke und Ausgeglichenheit im beruflichen und privaten Alltag.</p>
             <div class="about-cta" style="justify-content:flex-start">
               <a class="btn btn-soft-gold" href="index.html#selbstverteidigung">Zurück zu den Trainingsbereichen</a>
               <a class="btn btn-primary" href="index.html#probetraining">Probetraining vereinbaren</a>
