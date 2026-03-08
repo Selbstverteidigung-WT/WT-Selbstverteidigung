@@ -22,6 +22,16 @@
 <meta content="Professionelle Selbstverteidigung | Wing Tsun, Boxen &amp; Eskrima" name="twitter:title"/>
 <meta content="High-Level Selbstschutz: Wing Tsun, Wing Chun &amp; Boxen. Effektive Filipino Martial Arts (Eskrima) mit Waffen. Training auf höchstem Niveau." name="twitter:description"/>
 <meta content="https://selbstverteidigung-wt.de/assets/cover.jpg" name="twitter:image"/>
+    <!-- Extra SEO / Social metadata (non-visual) -->
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:image:type" content="image/jpeg"/>
+    <meta name="twitter:image:alt" content="Wing Tsun Selbstverteidigung & Eskrima in München Ost"/>
+    <meta name="geo.region" content="DE-BY"/>
+    <meta name="geo.placename" content="München"/>
+    <meta name="referrer" content="no-referrer-when-downgrade"/>
+    <meta name="format-detection" content="telephone=yes"/>
+
 <!-- Performance hints (LCP/3rd-party) -->
 <link as="image" fetchpriority="high" href="/assets/coveri.png" rel="preload"/>
 <link as="image" href="/assets/Logo.png" rel="preload"/>
@@ -1309,6 +1319,91 @@
   margin: 2px 0 0 0 !important;                /* top-left */
 }
 
+
+/* ===== PATCH (08.03.2026) – Requested fixes (no visual redesign) ===== */
+/* Kontakt: kleiner Abstand zwischen E-Mail Box und Probetraining Button */
+#kontakt .area-actions{ margin-top: 12px; }
+
+/* Kontaktformular: Checkbox links, Text beginnt direkt rechts daneben */
+#kontaktformular .consent-box{ display:flex !important; flex-direction:row !important; align-items:flex-start !important; gap:10px !important; }
+#kontaktformular .consent-box input[type="checkbox"]{ align-self:flex-start !important; margin: 3px 0 0 0 !important; }
+#kontaktformular .consent-box span{ display:block; line-height:1.4; }
+
+/* Footer: Alliance Logo mittig unter Impressum/Datenschutz */
+.footer-logo{ margin-top: 18px; display:flex; justify-content:center; align-items:center; }
+.footer-logo img{ max-width: 240px; width: min(240px, 72%); height:auto; }
+
+
+/* ===== PATCH (08.03.2026) – FIX: Footer Alliance + Consent Checkbox ===== */
+.footer-alliance{margin-top:14px; display:flex; justify-content:flex-end;}
+.footer-alliance img{max-width:220px; width:min(220px,70%); height:auto; opacity:0.95;}
+@media (max-width:900px){
+  .footer-alliance{justify-content:flex-start;}
+}
+
+/* Kontaktformular: Checkbox links, Text direkt daneben (schön & sauber) */
+#kontaktformular .form-bottom{grid-template-columns: 1fr auto !important; align-items:end;}
+#kontaktformular .consent-box{
+  width:100% !important;
+  max-width: 680px;
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:flex-start !important;
+  gap:12px !important;
+  justify-content:flex-start !important;
+}
+#kontaktformular .consent-box span{flex:1 1 auto; display:block; line-height:1.45;}
+
+@media (max-width:760px){
+  #kontaktformular .form-bottom{grid-template-columns:1fr !important; align-items:stretch;}
+  #kontaktformular .form-bottom .btn{width:100%;}
+  #kontaktformular .consent-box{max-width:none;}
+}
+
+
+/* ===== PATCH (08.03.2026) – FINAL: Consent checkbox + footer logo ===== */
+/* Footer: Alliance logo direkt unter den Footer-Links */
+.footer-alliance{margin-top:14px; display:flex; justify-content:flex-end;}
+.footer-alliance img{max-width:220px; width:min(220px,70%); height:auto; opacity:0.98;}
+@media (max-width:900px){ .footer-alliance{justify-content:flex-start;} }
+
+/* Kontaktformular: Checkbox + Text sauber in einer Zeile */
+#kontaktformular .consent-box{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important; /* ✅ Häkchen mittig im gelben Container */
+  gap:12px !important;
+}
+#kontaktformular .consent-box span{line-height:1.45;}
+
+/* Custom Checkbox: weißer Hintergrund + schwarzer Haken */
+#kontaktformular .consent-box input[type="checkbox"]{
+  -webkit-appearance:none; appearance:none;
+  width:18px; height:18px;
+  border-radius:5px;
+  border:1.5px solid rgba(17,18,20,0.28);
+  background:#fff; /* ✅ weiß */
+  margin:0 !important;
+  flex:0 0 auto;
+  position:relative;
+  cursor:pointer;
+  box-shadow: 0 6px 14px rgba(17,18,20,0.06);
+}
+#kontaktformular .consent-box input[type="checkbox"]:focus{
+  outline:none;
+  box-shadow: 0 0 0 4px rgba(201,177,92,0.22), 0 6px 14px rgba(17,18,20,0.06);
+  border-color: rgba(201,177,92,0.65);
+}
+#kontaktformular .consent-box input[type="checkbox"]:checked::after{
+  content:"";
+  position:absolute;
+  left:5px; top:2px;
+  width:5px; height:9px;
+  border:2px solid #111214; /* ✅ schwarz */
+  border-top:0; border-left:0;
+  transform: rotate(45deg);
+}
+
 </style>
 <!-- LocalBusiness / SportsActivityLocation Schema -->
 <script type="application/ld+json">{
@@ -1323,6 +1418,8 @@
       "name": "Selbstverteidigung-WT – Wing Tsung & Eskrima (Erkan Parlak)",
       "url": "https://selbstverteidigung-wt.de/",
       "image": "https://selbstverteidigung-wt.de/assets/cover.jpg",
+    "logo": "https://selbstverteidigung-wt.de/assets/Logo.png",
+    "priceRange": "€€",
       "description": "High-Level Selbstschutz: Wing Tsun, Wing Chun & Boxen. Effektive Filipino Martial Arts (Eskrima) mit Waffen. Training auf höchstem Niveau.",
       "telephone": "+49 162 7777442",
       "email": "info@selbstverteidigung-wt.de",
@@ -1731,6 +1828,7 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 <strong>Was dich erwartet</strong>
 <p class="muted" style="margin-top:0">Ruhiger Einstieg, klare Basics, sichere Übungen. Du gehst mit einem guten Gefühl und selbstbewusst raus.</p>
 <div class="chipbox">✔ Bis zu 3x freies Probetraining</div>
+                <div class="chipbox">✔ Perfekt zum Ausprobieren – ganz ohne Vorkenntnisse</div>
 </div>
 </div>
 </div>
@@ -2029,7 +2127,7 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 <textarea id="cfMsg" name="message" required="" rows="6"></textarea>
 </div>
 </div>
-<div class="form-bottom"><label class="check consent-box"><input id="cfConsent" required="" type="checkbox"/><span>Ich stimme zu, dass meine Angaben zur Kontaktaufnahme verarbeitet werden.<br/> (siehe <a href="datenschutz.html" style="text-decoration:underline">Datenschutz</a>)</span></label><button class="btn btn-primary send-btn" type="submit">Senden</button></div><p class="legal-note" id="formNote" style="margin-top:12px">Hinweis: Beim Absenden öffnet sich dein E‑Mail‑Programm mit der vorbereiteten Nachricht.</p>
+<div class="form-bottom"><label class="check consent-box"><input id="cfConsent" required="" type="checkbox"/><span>Ich stimme zu, dass meine Angaben zur Kontaktaufnahme verarbeitet werden. (siehe <a href="datenschutz.html" style="text-decoration:underline">Datenschutz</a>)</span></label><button class="btn btn-primary send-btn" type="submit">Senden</button></div><p class="legal-note" id="formNote" style="margin-top:12px">Hinweis: Beim Absenden öffnet sich dein E‑Mail‑Programm mit der vorbereiteten Nachricht.</p>
 </form>
 </div>
 <div class="card glass">
@@ -2093,6 +2191,9 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 <a href="#kontakt">Kontakt</a>
 <a href="impressum.html">Impressum</a>
 <a href="datenschutz.html">Datenschutz</a>
+</div>
+<div class="footer-alliance">
+  <img src="assets/Alliance.png" alt="Alliance Logo" loading="lazy" decoding="async"/>
 </div>
 </div>
 <p class="muted2" style="margin-top:16px;font-size:.95rem">
