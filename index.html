@@ -1437,10 +1437,49 @@
   .qr-contact-row .qr-card .qr-copy{order:1 !important;}
   .qr-contact-row .qr-card img{order:2 !important; width:140px !important; height:140px !important; margin-top:10px !important;}
 }
+
+/* ===== PATCH (09.03.2026) – Mobile 1:1 Layout (Bild oben + Badge links + Text darunter) ===== */
 @media (max-width: 640px){
-  /* Über Uns: Bild wirkt auf Handy nicht "verbuggt" (saubere Proportionen, Bild oben, Text unten) */
-  #ueber .care-media{height:auto !important; aspect-ratio:4/5 !important;}
-  #ueber .care-media img{width:100% !important; height:100% !important; object-position:center 18% !important;}
+  /* Über Uns: wie Screenshot – Bild oben als klare Box */
+  #ueber .care-layout{grid-template-columns:1fr !important;}
+  #ueber .care-media{
+    height:auto !important;
+    aspect-ratio:1/1 !important; /* quadratischer Look */
+    min-height:260px;
+    max-height:420px;
+    overflow:hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  #ueber .care-media img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center 22% !important;
+  }
+
+  /* Badge oben links – dark/glass */
+  #ueber .media-badge{
+    top:14px !important;
+    left:14px !important;
+    padding:10px 12px !important;
+    border-radius:16px !important;
+    background: rgba(0,0,0,0.55) !important;
+    border: 1px solid rgba(255,255,255,0.18) !important;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35) !important;
+    backdrop-filter: blur(10px) saturate(1.1);
+    -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  }
+  #ueber .media-badge strong{
+    color: rgba(255,255,255,0.92) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.01em;
+  }
+
+  /* Text darunter: mittig */
+  #ueber .care-body{padding:22px 18px 24px !important; text-align:center !important;}
+  #ueber .care-text{margin-left:auto !important; margin-right:auto !important;}
+  #ueber blockquote.about-quote{text-align:center !important;}
+  #ueber .about-cta .btn{width: min(520px, 100%) !important;}
 }
 
 </style>
