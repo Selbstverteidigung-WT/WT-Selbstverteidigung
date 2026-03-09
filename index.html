@@ -1404,6 +1404,32 @@
   transform: rotate(45deg);
 }
 
+
+
+/* ===== PATCH (09.03.2026) – Mobile fixes requested ===== */
+@media (max-width: 640px){
+  /* Hero: Text wirklich mittig + Panel volle Breite */
+  .hero-content{padding:0 12px !important;}
+  .hero-panel{display:block !important; width:100% !important; max-width:560px; margin:0 auto !important; text-align:center !important;}
+  .hero-panel .kicker, .hero-panel h1, .hero-panel .subline, .hero-panel p{ text-align:center !important; }
+
+  /* Über uns: Bild oben sauber (kein "komisch"es Cropping) */
+  .care-media{height:auto !important; aspect-ratio: 4 / 3; }
+  .care-media img{height:100% !important; width:100% !important; object-fit:cover !important; object-position:center 20% !important;}
+  .media-badge{top:12px !important; left:12px !important;}
+
+  /* QR + Kontakt: nichts überlappt, sauber untereinander */
+  .qr-contact-row{flex-direction:column !important; align-items:stretch !important;}
+  .qr-contact-row .small-card{min-width:0 !important; width:100% !important;}
+  .qr-card{gap:12px !important;}
+  .qr-card img{width:88px !important; height:88px !important;}
+  .qr-card strong{display:block;}
+}
+
+@media (max-width: 420px){
+  /* Sehr kleine Displays: QR-Karte stapelt Inhalt (QR oben, Text unten) */
+  .qr-card{flex-direction:column !important; align-items:flex-start !important;}
+}
 </style>
 <!-- LocalBusiness / SportsActivityLocation Schema -->
 <script type="application/ld+json">{
@@ -1807,15 +1833,15 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 <div>
 <a class="btn btn-primary" href="https://calendly.com/selbstverteidigung-wt-info/30min?month=2026-03" rel="noopener" style="width:100%;" target="_blank">Probetraining</a>
 <a class="btn btn-secondary" href="#kontaktformular" style="width:100%;margin-top:12px">Zum Kontaktformular</a>
-<div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
-<div class="small-card" style="display:flex;align-items:center;gap:12px;flex:1;min-width:240px">
+<div class="qr-contact-row" style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
+<div class="small-card qr-card" style="display:flex;align-items:center;gap:12px;flex:1;min-width:240px">
 <img alt="QR-Code zur Terminbuchung Probetraining" height="92" loading="lazy" src="/assets/qr-calendly.png" width="92"/>
 <div>
 <strong>QR‑Code</strong><br/>
 <span class="muted2">Scannen &amp; direkt buchen</span>
 </div>
 </div>
-<div class="small-card" style="flex:1;min-width:240px">
+<div class="small-card contact-mini" style="flex:1;min-width:240px">
 <strong>Kontakt</strong><br/>
 <span class="muted">
 <a href="tel:+491627777442">+49 162 7777442</a><br/>
