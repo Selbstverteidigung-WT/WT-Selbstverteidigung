@@ -1427,12 +1427,10 @@
 }
 
 
-/* ===== PATCH (09.03.2026) – Mobile Fix: QR/Contact stacking + Über-Uns Bild sauber ===== */
+/* ===== PATCH (09.03.2026) – Mobile Fix: QR/Contact stacking (kein Überlappen) ===== */
 @media (max-width: 640px){
-  /* Probetraining: QR + Kontakt untereinander (kein Überlappen) */
   .qr-contact-row{display:grid !important; grid-template-columns:1fr !important; gap:12px !important;}
   .qr-contact-row .small-card{min-width:0 !important; width:100% !important;}
-  /* QR Card: Text oben, QR darunter */
   .qr-contact-row .qr-card{flex-direction:column !important; align-items:center !important; text-align:center !important;}
   .qr-contact-row .qr-card .qr-copy{order:1 !important;}
   .qr-contact-row .qr-card img{order:2 !important; width:140px !important; height:140px !important; margin-top:10px !important;}
@@ -1440,11 +1438,10 @@
 
 /* ===== PATCH (09.03.2026) – Mobile 1:1 Layout (Bild oben + Badge links + Text darunter) ===== */
 @media (max-width: 640px){
-  /* Über Uns: wie Screenshot – Bild oben als klare Box */
   #ueber .care-layout{grid-template-columns:1fr !important;}
   #ueber .care-media{
     height:auto !important;
-    aspect-ratio:1/1 !important; /* quadratischer Look */
+    aspect-ratio:1/1 !important;
     min-height:260px;
     max-height:420px;
     overflow:hidden;
@@ -1454,14 +1451,14 @@
     width:100% !important;
     height:100% !important;
     object-fit:cover !important;
-    object-position:center 22% !important;
+    object-position:center 35% !important; /* Fokus etwas tiefer, damit oben links frei bleibt */
   }
 
-  /* Badge oben links – dark/glass */
+  /* Badge oben links – kompakter, bleibt oben links */
   #ueber .media-badge{
-    top:14px !important;
-    left:14px !important;
-    padding:10px 12px !important;
+    top:12px !important;
+    left:12px !important;
+    padding:9px 11px !important;
     border-radius:16px !important;
     background: rgba(0,0,0,0.55) !important;
     border: 1px solid rgba(255,255,255,0.18) !important;
@@ -1473,9 +1470,9 @@
     color: rgba(255,255,255,0.92) !important;
     font-weight: 900 !important;
     letter-spacing: -0.01em;
+    font-size:0.92rem !important; /* etwas kleiner – frei & clean */
   }
 
-  /* Text darunter: mittig */
   #ueber .care-body{padding:22px 18px 24px !important; text-align:center !important;}
   #ueber .care-text{margin-left:auto !important; margin-right:auto !important;}
   #ueber blockquote.about-quote{text-align:center !important;}
