@@ -1514,112 +1514,89 @@
 
 
 
-/* ===== PATCH (09.03.2026) – Mobile: Badge über dem Bild (flow, 1:1 wie Screenshot) ===== */
+/* ===== PATCH (09.03.2026) – Mobile PRO: Name als eleganter Strich (hell, mittig, im Website-Stil) ===== */
 @media (max-width: 640px){
-  /* In der Über-Section: Badge als eigenes Element ÜBER dem Bild (nicht im Bild) */
+  /* Layout: Name-Strich über dem Bild, danach Bild */
+  #ueber .care-layout{ grid-template-columns: 1fr !important; }
   #ueber .care-media{
     display:flex !important;
     flex-direction:column !important;
-    gap:10px !important;
-    margin-top:0 !important;
+    align-items:stretch !important;
+    gap:12px !important;
     height:auto !important;
-    aspect-ratio:auto !important;
-    min-height:unset !important;
-    max-height:none !important;
     overflow:visible !important;
-    padding:0 !important;
+    padding: 0 !important;
   }
+
+  /* Der 'Strich' (Linie links/rechts + Name) – hell, modern, kein schwarzer Balken */
   #ueber .media-badge{
     position:relative !important;
-    top:0 !important;
-    left:0 !important;
-    z-index:5 !important;
-    margin:0 0 0 0 !important;
-    align-self:flex-start !important;
-    width:fit-content !important;
-    max-width:92% !important;
-    padding:9px 12px !important;
-    border-radius:16px !important;
-    background: rgba(0,0,0,0.55) !important;
-    border: 1px solid rgba(255,255,255,0.18) !important;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.35) !important;
-    backdrop-filter: blur(10px) saturate(1.1);
-    -webkit-backdrop-filter: blur(10px) saturate(1.1);
+    inset:auto !important;
+    margin: 0 auto !important;
+    width: min(520px, 100%) !important;
+    max-width: 92% !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap: 12px !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    z-index: 20 !important;
+  }
+
+  /* Linien links & rechts (Gold-Gradient) */
+  #ueber .media-badge::before,
+  #ueber .media-badge::after{
+    content:"" !important;
+    height: 1px !important;
+    flex: 1 1 auto !important;
+    background: linear-gradient(90deg, rgba(201,177,92,0), rgba(201,177,92,0.92), rgba(201,177,92,0)) !important;
+    opacity: 0.95 !important;
+  }
+
+  /* Name – sehr dezent, hell (klein, wie ein Label) */
+  #ueber .media-badge strong{
     display:inline-flex !important;
     align-items:center !important;
     justify-content:center !important;
-  }
-  /* Text IM Badge zuverlässig sichtbar */
-  #ueber .media-badge::before{
-    content: attr(data-title) !important;
-    color: rgba(255,255,255,0.92) !important;
+
+    padding: 7px 12px !important;
+    border-radius: 999px !important;
+
+    background: rgba(255,255,255,0.82) !important;
+    border: 1px solid rgba(17,18,20,0.10) !important;
+    box-shadow: 0 10px 22px rgba(17,18,20,0.08) !important;
+
+    color: rgba(17,18,20,0.88) !important;
     font-weight: 900 !important;
-    font-size: 0.92rem !important;
-    line-height: 1.1 !important;
-    white-space: nowrap !important;
+    font-size: 0.94rem !important;
+    line-height: 1.05 !important;
     letter-spacing: -0.01em !important;
+    text-align:center !important;
+    white-space: nowrap !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
   }
-  #ueber .media-badge strong{
-    display:none !important;
-  }
-  /* Bild bleibt darunter, sauber und nicht verzerrt */
+
+  /* Bild sauber darunter */
   #ueber .care-media img{
     width:100% !important;
     height:auto !important;
     aspect-ratio: 1 / 1 !important;
     object-fit: cover !important;
     object-position: center 35% !important;
-    border-radius: 0 !important;
+    border-radius: 22px !important;
   }
-}
 
-
-
-/* ===== PATCH (09.03.2026) – Mobile FORCE: Badge mittig & immer sichtbar ===== */
-@media (max-width: 640px){
-  /* Badge mittig über dem Bild */
-  #ueber .care-media{
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:center !important;
-    gap:10px !important;
-  }
-  #ueber .media-badge{
-    position:relative !important;
-    top:auto !important;
-    left:auto !important;
-    margin:0 auto 0 auto !important;
-    align-self:center !important;
-    display:inline-flex !important;
-    justify-content:center !important;
-    align-items:center !important;
-    text-align:center !important;
-    z-index:9999 !important;
-    pointer-events:none !important;
-    max-width:92% !important;
-    padding:10px 14px !important;
-    border-radius:16px !important;
-    background: rgba(0,0,0,0.68) !important;
-    border: 1px solid rgba(255,255,255,0.22) !important;
-    box-shadow: 0 14px 34px rgba(0,0,0,0.42) !important;
-    backdrop-filter: blur(12px) saturate(1.1) !important;
-    -webkit-backdrop-filter: blur(12px) saturate(1.1) !important;
-  }
-  /* Text wirklich rendern (egal was vorher passiert ist) */
-  #ueber .media-badge::before{
-    content: none !important;
-  }
-  #ueber .media-badge strong{
-    display:inline !important;
-    visibility:visible !important;
-    opacity:1 !important;
-    color: rgba(255,255,255,0.95) !important;
-    font-weight: 900 !important;
-    font-size: 0.95rem !important;
-    line-height: 1.1 !important;
-    letter-spacing: -0.01em !important;
-    white-space: nowrap !important;
-  }
+  /* Textbereich darunter bleibt mittig */
+  #ueber .care-body{ text-align:center !important; padding: 22px 18px 24px !important; }
 }
 </style>
 <!-- LocalBusiness / SportsActivityLocation Schema -->
@@ -1943,10 +1920,11 @@
 <div class="card glass-strong featured care-card care-split">
 <div class="care-layout">
 <div aria-label="Trainer Bild" class="care-media">
-<img alt="Trainer Erkan Parlak – Selbstverteidigung-WT München Ost" decoding="async" height="1600" loading="lazy" src="/assets/erkan.jpeg" width="1200"/>
 <div class="media-badge glass" data-title="Si-Hing Erkan Parlak">
 <strong>Si-Hing Erkan Parlak</strong>
 </div>
+<img alt="Trainer Erkan Parlak – Selbstverteidigung-WT München Ost" decoding="async" height="1600" loading="lazy" src="/assets/erkan.jpeg" width="1200"/>
+
 </div>
 <div class="care-body">
 <div class="pill">Persönlich • Klar • Respektvoll</div>
