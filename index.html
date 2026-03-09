@@ -1481,42 +1481,35 @@
 
 
 
-/* ===== FIX (09.03.2026) – Badge ÜBER Bild (Mobile-only) + Text sichtbar + Hero breiter (Desktop) ===== */
-@media (min-width: 981px){
-  /* Hero-Text breiter auf Desktop/Laptop */
-  .hero-content{max-width: 1120px !important;}
-  .hero-panel{padding: 26px 30px !important;}
-}
-
+/* ===== FIX (09.03.2026) – Badge Text erzwingen (Mobile-only) ===== */
 @media (max-width: 640px){
-  /* Badge über dem Bild, ohne Layout zu zerstören */
+  /* Badge über dem Bild (wie gewünscht) */
   #ueber .care-media{position:relative !important; margin-top:56px !important;}
-  #ueber .media-badge{
-    position:absolute !important;
-    top:-44px !important;
-    left:12px !important;
-    padding:9px 11px !important;
-    border-radius:14px !important;
-    background: rgba(0,0,0,0.55) !important;
-    border: 1px solid rgba(255,255,255,0.18) !important;
+  #ueber .media-badge{position:absolute !important; top:-44px !important; left:12px !important; z-index:999 !important;
+    padding:9px 11px !important; border-radius:14px !important;
+    background: rgba(0,0,0,0.55) !important; border: 1px solid rgba(255,255,255,0.18) !important;
     box-shadow: 0 12px 28px rgba(0,0,0,0.28) !important;
-    backdrop-filter: blur(10px) saturate(1.1);
-    -webkit-backdrop-filter: blur(10px) saturate(1.1);
-    z-index: 5 !important;
-    display:inline-flex !important;
-    opacity:1 !important;
+    display:inline-flex !important; align-items:center !important; justify-content:center !important;
+    overflow:visible !important;
   }
-  /* Text erzwingen (wird sonst durch globale strong-Regeln übersteuert) */
-  #ueber .media-badge strong{
-    color:#fff !important;
-    display:inline !important;
-    opacity:1 !important;
-    visibility:visible !important;
-    font-weight:900 !important;
-    font-size:0.92rem !important;
+
+  /* Text: 2-fach abgesichert
+     - strong wird sichtbar gemacht
+     - zusätzlich wird data-title per ::before gerendert (falls strong „weg“ gestylt wird) */
+  #ueber .media-badge strong{color:#fff !important; font-weight:900 !important; font-size:0.92rem !important;
+    line-height:1.1 !important; white-space:nowrap !important; display:inline !important;
+    visibility:visible !important; opacity:1 !important;
+  }
+  #ueber .media-badge::before{
+    content: attr(data-title);
+    color:#fff;
+    font-weight:900;
+    font-size:0.92rem;
     line-height:1.1;
     white-space:nowrap;
   }
+  /* strong nicht doppelt anzeigen, falls beides sichtbar wird */
+  #ueber .media-badge strong{display:none !important;}
 }
 
 </style>
@@ -1842,7 +1835,7 @@
 <div class="care-layout">
 <div aria-label="Trainer Bild" class="care-media">
 <img alt="Trainer Erkan Parlak – Selbstverteidigung-WT München Ost" decoding="async" height="1600" loading="lazy" src="/assets/erkan.jpeg" width="1200"/>
-<div class="media-badge glass">
+<div class="media-badge glass" data-title="Si-Hing Erkan Parlak">
 <strong>Si-Hing Erkan Parlak</strong>
 </div>
 </div>
