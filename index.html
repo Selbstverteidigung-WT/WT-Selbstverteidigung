@@ -1481,43 +1481,15 @@
 
 
 
-/* ===== FIX (09.03.2026) – Badge Text erzwingen (Mobile-only) ===== */
+
+
+
+
+/* ===== PATCH (09.03.2026) – Mobile: Über-Bereich Hero-Design (Name-Box + runde Ecken) ===== */
 @media (max-width: 640px){
-  /* Badge über dem Bild (wie gewünscht) */
-  #ueber .care-media{position:relative !important; margin-top:56px !important;}
-  #ueber .media-badge{position:absolute !important; top:-44px !important; left:12px !important; z-index:999 !important;
-    padding:9px 11px !important; border-radius:14px !important;
-    background: rgba(0,0,0,0.55) !important; border: 1px solid rgba(255,255,255,0.18) !important;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.28) !important;
-    display:inline-flex !important; align-items:center !important; justify-content:center !important;
-    overflow:visible !important;
-  }
-
-  /* Text: 2-fach abgesichert
-     - strong wird sichtbar gemacht
-     - zusätzlich wird data-title per ::before gerendert (falls strong „weg“ gestylt wird) */
-  #ueber .media-badge strong{color:#fff !important; font-weight:900 !important; font-size:0.92rem !important;
-    line-height:1.1 !important; white-space:nowrap !important; display:inline !important;
-    visibility:visible !important; opacity:1 !important;
-  }
-  #ueber .media-badge::before{
-    content: attr(data-title);
-    color:#fff;
-    font-weight:900;
-    font-size:0.92rem;
-    line-height:1.1;
-    white-space:nowrap;
-  }
-  /* strong nicht doppelt anzeigen, falls beides sichtbar wird */
-  #ueber .media-badge strong{display:none !important;}
-}
-
-
-
-/* ===== PATCH (09.03.2026) – Mobile PRO: Name als eleganter Strich (hell, mittig, im Website-Stil) ===== */
-@media (max-width: 640px){
-  /* Layout: Name-Strich über dem Bild, danach Bild */
+  /* Layout: Name-Box oberhalb vom Bild, danach Bild */
   #ueber .care-layout{ grid-template-columns: 1fr !important; }
+
   #ueber .care-media{
     display:flex !important;
     flex-direction:column !important;
@@ -1525,10 +1497,14 @@
     gap:12px !important;
     height:auto !important;
     overflow:visible !important;
-    padding: 0 !important;
+    padding:0 !important;
   }
 
-  /* Der 'Strich' (Linie links/rechts + Name) – hell, modern, kein schwarzer Balken */
+  /* ✅ Alte Linie/Strich und Overlays komplett deaktivieren */
+  #ueber .media-badge::before,
+  #ueber .media-badge::after{ content:none !important; display:none !important; }
+
+  /* ✅ Neue weiße Name-Box (modern, zentriert, soft shadow) */
   #ueber .media-badge{
     position:relative !important;
     inset:auto !important;
@@ -1539,65 +1515,52 @@
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
-    gap: 12px !important;
 
-    background: transparent !important;
-    border: 0 !important;
-    box-shadow: none !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(17,18,20,0.10) !important;
+    border-radius: 26px !important; /* ca. 20–30px */
+    padding: 14px 16px !important; /* ca. 12–16px */
+
+    box-shadow: 0 12px 28px rgba(17,18,20,0.10) !important; /* soft shadow */
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-
     z-index: 20 !important;
   }
 
-  /* Linien links & rechts (Gold-Gradient) */
-  #ueber .media-badge::before,
-  #ueber .media-badge::after{
-    content:"" !important;
-    height: 1px !important;
-    flex: 1 1 auto !important;
-    background: linear-gradient(90deg, rgba(201,177,92,0), rgba(201,177,92,0.92), rgba(201,177,92,0)) !important;
-    opacity: 0.95 !important;
-  }
-
-  /* Name – sehr dezent, hell (klein, wie ein Label) */
+  /* Text in der Box */
   #ueber .media-badge strong{
-    display:inline-flex !important;
-    align-items:center !important;
-    justify-content:center !important;
+    display:block !important;
+    margin:0 !important;
+    padding:0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
 
-    padding: 7px 12px !important;
-    border-radius: 999px !important;
-
-    background: rgba(255,255,255,0.82) !important;
-    border: 1px solid rgba(17,18,20,0.10) !important;
-    box-shadow: 0 10px 22px rgba(17,18,20,0.08) !important;
-
-    color: rgba(17,18,20,0.88) !important;
-    font-weight: 900 !important;
-    font-size: 0.94rem !important;
-    line-height: 1.05 !important;
+    color: #111214 !important;
+    font-weight: 800 !important;
+    font-size: 1.02rem !important;
     letter-spacing: -0.01em !important;
+    line-height: 1.1 !important;
     text-align:center !important;
     white-space: nowrap !important;
-
-    visibility: visible !important;
-    opacity: 1 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
   }
 
-  /* Bild sauber darunter */
+  /* Bild darunter: moderne runde Ecken */
   #ueber .care-media img{
     width:100% !important;
     height:auto !important;
     aspect-ratio: 1 / 1 !important;
     object-fit: cover !important;
     object-position: center 35% !important;
-    border-radius: 22px !important;
+    border-radius: 28px !important; /* ca. 25–30px */
+    box-shadow: 0 14px 34px rgba(17,18,20,0.14) !important;
   }
 
   /* Textbereich darunter bleibt mittig */
   #ueber .care-body{ text-align:center !important; padding: 22px 18px 24px !important; }
 }
+
 </style>
 <!-- LocalBusiness / SportsActivityLocation Schema -->
 <script type="application/ld+json">{
