@@ -1425,6 +1425,24 @@
   /* Trainer-Zeile (falls vorhanden) immer ausblenden */
   .media-badge .badge-sub{display:none !important;}
 }
+
+
+/* ===== PATCH (09.03.2026) – Mobile Fix: QR/Contact stacking + Über-Uns Bild sauber ===== */
+@media (max-width: 640px){
+  /* Probetraining: QR + Kontakt untereinander (kein Überlappen) */
+  .qr-contact-row{display:grid !important; grid-template-columns:1fr !important; gap:12px !important;}
+  .qr-contact-row .small-card{min-width:0 !important; width:100% !important;}
+  /* QR Card: Text oben, QR darunter */
+  .qr-contact-row .qr-card{flex-direction:column !important; align-items:center !important; text-align:center !important;}
+  .qr-contact-row .qr-card .qr-copy{order:1 !important;}
+  .qr-contact-row .qr-card img{order:2 !important; width:140px !important; height:140px !important; margin-top:10px !important;}
+}
+@media (max-width: 640px){
+  /* Über Uns: Bild wirkt auf Handy nicht "verbuggt" (saubere Proportionen, Bild oben, Text unten) */
+  #ueber .care-media{height:auto !important; aspect-ratio:4/5 !important;}
+  #ueber .care-media img{width:100% !important; height:100% !important; object-position:center 18% !important;}
+}
+
 </style>
 <!-- LocalBusiness / SportsActivityLocation Schema -->
 <script type="application/ld+json">{
@@ -1831,7 +1849,7 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 <div class="qr-contact-row" style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
 <div class="small-card qr-card" style="display:flex;align-items:center;gap:12px;flex:1;min-width:240px">
 <img alt="QR-Code zur Terminbuchung Probetraining" height="92" loading="lazy" src="/assets/qr-calendly.png" width="92"/>
-<div>
+<div class="qr-copy">
 <strong>QR‑Code</strong><br/>
 <span class="muted2">Scannen &amp; direkt buchen</span>
 </div>
