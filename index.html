@@ -1485,11 +1485,12 @@
 
 
 
-/* ===== PATCH (09.03.2026) – Mobile: Über-Bereich Hero-Design (Name-Box + runde Ecken) ===== */
+/* ===== PATCH (09.03.2026) – Mobile: Über-Bereich (Name als eigene weiße Box + kein schwarzer Zwischenraum) ===== */
 @media (max-width: 640px){
-  /* Layout: Name-Box oberhalb vom Bild, danach Bild */
+  /* Layout: Box oben, Bild darunter */
   #ueber .care-layout{ grid-template-columns: 1fr !important; }
 
+  /* Wichtig: schwarzes Hintergrund-Panel entfernen (sonst sieht man es im Abstand zwischen Box & Bild) */
   #ueber .care-media{
     display:flex !important;
     flex-direction:column !important;
@@ -1498,13 +1499,15 @@
     height:auto !important;
     overflow:visible !important;
     padding:0 !important;
+    background: transparent !important;
+    border-bottom: 0 !important;
   }
 
-  /* ✅ Alte Linie/Strich und Overlays komplett deaktivieren */
+  /* Alte Linie/Strich-Optik deaktivieren */
   #ueber .media-badge::before,
   #ueber .media-badge::after{ content:none !important; display:none !important; }
 
-  /* ✅ Neue weiße Name-Box (modern, zentriert, soft shadow) */
+  /* ✅ Name als eigene weiße Box */
   #ueber .media-badge{
     position:relative !important;
     inset:auto !important;
@@ -1517,9 +1520,10 @@
     justify-content:center !important;
 
     background: #ffffff !important;
+    color: #111214 !important;
     border: 1px solid rgba(17,18,20,0.10) !important;
-    border-radius: 26px !important; /* ca. 20–30px */
-    padding: 14px 16px !important; /* ca. 12–16px */
+    border-radius: 26px !important; /* 20–30px */
+    padding: 14px 16px !important; /* 12–16px */
 
     box-shadow: 0 12px 28px rgba(17,18,20,0.10) !important; /* soft shadow */
     backdrop-filter: none !important;
@@ -1527,7 +1531,6 @@
     z-index: 20 !important;
   }
 
-  /* Text in der Box */
   #ueber .media-badge strong{
     display:block !important;
     margin:0 !important;
@@ -1546,18 +1549,20 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
   }
 
-  /* Bild darunter: moderne runde Ecken */
+  /* ✅ Bild: modern rund + Shadow, ohne schwarze Ränder */
   #ueber .care-media img{
     width:100% !important;
     height:auto !important;
     aspect-ratio: 1 / 1 !important;
     object-fit: cover !important;
     object-position: center 35% !important;
-    border-radius: 28px !important; /* ca. 25–30px */
+
+    border-radius: 28px !important; /* 25–30px */
     box-shadow: 0 14px 34px rgba(17,18,20,0.14) !important;
+    background: rgba(255,255,255,0.95) !important; /* falls Bild nicht exakt bis in die Ecken geht */
   }
 
-  /* Textbereich darunter bleibt mittig */
+  /* Textbereich darunter */
   #ueber .care-body{ text-align:center !important; padding: 22px 18px 24px !important; }
 }
 
