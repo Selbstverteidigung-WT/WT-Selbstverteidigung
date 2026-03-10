@@ -3,11 +3,14 @@
 <html lang="de">
 <head>
 <meta charset="utf-8"/>
+<script>document.documentElement.classList.add('js');</script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#C9B15C" name="theme-color"/>
+<link rel="icon" type="image/png" href="/assets/Logo.png"/>
+<link rel="apple-touch-icon" href="/assets/Logo.png"/>
 <!-- SEO -->
-<title>Selbstverteidigung München | Wing Tsung, Eskrima &amp; Filipino Martial Arts</title>
-<meta content="High-Level Selbstschutz: Wing Tsun, Wing Chun &amp; Boxen. Effektive Filipino Martial Arts (Eskrima) mit Waffen. Training auf höchstem Niveau." name="description"/><meta content="Wing Tsun, Wing Chun, Wing Tsung, Eskrima, Filipino Martial Arts, FMA, Boxen, Selbstverteidigung, Waffenkampf, Messerabwehr, Selbstschutz, Stockkampf" name="keywords"/>
+<title>Selbstverteidigung Wing Tsung München | Wing Tsun, Wing Chun &amp; Eskrima</title>
+<meta name="description" content="Effektive Selbstverteidigung in München: Wing Tsung, Wing Tsun &amp; Wing Chun. Profitiere von High-Level Selbstschutz &amp; Filipino Martial Arts (Eskrima). Jetzt Training starten!"/><meta content="Wing Tsun, Wing Chun, Wing Tsung, Eskrima, Filipino Martial Arts, FMA, Boxen, Selbstverteidigung, Waffenkampf, Messerabwehr, Selbstschutz, Stockkampf" name="keywords"/>
 <link href="https://selbstverteidigung-wt.de/" rel="canonical"/>
 <link href="https://selbstverteidigung-wt.de/" hreflang="de" rel="alternate"/>
 <link href="https://selbstverteidigung-wt.de/en/" hreflang="en" rel="alternate"/>
@@ -16,11 +19,11 @@
 <meta content="Selbstverteidigung-WT" name="author"/>
 <meta content="de" name="language"/>
 <meta content="de_DE" property="og:locale"/>
-<meta content="Selbstverteidigung-WT" property="og:site_name"/>
+<meta property="og:site_name" content="Selbstverteidigung &amp; Wing Tsung München"/>
 <meta content="Wing Tsun Selbstverteidigung &amp; Eskrima Waffenkampf in München Ost" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Professionelle Selbstverteidigung | Wing Tsun, Boxen &amp; Eskrima" name="twitter:title"/>
-<meta content="High-Level Selbstschutz: Wing Tsun, Wing Chun &amp; Boxen. Effektive Filipino Martial Arts (Eskrima) mit Waffen. Training auf höchstem Niveau." name="twitter:description"/>
+<meta name="twitter:title" content="Selbstverteidigung Wing Tsung München | Wing Tsun, Wing Chun &amp; Eskrima"/>
+<meta name="twitter:description" content="Effektive Selbstverteidigung in München: Wing Tsung, Wing Tsun &amp; Wing Chun. Profitiere von High-Level Selbstschutz &amp; Filipino Martial Arts (Eskrima). Jetzt Training starten!"/>
 <meta content="https://selbstverteidigung-wt.de/assets/cover.jpg" name="twitter:image"/>
     <!-- Extra SEO / Social metadata (non-visual) -->
     <meta property="og:image:width" content="1200"/>
@@ -40,8 +43,8 @@
 <link href="https://calendly.com" rel="preconnect"/>
 <link href="https://wa.me" rel="preconnect"/>
 <!-- Open Graph -->
-<meta content="Professionelle Selbstverteidigung | Wing Tsun, Boxen &amp; Eskrima" property="og:title"/>
-<meta content="High-Level Selbstschutz: Wing Tsun, Wing Chun &amp; Boxen. Effektive Filipino Martial Arts (Eskrima) mit Waffen. Training auf höchstem Niveau." property="og:description"/>
+<meta property="og:title" content="Selbstverteidigung Wing Tsung München | Wing Tsun, Wing Chun &amp; Eskrima"/>
+<meta property="og:description" content="Effektive Selbstverteidigung in München: Wing Tsung, Wing Tsun &amp; Wing Chun. Profitiere von High-Level Selbstschutz &amp; Filipino Martial Arts (Eskrima). Jetzt Training starten!"/>
 <meta content="website" property="og:type"/>
 <meta content="https://selbstverteidigung-wt.de/" property="og:url"/>
 <meta content="https://selbstverteidigung-wt.de/assets/cover.jpg" property="og:image"/>
@@ -1566,6 +1569,33 @@
   #ueber .care-body{ text-align:center !important; padding: 22px 18px 24px !important; }
 }
 
+
+/* ===== PATCH (10.03.2026) – Scroll-Reveal Hero Panel + Quote Spacing (no redesign) ===== */
+/* Hero-Panel erst nach Scroll sichtbar (Desktop + Mobile). Text bleibt im DOM (SEO-safe). */
+.js .hero-panel.reveal-panel{
+  opacity:0;
+  transform: translateY(46px);
+  transition: opacity .75s ease-out, transform .75s ease-out;
+  will-change: opacity, transform;
+}
+.js .hero-panel.reveal-panel.is-visible{
+  opacity:1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce){
+  .js .hero-panel.reveal-panel{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
+/* Über-Bereich: Quote-Box etwas höher/mittiger (Desktop + Mobile) */
+#ueber .divider-line{ margin: 16px auto 12px !important; }
+#ueber blockquote.about-quote{ margin-top: 10px !important; }
+@media (max-width: 640px){
+  #ueber .divider-line{ margin: 14px auto 10px !important; }
+  #ueber blockquote.about-quote{ margin-top: 8px !important; }
+}
 </style>
 <!-- LocalBusiness / SportsActivityLocation Schema -->
 <script type="application/ld+json">{
@@ -1577,12 +1607,12 @@
         "LocalBusiness"
       ],
       "@id": "https://selbstverteidigung-wt.de/#business",
-      "name": "Selbstverteidigung-WT – Wing Tsung & Eskrima (Erkan Parlak)",
+      "name": "Selbstverteidigung & Wing Tsung München",
       "url": "https://selbstverteidigung-wt.de/",
       "image": "https://selbstverteidigung-wt.de/assets/cover.jpg",
     "logo": "https://selbstverteidigung-wt.de/assets/Logo.png",
     "priceRange": "€€",
-      "description": "High-Level Selbstschutz: Wing Tsun, Wing Chun & Boxen. Effektive Filipino Martial Arts (Eskrima) mit Waffen. Training auf höchstem Niveau.",
+      "description": "Effektive Selbstverteidigung in München: Wing Tsung, Wing Tsun & Wing Chun. Profitiere von High-Level Selbstschutz & Filipino Martial Arts (Eskrima). Jetzt Training starten!",
       "telephone": "+49 162 7777442",
       "email": "info@selbstverteidigung-wt.de",
       "address": {
@@ -1678,7 +1708,7 @@
       "@type": "WebSite",
       "@id": "https://selbstverteidigung-wt.de/#website",
       "url": "https://selbstverteidigung-wt.de/",
-      "name": "Selbstverteidigung-WT",
+      "name": "Selbstverteidigung & Wing Tsung München",
       "inLanguage": "de-DE",
       "publisher": {
         "@id": "https://selbstverteidigung-wt.de/#business"
@@ -1688,7 +1718,7 @@
       "@type": "WebPage",
       "@id": "https://selbstverteidigung-wt.de/#webpage",
       "url": "https://selbstverteidigung-wt.de/",
-      "name": "Selbstverteidigung | Wing Tsung | Eskrima • München Ost • Berg‑am‑Laim",
+      "name": "Selbstverteidigung & Wing Tsung München – München Ost",
       "isPartOf": {
         "@id": "https://selbstverteidigung-wt.de/#website"
       },
@@ -1703,8 +1733,10 @@
     }
   ]
 }</script>
-</head>
+<meta name="google-site-verification" content="COOtz-Gkx1awkUVms_maR_6_PFcnWfkdT-VugGScDBI" />
+
 <body id="top">
+<noscript><style>.hero-panel.reveal-panel{opacity:1 !important;transform:none !important;}</style></noscript>
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 <!-- NAV -->
 <nav aria-label="Hauptnavigation" class="nav">
@@ -1786,7 +1818,7 @@
 <div aria-hidden="true" class="hero-bg"></div>
 <div class="container">
 <div class="hero-content">
-<div class="hero-panel">
+<div class="hero-panel reveal-panel">
 <p class="kicker">Selbstverteidigung | Wing Tsung | Eskrima • München Ost • Berg‑am‑Laim</p>
 <h1>Selbstverteidigung in München Ost</h1>
 <p class="subline">Mehr Sicherheit. Mehr Selbstvertrauen. Mehr mentale Stärke.</p>
@@ -1888,24 +1920,24 @@
 <div class="card glass-strong featured care-card care-split">
 <div class="care-layout">
 <div aria-label="Trainer Bild" class="care-media">
-<div class="media-badge glass" data-title="Si-Hing Erkan Parlak">
-<strong>Si-Hing Erkan Parlak</strong>
+<div class="media-badge glass" data-title="Si-Hing Erkan">
+<strong>Si-Hing Erkan</strong>
 </div>
 <img alt="Trainer Erkan Parlak – Selbstverteidigung-WT München Ost" decoding="async" height="1600" loading="lazy" src="/assets/erkan.jpeg" width="1200"/>
 
 </div>
 <div class="care-body">
 <div class="pill">Persönlich • Klar • Respektvoll</div>
-<h2>Stark werden – Schritt für Schritt</h2>
+<h2>Sicher fühlen – Schritt für Schritt</h2>
 <p class="care-text">
-                Bei Selbstverteidigung‑WT steht ein ruhiger, klarer und respektvoller Unterricht im Fokus.
+                Bei Selbstverteidigung‑WT steht ein vertrauensvoller, klarer und respektvoller Unterricht im Fokus.
                 Du bekommst eine strukturierte Anleitung – ohne Druck, ohne Show, dafür mit echtem Fortschritt.
               </p>
 <p class="care-text" style="margin-top:10px">
 Egal ob du komplett neu bist oder wieder einsteigen möchtest:<br/>
 Wir bauen dich auf, damit du dich sicher und selbstbewusst fühlst.<br/>
 Durch meine langjährige Ausbildung bei Großmeister Dai-Sifu Reimers verfüge ich über praktische Erfahrung und tiefgehendes Fachwissen.<br/>
-Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
+Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing im Wing Tsung.
 </p>
 <div class="divider-line"></div>
 <blockquote class="about-quote">
@@ -1950,11 +1982,10 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 <h3>Adresse</h3>
 <p class="muted" style="margin-bottom:6px">
 <strong>Selbstverteidigung‑WT</strong><br/>
-              Erkan Parlak<br/>
               Berg‑am‑Laim‑Str. 47<br/>
               81673 München
             </p>
-<div class="chips" style="justify-content:flex-start;margin-top:12px">
+<div class="chips" style="justify-content:flex-start;margin-top:12px;flex-direction:column;align-items:flex-start">
 <span class="chip">✔ München Ost</span>
 <span class="chip">✔ Schnell erreichbar</span>
 </div>
@@ -2210,7 +2241,6 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 <h3>Adresse</h3>
 <p class="muted">
 <strong>Selbstverteidigung‑WT</strong><br/>
-            Erkan Parlak<br/>
             Berg‑am‑Laim‑Str. 47<br/>
             81673 München
           </p>
@@ -2252,7 +2282,7 @@ Mit dem 3. Lehrergrad unterrichte ich heute als Si-Hing Erkan im Wing Tsun.
 
             Instagram
  </a>
-<a aria-label="TikTok öffnen" href="https://www.tiktok.com/@selfdefense_wt" rel="noopener" target="_blank">
+<a aria-label="TikTok öffnen" href="https://www.tiktok.com/@selbstverteidigung_wt?_r=1&amp;_t=ZG-94ZYmo2hk7k" rel="noopener" target="_blank">
 <svg aria-hidden="true" focusable="false" height="22" viewbox="0 0 24 24" width="22">
 <path d="M16.5 3c.7 2.7 2.5 4.6 5 5v3.1c-1.9 0-3.6-.6-5-1.6v6.8c0 4.1-3.2 7.4-7.3 7.4S2 20.4 2 16.3c0-4 3.2-7.3 7.2-7.3.5 0 1 .1 1.5.2v3.5c-.5-.2-1-.3-1.5-.3-2.1 0-3.7 1.7-3.7 3.9s1.6 3.9 3.7 3.9c2.2 0 3.8-1.8 3.8-4.1V3h3.8z" fill="#111214"></path>
 </svg>
@@ -2519,6 +2549,26 @@ Gesendet über das Kontaktformular der Website.`);
     window.location.href = `mailto:info@selbstverteidigung-wt.de?subject=${subject}&body=${body}`;
     document.getElementById('formNote').textContent = 'E‑Mail wird geöffnet … Falls nichts passiert, nutze bitte info@selbstverteidigung-wt.de.';
   });
+})();
+
+
+// Hero: Scroll-Reveal (Background zuerst, Panel erscheint beim Scrollen)
+(function(){
+  const panel = document.querySelector('.hero-panel.reveal-panel');
+  if(!panel) return;
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion){ panel.classList.add('is-visible'); return; }
+  let shown = false;
+  function reveal(){
+    if(shown) return;
+    shown = true;
+    panel.classList.add('is-visible');
+    window.removeEventListener('scroll', onScroll);
+  }
+  function onScroll(){
+    if(window.scrollY > 20) reveal();
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
 })();
 </script>
 </body>
