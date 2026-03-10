@@ -33,10 +33,6 @@
 
 <!-- Performance hints (LCP/3rd-party) -->
 <link rel="preload" as="image" href="/assets/Logo.png"/>
-<link rel="preconnect" href="https://player.vimeo.com"/>
-<link rel="preconnect" href="https://vimeo.com"/>
-<link rel="preconnect" href="https://i.vimeocdn.com" crossorigin/>
-<link rel="preconnect" href="https://f.vimeocdn.com" crossorigin/>
 <link rel="preconnect" href="https://www.google.com"/>
 <link rel="preconnect" href="https://www.gstatic.com" crossorigin/>
 <link rel="preconnect" href="https://calendly.com"/>
@@ -1190,6 +1186,23 @@
   border-color: rgba(17,18,20,0.18) !important;
 }
 
+
+/* ===== 2‑Klick‑Lösung: Externe Videos (YouTube/Vimeo) ===== */
+.video-wrap{position:relative;}
+.video-consent{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:18px;text-align:center;}
+.video-consent::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.76));backdrop-filter: blur(10px) saturate(1.15);-webkit-backdrop-filter: blur(10px) saturate(1.15);} 
+.video-consent-inner{position:relative;z-index:1;max-width:780px;width:100%;padding:18px 18px;border-radius:22px;}
+.video-consent h3{margin:0 0 8px;font-size:1.05rem;letter-spacing:-0.01em;}
+.video-consent p{margin:0 0 12px;color:rgba(17,18,20,0.72);font-weight:600;}
+.video-consent .small{margin-top:10px;color:rgba(17,18,20,0.62);font-size:.92rem;font-weight:700;line-height:1.4;}
+.video-consent .actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px;}
+.video-consent .actions .btn{min-height:46px;}
+@media (max-width:640px){
+  .video-consent{padding:14px;}
+  .video-consent-inner{padding:16px;border-radius:20px;}
+  .video-consent .actions .btn{width:min(520px,100%);} 
+}
+
 </style>
 
 <!-- Structured Data (Schema.org) -->
@@ -1317,16 +1330,9 @@
 <!-- Video -->
 <div class="card glass-strong featured video-card" aria-label="Eskrima Video">
   <h2 class="video-title">Das ist Eskrima !</h2>
-  <div class="video-wrap">
-    <iframe
-      title="Vimeo Player – Das ist Eskrima"
-      src="https://player.vimeo.com/video/426734838?h=89dadc84a5"
-      loading="lazy"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allow="autoplay; fullscreen; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <div class="video-wrap" data-provider="vimeo" data-src="https://player.vimeo.com/video/426734838?h=89dadc84a5" data-title="Vimeo Player – Das ist Eskrima" data-allow="autoplay; fullscreen; picture-in-picture">
+<div class="video-consent">  <div class="video-consent-inner glass-strong">    <div class="pill" style="margin-bottom:10px;">Externer Inhalt</div>    <h3>Video erst nach Zustimmung laden</h3>    <p>Beim Laden wird eine Verbindung zu Vimeo hergestellt. Dabei können personenbezogene Daten (z. B. IP-Adresse) übertragen und Cookies gesetzt werden.</p>    <div class="actions">      <button type="button" class="btn btn-primary video-load">Video laden</button>      <a class="btn btn-secondary" href="datenschutz.html" target="_blank" rel="noopener">Datenschutz</a>    </div>    <div class="small">Mit Klick auf „Video laden“ stimmen Sie der Datenübertragung an den Anbieter zu.</div>  </div></div>
+</div>
 </div>
 
 <div class="card glass-strong featured care-card care-split">
@@ -1414,5 +1420,48 @@ document.getElementById('year').textContent = new Date().getFullYear();
   dd.addEventListener('focusout', scheduleClose);
 })();
 </script>
+
+<script>
+/* ===== 2‑Klick‑Lösung: Externe Videos (YouTube/Vimeo) ===== */
+(function(){
+  function buildIframe(cfg){
+    var iframe = document.createElement('iframe');
+    iframe.setAttribute('loading','lazy');
+    iframe.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+    iframe.setAttribute('allowfullscreen','');
+    iframe.setAttribute('title', cfg.title || 'Video');
+    iframe.setAttribute('src', cfg.src);
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.display = 'block';
+    iframe.style.border = '0';
+    iframe.setAttribute('allow', cfg.allow || 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share');
+    return iframe;
+  }
+
+  function init(){
+    document.querySelectorAll('.video-wrap[data-src]').forEach(function(box){
+      var src = box.getAttribute('data-src');
+      if(!src) return;
+      var provider = (box.getAttribute('data-provider') || 'video').toLowerCase();
+      var title = box.getAttribute('data-title') || (provider === 'vimeo' ? 'Vimeo Video' : 'Video');
+      var allow = box.getAttribute('data-allow') || '';
+
+      var btn = box.querySelector('.video-load');
+      if(!btn) return;
+      btn.addEventListener('click', function(){
+        var overlay = box.querySelector('.video-consent');
+        if(overlay) overlay.remove();
+        box.querySelectorAll('iframe').forEach(function(x){ x.remove(); });
+        box.appendChild(buildIframe({src: src, title: title, allow: allow}));
+      }, { once:true });
+    });
+  }
+
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
 </body>
 </html>
