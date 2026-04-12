@@ -16,7 +16,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="/assets/Logo.png" rel="icon" type="image/png"/>
 <link href="/assets/Logo.png" rel="apple-touch-icon"/>
 <!-- SEO -->
-<title>Selbstverteidigung München | Wing Tsung, Wing Tsun, Wing Chun, Wing Chung, Escrima &amp; Eskrima</title>
+<title>Selbstverteidigung Wing Tsung München | Selbstverteidigung‑WT</title>
 <meta content="Selbstverteidigung in München Ost: Wing Tsung, Wing Tsun, Wing Chun, Wing Chung, Escrima &amp; Eskrima. Praxisnahes Training für Selbstschutz, Sicherheit, Messerabwehr, Stockkampf und Filipino Martial Arts. Jetzt Probetraining sichern!" name="description"/><meta content="Selbstverteidigung München, Selbstverteidigung München Ost, Selbstschutz München, Kampfkunst München, Wing Tsung München, Wing Tsun München, Wing Chun München, Wing Chung München, Escrima München, Eskrima München, Kali München, Arnis München, Filipino Martial Arts München, FMA München, Messerabwehr München, Stockkampf München, Waffenkampf München, Boxen Selbstverteidigung München, Probetraining Selbstverteidigung München" name="keywords"/>
 <link href="https://selbstverteidigung-wt.de/" rel="canonical"/>
 <link href="https://selbstverteidigung-wt.de/" hreflang="de" rel="alternate"/>
@@ -1602,144 +1602,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   #ueber .divider-line{ margin: 14px auto 10px !important; }
   #ueber blockquote.about-quote{ margin-top: 8px !important; }
 }
+
+
+/* ===== PATCH (12.04.2026) – Mobile Menü scrollbar (ohne UI-Änderung) =====
+   Problem: Body-Scroll wird beim Öffnen gesperrt, aber das Menü selbst war nicht scrollbar.
+   Fix: Overlay + Panel bekommen eigenes vertical scrolling (iOS friendly).
+*/
+.mobile-menu{overflow-y:auto; -webkit-overflow-scrolling:touch;}
+.mobile-panel{max-height:calc(100vh - 24px); overflow-y:auto; -webkit-overflow-scrolling:touch;}
+.mobile-panel .panel-inner{max-height:calc(100vh - 24px); overflow-y:auto; -webkit-overflow-scrolling:touch;}
+.mobile-links{overflow-y:auto; -webkit-overflow-scrolling:touch; padding-bottom:14px;}
+/* Optional: Header im Menü bleibt sichtbar, Links scrollen darunter */
+.mobile-panel header{position:sticky; top:0; z-index:2; background:transparent;}
+
 </style>
 <!-- LocalBusiness / SportsActivityLocation Schema -->
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": [
-        "SportsActivityLocation",
-        "LocalBusiness"
-      ],
-      "@id": "https://selbstverteidigung-wt.de/#business",
-      "name": "Selbstverteidigung München | Wing Tsung, Wing Tsun, Wing Chun & Escrima",
-      "url": "https://selbstverteidigung-wt.de/",
-      "image": "https://selbstverteidigung-wt.de/assets/cover.jpg",
-    "logo": "https://selbstverteidigung-wt.de/assets/Logo.png",
-    "priceRange": "€€",
-      "description": "Selbstverteidigung in München Ost mit Wing Tsung, Wing Tsun, Wing Chun, Wing Chung, Escrima und Eskrima. Praxisnahes Training für Selbstschutz, Sicherheit, Filipino Martial Arts, Messerabwehr und Stockkampf. Jetzt Probetraining sichern!",
-      "telephone": "+49 162 7777442",
-      "email": "info@selbstverteidigung-wt.de",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Berg-am-Laim-Str. 47",
-        "postalCode": "81673",
-        "addressLocality": "München",
-        "addressRegion": "Bayern",
-        "addressCountry": "DE"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "München"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "München Ost"
-        }
-      ],
-      "sport": "Martial Arts",
-      "keywords": [
-        "Selbstverteidigung München Ost",
-        "Wing Tsung München",
-        "Escrima München",
-      "Eskrima München",
-        "Kali Arnis München",
-        "Probetraining Selbstverteidigung",
-        "Wing Tsun",
-        "Wing Chun",
-        "Wing Tsung",
-        "Boxen Selbstverteidigung",
-        "Wing Tsun Waffenkampf",
-        "Messerabwehr",
-        "Stockkampf",
-        "Filipino Martial Arts",
-        "FMA"
-      ],
-      "sameAs": [
-        "https://maps.app.goo.gl/phvx7oxcJ3JaSgMh6",
-        "https://wa.me/491627777442"
-      ],
-      "hasMap": "https://www.google.com/maps?q=Berg-am-Laim-Str.+47,+81673+M%C3%BCnchen",
-      "makesOffer": {
-        "@type": "OfferCatalog",
-        "name": "Training & Probetraining",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Selbstverteidigung"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Wing Tsung"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Escrima / Eskrima - Filipino Martial Arts"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Probetraining (kostenfrei)"
-            },
-            "price": 0,
-            "priceCurrency": "EUR"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Boxen"
-            }
-          }
-        ]
-      },
-      "potentialAction": {
-        "@type": "ReserveAction",
-        "target": "https://calendly.com/selbstverteidigung-wt-info/30min",
-        "name": "Probetraining"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://selbstverteidigung-wt.de/#website",
-      "url": "https://selbstverteidigung-wt.de/",
-      "name": "Selbstverteidigung München | Wing Tsung, Wing Tsun, Wing Chun & Escrima",
-      "inLanguage": "de-DE",
-      "publisher": {
-        "@id": "https://selbstverteidigung-wt.de/#business"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://selbstverteidigung-wt.de/#webpage",
-      "url": "https://selbstverteidigung-wt.de/",
-      "name": "Selbstverteidigung München Ost – Wing Tsung, Wing Tsun, Wing Chun, Wing Chung, Escrima & Eskrima",
-      "isPartOf": {
-        "@id": "https://selbstverteidigung-wt.de/#website"
-      },
-      "about": {
-        "@id": "https://selbstverteidigung-wt.de/#business"
-      },
-      "inLanguage": "de-DE",
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://selbstverteidigung-wt.de/assets/cover.jpg"
-      }
-    }
-  ]
-}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["SportsActivityLocation","LocalBusiness"],"@id":"https://selbstverteidigung-wt.de/#business","name":"Selbstverteidigung Wing Tsung München","url":"https://selbstverteidigung-wt.de/","image":"https://selbstverteidigung-wt.de/assets/cover.jpg","logo":"https://selbstverteidigung-wt.de/assets/Logo.png","priceRange":"€€","description":"Selbstverteidigung Wing Tsung München – Training in München Ost (Berg‑am‑Laim) mit Wing Tsung & Escrima. Praxisnah für Selbstschutz, Sicherheit, Filipino Martial Arts, Messerabwehr und Stockkampf. Kostenloses Probetraining sichern!","telephone":"+49 162 7777442","email":"info@selbstverteidigung-wt.de","address":{"@type":"PostalAddress","streetAddress":"Berg-am-Laim-Str. 47","postalCode":"81673","addressLocality":"München","addressRegion":"Bayern","addressCountry":"DE"},"areaServed":[{"@type":"City","name":"München"},{"@type":"AdministrativeArea","name":"München Ost"}],"sport":"Martial Arts","keywords":["Selbstverteidigung München Ost","Wing Tsung München","Escrima München","Eskrima München","Kali Arnis München","Probetraining Selbstverteidigung","Wing Tsun","Wing Chun","Wing Tsung","Boxen Selbstverteidigung","Wing Tsun Waffenkampf","Messerabwehr","Stockkampf","Filipino Martial Arts","FMA"],"sameAs":["https://maps.app.goo.gl/phvx7oxcJ3JaSgMh6","https://wa.me/491627777442"],"hasMap":"https://www.google.com/maps?q=Berg-am-Laim-Str.+47,+81673+M%C3%BCnchen","makesOffer":{"@type":"OfferCatalog","name":"Training & Probetraining","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Selbstverteidigung"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Wing Tsung"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Escrima / Eskrima - Filipino Martial Arts"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Probetraining (kostenfrei)"},"price":0,"priceCurrency":"EUR"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Boxen"}}]},"potentialAction":{"@type":"ReserveAction","target":"https://calendly.com/selbstverteidigung-wt-info/30min","name":"Probetraining"},"alternateName":"Selbstverteidigung‑WT"},{"@type":"WebSite","@id":"https://selbstverteidigung-wt.de/#website","url":"https://selbstverteidigung-wt.de/","name":"Selbstverteidigung Wing Tsung München | Selbstverteidigung‑WT","inLanguage":"de-DE","publisher":{"@id":"https://selbstverteidigung-wt.de/#business"}},{"@type":"WebPage","@id":"https://selbstverteidigung-wt.de/#webpage","url":"https://selbstverteidigung-wt.de/","name":"Selbstverteidigung Wing Tsung München – München Ost (Berg‑am‑Laim)","isPartOf":{"@id":"https://selbstverteidigung-wt.de/#website"},"about":{"@id":"https://selbstverteidigung-wt.de/#business"},"inLanguage":"de-DE","primaryImageOfPage":{"@type":"ImageObject","url":"https://selbstverteidigung-wt.de/assets/cover.jpg"}}]}</script>
 
 <script type="application/ld+json">
 {
@@ -1778,6 +1656,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 <meta content="COOtz-Gkx1awkUVms_maR_6_PFcnWfkdT-VugGScDBI" name="google-site-verification"/>
+
+<meta name="description" content="Selbstverteidigung Wing Tsung München – praxisnahes Training in München Ost (Berg‑am‑Laim) mit Wing Tsung & Escrima. Für Einsteiger: Selbstschutz, Deeskalation, Distanzkontrolle, Messerabwehr & Stockkampf. Kostenloses Probetraining buchen!"/>
+
+<meta name="title" content="Selbstverteidigung Wing Tsung München"/>
+
+<meta property="og:title" content="Selbstverteidigung Wing Tsung München | Selbstverteidigung‑WT"/>
+
+<meta property="og:site_name" content="Selbstverteidigung‑WT München"/>
+
+<meta property="og:description" content="Selbstverteidigung Wing Tsung München – praxisnahes Training in München Ost (Berg‑am‑Laim) mit Wing Tsung & Escrima. Für Einsteiger: Selbstschutz, Deeskalation, Distanzkontrolle, Messerabwehr & Stockkampf. Kostenloses Probetraining buchen!"/>
+
+<meta name="twitter:title" content="Selbstverteidigung Wing Tsung München | Selbstverteidigung‑WT"/>
+
+<meta name="twitter:description" content="Selbstverteidigung Wing Tsung München – praxisnahes Training in München Ost (Berg‑am‑Laim) mit Wing Tsung & Escrima. Für Einsteiger: Selbstschutz, Deeskalation, Distanzkontrolle, Messerabwehr & Stockkampf. Kostenloses Probetraining buchen!"/>
+
+<meta property="og:image:alt" content="Selbstverteidigung Wing Tsung München – Training in München Ost"/>
+
+<meta name="twitter:image:alt" content="Selbstverteidigung Wing Tsung München – Training in München Ost"/>
+
+<meta name="application-name" content="Selbstverteidigung‑WT"/>
+
+<meta name="apple-mobile-web-app-title" content="Selbstverteidigung‑WT"/>
 </head>
 <body id="top">
 <!-- Google Tag Manager (noscript) -->
